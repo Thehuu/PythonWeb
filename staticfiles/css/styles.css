@@ -1,0 +1,138 @@
+/* Cấu hình chung cho trang */
+body {
+    background-color: #1a1a2e;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Cấu hình bản đồ */
+#map {
+    height: 497px; 
+    width: 100%;
+    transition: width 0.3s;
+}
+
+/* Container chính bao quanh bản đồ và form */
+.container-map {
+    height:auto;
+    margin: 2px auto;
+    top: 7px;
+    bottom: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: auto;
+    position: relative;
+}
+
+
+
+/* Kiểm soát kích thước form */
+.form-container {
+    width: auto;
+    padding: 1%;
+    background-color: #162447;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    top: 7px;
+    display: none; /* Ban đầu form bị ẩn */
+}
+
+/* Thiết lập các thẻ p trong form */
+.form-container p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Thiết lập cho container của bản đồ */
+.map-container {
+    width: 100%;
+    transition: width 0.3s;
+}
+
+/* Cấu hình nút */
+.btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    width: auto;
+    margin-top: 5px;
+}
+
+/* Thiết lập input tìm kiếm */
+#searchInput {
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+/* Cấu hình navbar */
+.navbar {
+    background-color: #0f3460;
+}
+
+/* Định dạng liên kết trên navbar */
+.navbar a {
+    color: #fff;
+}
+
+/* Nút chuyển đổi form */
+.toggle-button {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    top: -30px;
+    right: 2px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Cấu hình input text và textarea */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Nút submit */
+button[type="submit"] {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Thiết lập cho biểu tượng Google Maps */
+.gm-ui-hover-effect {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.gm-ui-hover-effect span {
+    width: 16px !important;
+    height: 16px !important;
+    margin: 4px !important;
+}
+/* cấu hình CSS cho form nhập dữ liệu*/
+.form-control {
+    width: 100%; /* Đảm bảo các trường có chiều rộng đầy đủ */
+    padding: 10px; /* Thêm padding cho các trường */
+    margin-bottom: 10px; /* Khoảng cách dưới các trường */
+    border-radius: 4px; /* Bo tròn các góc */
+    border: 1px solid #ccc; /* Đường viền cho các trường */
+}

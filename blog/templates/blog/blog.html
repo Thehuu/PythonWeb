@@ -1,0 +1,20 @@
+{% extends "pages/bases.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+
+    {% for post in Posts %}
+        <h5>{{ post.date }} <a href="/blog/{{ post.id }}/">{{ post.title }}</a></h5>
+        <img src="{{ post.image.url }}" width="500px" height="300px" alt="{{ post.title }}" />
+    {% empty %}
+        <p>Không có bài viết nào.</p>
+    {% endfor %}
+    
+    <br/>
+    
+    {% if page_obj.has_next %}
+        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Tiếp theo</a>
+    {% endif %}
+
+{% endblock %}

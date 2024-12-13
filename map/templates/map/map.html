@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <!-- Google Maps API -->
+    <script loading=async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
+    
+    <script>
+        let map, markers = [], autocomplete, selectedPlace, currentLocationMarker;
+        
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.1261475, lng: 105.8329401 },
+                zoom: 11
+            });
+
+            const locations = {{ locations|safe }};
+            const emergencyIcon = {
+                url: '{% static "images/SOS.jpg" %}',
+                scaledSize: new google.maps.Size(30, 30),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(15, 30)
+            };
+            
+            const infoWindow = new google.maps.InfoWindow();
+
+            locations.forEach((location) => {
+                const marker = new google.maps.Marker({
+                    position: { lat: location.latitude, lng: location.longitude },
+                    map: map,
+                    icon: emergencyIcon,
+                    title: location.name
+                });
+
+                let size = 30, growing = true;
+                setInterval(() => {
+                    size += growing ? 1 : -1;
+                    if (size >= 40) growing = false;
+                    if (size <= 25) growing = true;
+                    marker.setIcon({
+                        url: '{% static "images/SOS.jpg" %}',
+                        scaledSize: new google.maps.Size(size, size),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(15, 30)
+                    });
+                }, 100);
+
+                const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}`;
+                marker.addListener('click', () => {
+                    infoWindow.setContent(`
+                        <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
+                            <strong style="margin-top: auto;">Họ tên: ${location.name}</strong><br>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Điện thoại: ${location.mobile}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Ghi chú: ${location.description}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;"><a href="${googleMapsLink}" target="_blank">Xem trên Google Maps</a></p>
+                        </div>
+                    `);
+                    infoWindow.open(map, marker);
+                });
+                markers.push(marker);
+            });
+
+            // Sự kiện click trên bản đồ để lấy tọa độ
+            map.addListener('click', function(event) {
+                const latitude = event.latLng.lat();
+                const longitude = event.latLng.lng();
+
+                // Điền tọa độ vào form
+                document.getElementById('id_latitude').value = latitude;
+                document.getElementById('id_longitude').value = longitude;
+
+                // Xóa marker trước đó nếu có
+                if (currentLocationMarker) {
+                    currentLocationMarker.setMap(null);
+                }
+
+                // Tạo marker mới tại vị trí người dùng click
+                currentLocationMarker = new google.maps.Marker({
+                    position: event.latLng,
+                    map: map,
+                    title: 'Vị trí đã chọn'
+                });
+            });
+
+            // Tìm kiếm vị trí
+            const input = document.getElementById('searchInput');
+            autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    alert("Không tìm thấy vị trí nào.");
+                    return;
+                }
+                selectedPlace = place;
+                document.getElementById('id_latitude').value = place.geometry.location.lat();
+                document.getElementById('id_longitude').value = place.geometry.location.lng();
+                if (currentLocationMarker) currentLocationMarker.setMap(null);
+                currentLocationMarker = new google.maps.Marker({
+                    position: place.geometry.location,
+                    map: map
+                });
+                map.setCenter(place.geometry.location);
+                map.setZoom(12);
+            });
+        }
+
+        function goToLocation() {
+            if (selectedPlace && selectedPlace.geometry) {
+                map.setCenter(selectedPlace.geometry.location);
+                map.setZoom(12);
+                if (currentLocationMarker) currentLocationMarker.setMap(null);
+                currentLocationMarker = new google.maps.Marker({
+                    position: selectedPlace.geometry.location,
+                    map: map
+                });
+            } else {
+                alert('Vui lòng tìm kiếm vị trí trước khi đi đến.');
+            }
+        }
+
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    document.getElementById('id_latitude').value = lat;
+                    document.getElementById('id_longitude').value = lng;
+                    map.setCenter({ lat, lng });
+                    map.setZoom(12);
+                    if (currentLocationMarker) currentLocationMarker.setMap(null);
+                    currentLocationMarker = new google.maps.Marker({
+                        position: { lat, lng },
+                        map: map,
+                        title: 'Bạn ở đây'
+                    });
+                    const infoWindow = new google.maps.InfoWindow({ content: '<p style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">Bạn ở đây</p>' });
+                    currentLocationMarker.addListener('click', () => infoWindow.open(map, currentLocationMarker));
+                }, () => alert('Không thể lấy vị trí của bạn.'));
+            } else {
+                alert('Trình duyệt của bạn không hỗ trợ Geolocation.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const formContainer = document.getElementById("form-container");
+            formContainer.style.display = "none";
+            document.getElementById("toggle-form-btn").addEventListener("click", () => {
+                if (formContainer.style.display === "none") {
+                    formContainer.style.display = "block";
+                    document.querySelector('.map-container').style.width = '70%';
+                    document.querySelector('.form-container').style.width = '35%';
+                } else {
+                    formContainer.style.display = "none";
+                    document.querySelector('.map-container').style.width = '100%';
+                }
+            });
+        });
+    </script>
+</head>
+<body onload="initMap()">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height:30px;">
+        <a class="navbar-brand" href="#">Map</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Article</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-map">
+        <div class="map-container">
+            <div id="map"></div>
+            <button class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button>
+            <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí...">
+            <button class="btn btn-secondary mt-2" type="button" onclick="goToLocation()">Đi đến vị trí</button>
+            <button class="toggle-button" id="toggle-form-btn">NẾU BẠN CẦN GIÚP ĐỠ</button>
+        </div>
+        <div class="form-container" id="form-container">
+            <form method="post" action="{% url 'save_location' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Lưu vị trí</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

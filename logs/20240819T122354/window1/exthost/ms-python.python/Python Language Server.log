@@ -1,0 +1,108 @@
+2024-08-19 15:01:46.595 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2024-08-19 15:01:47.232 [info] [Info  - 3:01:47 PM] (49942) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 15:01:47.233 [info] [Info  - 3:01:47 PM] (49942) Experimental Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2024-08-19 15:01:47.236 [info] [Info  - 3:01:47 PM] (49942) Starting service instance "PythonWeb"
+2024-08-19 15:01:47.293 [info] [Info  - 3:01:47 PM] (49942) Setting pythonPath for service "PythonWeb": "/bin/python3.12"
+2024-08-19 15:01:47.293 [info] [Info  - 3:01:47 PM] (49942) Setting environmentName for service "PythonWeb": "3.12.4 (global)"
+2024-08-19 15:01:47.293 [info] [Info  - 3:01:47 PM] (49942) No include entries specified; assuming /home/any/Documents/PythonWeb
+2024-08-19 15:01:47.295 [info] [Info  - 3:01:47 PM] (49942) Auto-excluding **/node_modules
+2024-08-19 15:01:47.295 [info] [Info  - 3:01:47 PM] (49942) Auto-excluding **/__pycache__
+2024-08-19 15:01:47.295 [info] [Info  - 3:01:47 PM] (49942) Auto-excluding **/.*
+2024-08-19 15:01:47.372 [info] [Info  - 3:01:47 PM] (49942) Assuming Python version 3.12.4.final.0
+2024-08-19 15:01:47.768 [info] [Info  - 3:01:47 PM] (49942) Found 14 source files
+2024-08-19 15:01:48.131 [info] [Info  - 3:01:48 PM] (49942) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 15:01:48.135 [info] [Info  - 3:01:48 PM] (49942) Background analysis(1) started
+2024-08-19 15:01:48.679 [info] [Info  - 3:01:48 PM] (49942) Indexer background runner(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist (index)
+2024-08-19 15:01:48.679 [info] [Info  - 3:01:48 PM] (49942) Indexing(2) started
+2024-08-19 15:01:50.253 [info] [Info  - 3:01:50 PM] (49942) scanned(2) 765 files over 1 exec env
+2024-08-19 15:01:57.628 [info] [Info  - 3:01:57 PM] (49942) [IDX(2)] Long operation: index execution environment file:///home/any/Documents/PythonWeb (6935ms)
+2024-08-19 15:01:57.707 [info] [Info  - 3:01:57 PM] (49942) [IDX(2)] Long operation: index packages file:///home/any/Documents/PythonWeb (7043ms)
+2024-08-19 15:01:57.707 [info] [Info  - 3:01:57 PM] (49942) indexed(2) 544 files over 1 exec env
+2024-08-19 15:01:58.161 [info] [Info  - 3:01:58 PM] (49942) Indexing finished(2).
+2024-08-19 15:38:51.826 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2024-08-19 15:38:52.771 [info] [Info  - 3:38:52 PM] (53315) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 15:38:52.772 [info] [Info  - 3:38:52 PM] (53315) Experimental Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2024-08-19 15:38:52.772 [info] [Info  - 3:38:52 PM] (53315) Starting service instance "PythonWeb"
+2024-08-19 15:38:52.819 [info] [Info  - 3:38:52 PM] (53315) Setting pythonPath for service "PythonWeb": "/bin/python3.12"
+2024-08-19 15:38:52.819 [info] [Info  - 3:38:52 PM] (53315) Setting environmentName for service "PythonWeb": "3.12.4 (global)"
+2024-08-19 15:38:52.819 [info] [Info  - 3:38:52 PM] (53315) No include entries specified; assuming /home/any/Documents/PythonWeb/PythonWeb
+2024-08-19 15:38:52.820 [info] [Info  - 3:38:52 PM] (53315) Auto-excluding **/node_modules
+2024-08-19 15:38:52.820 [info] [Info  - 3:38:52 PM] (53315) Auto-excluding **/__pycache__
+2024-08-19 15:38:52.821 [info] [Info  - 3:38:52 PM] (53315) Auto-excluding **/.*
+2024-08-19 15:38:52.874 [info] [Info  - 3:38:52 PM] (53315) Assuming Python version 3.12.4.final.0
+2024-08-19 15:38:53.171 [info] [Info  - 3:38:53 PM] (53315) Found 5 source files
+2024-08-19 15:38:53.702 [info] [Info  - 3:38:53 PM] (53315) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 15:38:53.706 [info] [Info  - 3:38:53 PM] (53315) Background analysis(1) started
+2024-08-19 15:38:54.164 [info] [Info  - 3:38:54 PM] (53315) Indexer background runner(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist (index)
+2024-08-19 15:38:54.164 [info] [Info  - 3:38:54 PM] (53315) Indexing(2) started
+2024-08-19 15:38:55.453 [info] [Info  - 3:38:55 PM] (53315) scanned(2) 765 files over 1 exec env
+2024-08-19 15:39:01.095 [info] [Info  - 3:39:01 PM] (53315) [IDX(2)] Long operation: index execution environment file:///home/any/Documents/PythonWeb/PythonWeb (5079ms)
+2024-08-19 15:39:01.130 [info] [Info  - 3:39:01 PM] (53315) [IDX(2)] Long operation: index packages file:///home/any/Documents/PythonWeb/PythonWeb (5227ms)
+2024-08-19 15:39:01.130 [info] [Info  - 3:39:01 PM] (53315) indexed(2) 544 files over 1 exec env
+2024-08-19 15:39:01.588 [info] [Info  - 3:39:01 PM] (53315) Indexing finished(2).
+2024-08-19 15:39:07.115 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2024-08-19 15:39:08.020 [info] [Info  - 3:39:07 PM] (53649) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 15:39:08.021 [info] [Info  - 3:39:08 PM] (53649) Experimental Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2024-08-19 15:39:08.021 [info] [Info  - 3:39:08 PM] (53649) Starting service instance "PythonWeb"
+2024-08-19 15:39:08.066 [info] [Info  - 3:39:08 PM] (53649) Setting pythonPath for service "PythonWeb": "/bin/python3.12"
+2024-08-19 15:39:08.066 [info] [Info  - 3:39:08 PM] (53649) Setting environmentName for service "PythonWeb": "3.12.4 (global)"
+2024-08-19 15:39:08.067 [info] [Info  - 3:39:08 PM] (53649) No include entries specified; assuming /home/any/Documents/PythonWeb
+2024-08-19 15:39:08.068 [info] [Info  - 3:39:08 PM] (53649) Auto-excluding **/node_modules
+2024-08-19 15:39:08.068 [info] [Info  - 3:39:08 PM] (53649) Auto-excluding **/__pycache__
+2024-08-19 15:39:08.069 [info] [Info  - 3:39:08 PM] (53649) Auto-excluding **/.*
+2024-08-19 15:39:08.124 [info] [Info  - 3:39:08 PM] (53649) Assuming Python version 3.12.4.final.0
+2024-08-19 15:39:08.472 [info] [Info  - 3:39:08 PM] (53649) Found 14 source files
+2024-08-19 15:39:08.896 [info] [Info  - 3:39:08 PM] (53649) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 15:39:08.899 [info] [Info  - 3:39:08 PM] (53649) Background analysis(1) started
+2024-08-19 15:39:23.731 [info] [Info  - 3:39:23 PM] (53649) Found 14 source files
+2024-08-19 20:35:49.262 [info] [Info  - 8:35:49 PM] Server process exited successfully
+2024-08-19 20:35:49.888 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2024-08-19 20:35:50.657 [info] [Info  - 8:35:50 PM] (78736) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 20:35:50.660 [info] [Info  - 8:35:50 PM] (78736) Experimental Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2024-08-19 20:35:50.668 [info] [Info  - 8:35:50 PM] (78736) Starting service instance "PythonWeb"
+2024-08-19 20:35:50.721 [info] [Info  - 8:35:50 PM] (78736) Setting pythonPath for service "PythonWeb": "/bin/python3.12"
+2024-08-19 20:35:50.722 [info] [Info  - 8:35:50 PM] (78736) Setting environmentName for service "PythonWeb": "3.12.4 (global)"
+2024-08-19 20:35:50.722 [info] [Info  - 8:35:50 PM] (78736) No include entries specified; assuming /home/any/Documents/PythonWeb
+2024-08-19 20:35:50.723 [info] [Info  - 8:35:50 PM] (78736) Auto-excluding **/node_modules
+2024-08-19 20:35:50.723 [info] [Info  - 8:35:50 PM] (78736) Auto-excluding **/__pycache__
+2024-08-19 20:35:50.723 [info] [Info  - 8:35:50 PM] (78736) Auto-excluding **/.*
+2024-08-19 20:35:50.778 [info] [Info  - 8:35:50 PM] (78736) Assuming Python version 3.12.4.final.0
+2024-08-19 20:35:51.153 [info] [Info  - 8:35:51 PM] (78736) Found 14 source files
+2024-08-19 20:35:51.542 [info] [Info  - 8:35:51 PM] (78736) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 20:35:51.546 [info] [Info  - 8:35:51 PM] (78736) Background analysis(1) started
+2024-08-19 20:36:00.643 [info] [Info  - 8:36:00 PM] Server process exited successfully
+2024-08-19 20:36:01.265 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2024-08-19 20:36:02.084 [info] [Info  - 8:36:02 PM] (78799) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 20:36:02.085 [info] [Info  - 8:36:02 PM] (78799) Experimental Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2024-08-19 20:36:02.093 [info] [Info  - 8:36:02 PM] (78799) Starting service instance "PythonWeb"
+2024-08-19 20:36:02.136 [info] [Info  - 8:36:02 PM] (78799) Setting pythonPath for service "PythonWeb": "/bin/python3.12"
+2024-08-19 20:36:02.136 [info] [Info  - 8:36:02 PM] (78799) Setting environmentName for service "PythonWeb": "3.12.4 (global)"
+2024-08-19 20:36:02.137 [info] [Info  - 8:36:02 PM] (78799) No include entries specified; assuming /home/any/Documents/PythonWeb
+2024-08-19 20:36:02.138 [info] [Info  - 8:36:02 PM] (78799) Auto-excluding **/node_modules
+2024-08-19 20:36:02.139 [info] [Info  - 8:36:02 PM] (78799) Auto-excluding **/__pycache__
+2024-08-19 20:36:02.139 [info] [Info  - 8:36:02 PM] (78799) Auto-excluding **/.*
+2024-08-19 20:36:02.191 [info] [Info  - 8:36:02 PM] (78799) Assuming Python version 3.12.4.final.0
+2024-08-19 20:36:02.532 [info] [Info  - 8:36:02 PM] (78799) Found 14 source files
+2024-08-19 20:36:02.950 [info] [Info  - 8:36:02 PM] (78799) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 20:36:02.954 [info] [Info  - 8:36:02 PM] (78799) Background analysis(1) started
+2024-08-19 20:36:14.818 [info] [Info  - 8:36:14 PM] Server process exited successfully
+2024-08-19 20:36:15.355 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2024-08-19 20:36:16.132 [info] [Info  - 8:36:16 PM] (78863) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 20:36:16.134 [info] [Info  - 8:36:16 PM] (78863) Experimental Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2024-08-19 20:36:16.143 [info] [Info  - 8:36:16 PM] (78863) Starting service instance "PythonWeb"
+2024-08-19 20:36:16.192 [info] [Info  - 8:36:16 PM] (78863) Setting pythonPath for service "PythonWeb": "/bin/python3.12"
+2024-08-19 20:36:16.192 [info] [Info  - 8:36:16 PM] (78863) Setting environmentName for service "PythonWeb": "3.12.4 (global)"
+2024-08-19 20:36:16.193 [info] [Info  - 8:36:16 PM] (78863) No include entries specified; assuming /home/any/Documents/PythonWeb
+2024-08-19 20:36:16.194 [info] [Info  - 8:36:16 PM] (78863) Auto-excluding **/node_modules
+2024-08-19 20:36:16.194 [info] [Info  - 8:36:16 PM] (78863) Auto-excluding **/__pycache__
+2024-08-19 20:36:16.195 [info] [Info  - 8:36:16 PM] (78863) Auto-excluding **/.*
+2024-08-19 20:36:16.251 [info] [Info  - 8:36:16 PM] (78863) Assuming Python version 3.12.4.final.0
+2024-08-19 20:36:16.685 [info] [Info  - 8:36:16 PM] (78863) Found 14 source files
+2024-08-19 20:36:17.122 [info] [Info  - 8:36:17 PM] (78863) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2024-08-19 20:36:17.126 [info] [Info  - 8:36:17 PM] (78863) Background analysis(1) started
+2024-08-19 21:01:23.090 [info] [Info  - 9:01:23 PM] (78863) Indexer background runner(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1/dist (index)
+2024-08-19 21:01:23.090 [info] [Info  - 9:01:23 PM] (78863) Indexing(2) started
+2024-08-19 21:01:24.484 [info] [Info  - 9:01:24 PM] (78863) scanned(2) 765 files over 1 exec env
+2024-08-19 21:01:25.139 [info] [Info  - 9:01:25 PM] (78863) indexed(2) 544 files over 1 exec env
+2024-08-19 21:01:25.544 [info] [Info  - 9:01:25 PM] (78863) Indexing finished(2).
+2024-08-19 21:12:36.990 [info] [Info  - 9:12:36 PM] (78863) Found 15 source files

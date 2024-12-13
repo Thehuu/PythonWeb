@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form method="POST" action="{% url 'login' %}?next={% url 'index' %}">
+            {% csrf_token %}
+            
+            <!-- Hiển thị lỗi nếu có -->
+            {% for field in form %}
+                {% if field.errors %}
+                    <p style="color:red">{{ field.errors }}</p>
+                {% endif %}
+            {% endfor %}
+            
+            <!-- Hiển thị các trường đăng nhập -->
+            <p><label>Tài khoản:</label>{{ form.username }}</p>
+            <p><label>Mật khẩu:</label>{{ form.password }}</p>
+            
+            <input type="hidden" name="next" value="/"/>
+            <input type="submit" value="Đăng nhập"/>
+        </form>
+    </body>
+</html>

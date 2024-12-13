@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    {% comment %} viewport (khung nhìn);width=device-width chiều rộng web = màn hình {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% comment %} biểu tượng Facebook, Zalo không cần ảnh {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+    <title>{% block title %}Django Website{% endblock %}</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+        }
+    
+        .sidebar {
+            flex: 0 0 200px;
+            background-color: #f8f9fa;
+        }
+    
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+    
+        footer {
+            margin-top: auto;
+        }
+    
+        body {
+            background-image: url('/static/images/Picture4-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: black;
+            color: #66d9ff;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    {% comment %} Thanh điều hướng {% endcomment %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        {% comment %} nút trên màn hình nhỏ, cho phép mở hoặc đóng menu điều hướng. {% endcomment %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {% comment %} chứa các mục điều hướng chính của thanh điều hướng {% endcomment %}
+        <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav ml-auto">
+                {% if user.username %}
+                    <li class="nav-item">
+                        <span class="navbar-text">{{ user.username }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="card">
+                    <div class="card-header">
+                        Navigation
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="/">Owner</a></li>
+                        <li class="list-group-item"><a href="{% url 'blog' %}">Article</a></li>
+                        <li class="list-group-item"><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-light py-3">
+        <div class="container text-center">
+            <a href="#" class="text-light mx-2"><i class="fab fa-facebook-f"></i> Facebook</a> |
+            <a href="#" class="text-light mx-2"><i class="fab fa-zalo"></i> Zalo</a> |
+            <a href="#" class="text-light mx-2"><i class="fas fa-envelope"></i> Gmail</a>
+        </div>
+    </footer>
+    
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

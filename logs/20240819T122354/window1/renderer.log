@@ -1,0 +1,124 @@
+2024-08-19 12:23:55.994 [info] Started local extension host with pid 47401.
+2024-08-19 12:23:59.415 [info] [perf] Render performance baseline is 43ms
+2024-08-19 12:24:21.504 [info] Started local extension host with pid 47545.
+2024-08-19 12:24:25.938 [info] [perf] Render performance baseline is 44ms
+2024-08-19 12:25:49.882 [info] Started local extension host with pid 47757.
+2024-08-19 12:25:53.223 [info] [perf] Render performance baseline is 38ms
+2024-08-19 12:25:59.708 [error] Unknown (FileSystemError): Failed to move '1.py' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 12:25:59.721 [error] Failed to move '1.py' to the trash (Failed to move item to trash): Unknown (FileSystemError): Failed to move '1.py' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 12:26:30.911 [info] Started local extension host with pid 47886.
+2024-08-19 12:26:34.301 [info] [perf] Render performance baseline is 39ms
+2024-08-19 15:38:49.387 [info] Started local extension host with pid 53175.
+2024-08-19 15:38:52.811 [info] [perf] Render performance baseline is 52ms
+2024-08-19 15:39:00.085 [error] Cannot read the extension from /root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64: ScanningExtension: Cannot read the extension from /root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64
+    at z.scanLocalExtension (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:126398)
+    at async te.h (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:131753)
+2024-08-19 15:39:03.738 [info] Started local extension host with pid 53452.
+2024-08-19 15:39:04.101 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:06.626 [info] [perf] Render performance baseline is 60ms
+2024-08-19 15:57:59.124 [error] Error: The editor could not be opened because the file was not found.
+    at N.gc (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:30649)
+    at async N.setInput (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:29528)
+    at async o.S (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:24813)
+    at async o.L (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:23340)
+    at async o.openEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:22329)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2334:26830
+    at async f.M (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1254:143399)
+    at async f.openCodeEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:745:41502)
+    at async h.open (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:662:48266)
+    at async a.open (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:662:49396)
+    at async c (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:665:22668)
+2024-08-19 15:58:09.858 [error] Unknown (FileSystemError): Failed to move '{% static 'css.bootstrap.min.css' %}' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 15:58:09.869 [error] Failed to move '{% static 'css.bootstrap.min.css' %}' to the trash (Failed to move item to trash): Unknown (FileSystemError): Failed to move '{% static 'css.bootstrap.min.css' %}' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 15:59:15.248 [error] Error: The editor could not be opened because the file was not found.
+    at N.gc (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:30649)
+    at async N.setInput (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:29528)
+    at async o.S (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:24813)
+    at async o.L (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:23340)
+    at async o.openEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:22329)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2334:26830
+    at async f.M (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1254:143399)
+    at async f.openCodeEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:745:41502)
+    at async h.open (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:662:48266)
+    at async a.open (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:662:49396)
+2024-08-19 15:59:29.475 [error] Unknown (FileSystemError): Failed to move '{% static 'css' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 15:59:29.486 [error] Failed to move '{% static 'css' to the trash (Failed to move item to trash): Unknown (FileSystemError): Failed to move '{% static 'css' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 16:08:26.185 [error] Unable to find matching pair for < at char 645: Error: Unable to find matching pair for < at char 645
+	at r.error (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:22533)
+	at d (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:21763)
+	at u (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:14745)
+	at d (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:14879)
+	at /usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:15491
+	at v (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:15597)
+	at j (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:16543)
+	at P (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:16953)
+	at t.getRootNode (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:145560)
+	at t.DefaultCompletionItemProvider.provideCompletionItemsInternal (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:131101)
+	at t.DefaultCompletionItemProvider.provideCompletionItems (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:129879)
+	at De.provideCompletionItems (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:114139)
+	at /usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:140414
+	at Pe.s (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:131471)
+	at Pe.$provideCompletionItems (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:140400)
+	at S (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:5986)
+	at S.Q (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:5752)
+	at S.M (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:4739)
+	at S.L (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:3605)
+	at n.value (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:2297)
+	at r.B (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:737)
+	at r.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:954)
+	at o.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:108:14502)
+	at n.value (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:177:8639)
+	at r.B (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:737)
+	at r.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:954)
+	at o.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:108:14502)
+	at MessagePortMain.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:177:6765)
+	at MessagePortMain.emit (node:events:514:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2285)
+2024-08-19 16:28:31.984 [error] Error: The editor could not be opened because the file was not found.
+    at N.gc (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:30649)
+    at async N.setInput (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:29528)
+    at async o.S (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:24813)
+    at async o.L (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:23340)
+    at async o.openEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:22329)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2334:26830
+    at async f.M (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1254:143399)
+    at async f.openCodeEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:745:41502)
+    at async h.open (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:662:48266)
+    at async a.open (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:662:49396)
+2024-08-19 16:29:10.755 [error] Error: ENOENT: no such file or directory, stat '/home/any/Documents/PythonWeb/home/templates/pages/static/images/1.png': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/any/Documents/PythonWeb/home/templates/pages/static/images/1.png'
+	at P.e (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:153:6131)
+	at Object.stat (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:153:3902)
+2024-08-19 16:29:15.476 [error] Error: The editor could not be opened because the file was not found.
+    at N.gc (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:30649)
+    at async N.setInput (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2208:29528)
+    at async o.S (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:24813)
+    at async o.L (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:23340)
+    at async o.openEditor (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2206:22329)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2334:26830
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2212:37140
+2024-08-19 16:29:28.575 [error] Unknown (FileSystemError): Failed to move '1.png' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)
+2024-08-19 16:29:28.592 [error] Failed to move '1.png' to the trash (Failed to move item to trash): Unknown (FileSystemError): Failed to move '1.png' to the trash (Failed to move item to trash)
+    at S.create (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3699)
+    at b (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:60:3817)
+    at d.y (/usr/share/code/resources/app/out/vs/code/electron-main/main.js:65:41718)

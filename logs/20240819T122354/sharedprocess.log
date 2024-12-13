@@ -1,0 +1,276 @@
+2024-08-19 12:27:15.885 [info] Getting Manifest... ms-vscode.remote-server
+2024-08-19 12:27:15.906 [info] Installing extension: ms-vscode.remote-server {"isMachineScoped":false,"donotIncludePackAndDependencies":false,"context":{"skipWalkthrough":true},"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"}}
+2024-08-19 12:27:16.787 [info] Getting Manifest... ms-vscode.remote-explorer
+2024-08-19 12:27:17.004 [info] Installing extension: ms-vscode.remote-explorer {"isMachineScoped":false,"donotIncludePackAndDependencies":false,"context":{"skipWalkthrough":true,"dependecyOrPackExtensionInstall":true},"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"}}
+2024-08-19 12:27:19.692 [info] Extension signature verification result for ms-vscode.remote-server: Success. Executed: true. Duration: 1762ms.
+2024-08-19 12:27:19.707 [info] Extension signature verification result for ms-vscode.remote-explorer: Success. Executed: true. Duration: 1799ms.
+2024-08-19 12:27:19.768 [info] Extracted extension to file:///root/.vscode/extensions/ms-vscode.remote-explorer-0.4.3: ms-vscode.remote-explorer
+2024-08-19 12:27:19.773 [info] Renamed to /root/.vscode/extensions/ms-vscode.remote-explorer-0.4.3
+2024-08-19 12:27:19.830 [info] Extracted extension to file:///root/.vscode/extensions/ms-vscode.remote-server-1.5.2: ms-vscode.remote-server
+2024-08-19 12:27:19.834 [info] Renamed to /root/.vscode/extensions/ms-vscode.remote-server-1.5.2
+2024-08-19 12:27:19.854 [info] Extension installed successfully: ms-vscode.remote-explorer vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 12:27:19.854 [info] Extension installed successfully: ms-vscode.remote-server vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 12:27:19.868 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 15:01:24.364 [info] Getting Manifest... ms-python.python
+2024-08-19 15:01:24.377 [info] Installing extension: ms-python.python {"isMachineScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"}}
+2024-08-19 15:01:25.565 [info] Getting Manifest... ms-python.vscode-pylance
+2024-08-19 15:01:26.041 [info] Getting Manifest... ms-python.debugpy
+2024-08-19 15:01:26.119 [info] Installing extension: ms-python.vscode-pylance {"isMachineScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"},"context":{"dependecyOrPackExtensionInstall":true}}
+2024-08-19 15:01:26.120 [info] Installing extension: ms-python.debugpy {"isMachineScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"},"context":{"dependecyOrPackExtensionInstall":true}}
+2024-08-19 15:01:35.728 [info] Extension signature verification result for ms-python.debugpy: Success. Executed: true. Duration: 1289ms.
+2024-08-19 15:01:36.236 [info] Extracted extension to file:///root/.vscode/extensions/ms-python.debugpy-2024.8.0-linux-x64: ms-python.debugpy
+2024-08-19 15:01:36.243 [info] Renamed to /root/.vscode/extensions/ms-python.debugpy-2024.8.0-linux-x64
+2024-08-19 15:01:36.343 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 15:01:37.289 [info] Extension signature verification result for ms-python.python: Success. Executed: true. Duration: 1336ms.
+2024-08-19 15:01:38.939 [info] Extension signature verification result for ms-python.vscode-pylance: Success. Executed: true. Duration: 1361ms.
+2024-08-19 15:01:38.969 [info] Extracted extension to file:///root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64: ms-python.python
+2024-08-19 15:01:38.976 [info] Renamed to /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64
+2024-08-19 15:01:39.068 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 15:01:43.399 [info] Extracted extension to file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1: ms-python.vscode-pylance
+2024-08-19 15:01:43.411 [info] Renamed to /root/.vscode/extensions/ms-python.vscode-pylance-2024.8.1
+2024-08-19 15:01:43.444 [info] Extension installed successfully: ms-python.debugpy vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 15:01:43.445 [info] Extension installed successfully: ms-python.python vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 15:01:43.445 [info] Extension installed successfully: ms-python.vscode-pylance vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 15:01:43.502 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 15:38:54.419 [info] Getting Manifest... ms-python.debugpy
+2024-08-19 15:38:54.562 [info] Installing extension: ms-python.debugpy {"productVersion":{"version":"1.92.2","date":"2024-08-14T17:31:49.258Z"},"pinned":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true}
+2024-08-19 15:38:56.231 [info] Getting Manifest... ms-python.python
+2024-08-19 15:38:59.576 [info] Extension signature verification result for ms-python.debugpy: Success. Executed: true. Duration: 1203ms.
+2024-08-19 15:38:59.987 [info] Extracted extension to file:///root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64: ms-python.debugpy
+2024-08-19 15:38:59.992 [info] Renamed to /root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64
+2024-08-19 15:38:59.994 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:00.023 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:00.028 [error] Error while installing the extension ms-python.debugpy Cannot read the extension from /root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64 vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 15:39:00.084 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 15:39:03.870 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:04.458 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:04.753 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:04.841 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:04.963 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:05.111 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:05.211 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:39:06.440 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:44:06.498 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:49:06.532 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:54:06.568 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 15:59:06.731 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:04:06.766 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:09:06.803 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:14:06.845 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:19:06.883 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:24:07.474 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:29:07.532 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 16:34:08.481 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:07:09.117 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:12:09.957 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:17:10.959 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:22:11.954 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:27:12.958 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:32:12.997 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:37:13.027 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:42:13.061 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:47:13.100 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:52:13.136 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 18:57:13.295 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:02:13.330 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:07:13.362 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:12:13.396 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:17:13.427 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:22:13.457 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:27:13.495 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:32:13.530 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:37:13.582 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:42:13.643 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:47:13.971 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:52:14.957 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 19:57:16.068 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:02:16.954 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:07:17.954 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:12:17.989 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:17:18.022 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:22:18.098 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:27:18.963 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:32:19.979 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:46.625 [info] Getting Manifest... bibhasdn.django-html
+2024-08-19 20:35:46.642 [info] Installing extension: bibhasdn.django-html {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"}}
+2024-08-19 20:35:46.686 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:46.745 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:46.779 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:48.969 [info] Extension signature verification result for bibhasdn.django-html: Success. Executed: true. Duration: 1451ms.
+2024-08-19 20:35:49.013 [info] Extracted extension to file:///root/.vscode/extensions/bibhasdn.django-html-1.3.0: bibhasdn.django-html
+2024-08-19 20:35:49.023 [info] Renamed to /root/.vscode/extensions/bibhasdn.django-html-1.3.0
+2024-08-19 20:35:49.076 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:49.083 [info] Extension installed successfully: bibhasdn.django-html vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 20:35:49.129 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 20:35:58.817 [info] Getting Manifest... bigonesystems.django
+2024-08-19 20:35:58.837 [info] Installing extension: bigonesystems.django {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"}}
+2024-08-19 20:35:58.875 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:58.925 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:35:58.947 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:36:00.524 [info] Extension signature verification result for bigonesystems.django: Success. Executed: true. Duration: 1095ms.
+2024-08-19 20:36:00.545 [info] Extracted extension to file:///root/.vscode/extensions/bigonesystems.django-1.0.2: bigonesystems.django
+2024-08-19 20:36:00.549 [info] Renamed to /root/.vscode/extensions/bigonesystems.django-1.0.2
+2024-08-19 20:36:00.577 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:36:00.581 [info] Extension installed successfully: bigonesystems.django vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 20:36:00.643 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 20:36:12.734 [info] Getting Manifest... gobystrokreactjs.gobystrok
+2024-08-19 20:36:12.745 [info] Installing extension: gobystrokreactjs.gobystrok {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/root/.vscode/extensions/extensions.json","path":"/root/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.91.0","date":"2024-07-01T18:52:41.959Z"}}
+2024-08-19 20:36:12.786 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:36:12.836 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:36:12.870 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:36:14.695 [info] Extension signature verification result for gobystrokreactjs.gobystrok: Success. Executed: true. Duration: 1383ms.
+2024-08-19 20:36:14.716 [info] Extracted extension to file:///root/.vscode/extensions/gobystrokreactjs.gobystrok-0.0.1: gobystrokreactjs.gobystrok
+2024-08-19 20:36:14.721 [info] Renamed to /root/.vscode/extensions/gobystrokreactjs.gobystrok-0.0.1
+2024-08-19 20:36:14.754 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:36:14.757 [info] Extension installed successfully: gobystrokreactjs.gobystrok vscode-userdata:/root/.vscode/extensions/extensions.json
+2024-08-19 20:36:14.811 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/root/.vscode/extensions/extensions.json.vsctmp'
+    at h.create (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19262)
+    at f (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19372)
+    at P.hb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36571)
+    at P.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:28919)
+    at async s.stat (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14907)
+    at async V.vb (/usr/share/code/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:119283)
+2024-08-19 20:37:20.022 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:42:20.074 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:47:20.120 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:52:20.156 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 20:57:20.330 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:02:20.375 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:07:20.407 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:12:20.446 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:17:20.491 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:22:20.530 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:27:20.577 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:32:20.613 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:37:20.648 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:42:20.681 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-19 21:47:20.716 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:04:09.738 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:09:09.787 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:14:09.825 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:19:09.860 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:24:09.890 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:29:09.924 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:34:09.972 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:39:10.022 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:44:10.061 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:49:10.107 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:54:10.165 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 18:59:10.322 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 19:04:10.376 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:09:48.714 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:14:48.861 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:19:49.859 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:24:50.855 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:29:51.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:34:52.856 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:39:53.855 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:44:54.856 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:49:55.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:54:56.859 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 20:59:58.583 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:04:58.860 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:09:59.859 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:15:00.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:20:01.858 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:25:02.864 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:30:03.851 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:35:04.858 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:40:05.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:45:06.855 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:50:07.864 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 21:55:08.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:00:09.985 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:05:10.862 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:10:11.855 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:15:12.858 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:20:13.856 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:25:14.856 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:30:15.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:35:16.860 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:40:17.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:45:18.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:50:19.857 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 22:55:20.853 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:00:21.979 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:05:22.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:10:23.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:15:24.857 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:20:25.855 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:25:26.853 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:30:27.853 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:35:28.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:40:29.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:45:30.857 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:50:31.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-20 23:55:32.853 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:00:33.982 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:05:34.855 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:10:35.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:15:36.850 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:20:37.852 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:25:38.850 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 00:30:39.854 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:16:55.400 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:21:56.220 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:26:57.221 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:31:58.225 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:36:59.218 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:42:00.220 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:47:01.221 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:52:02.219 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 07:57:03.221 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 08:02:04.370 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 08:07:05.221 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 08:12:06.217 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:09:18.365 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:14:19.209 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:19:20.208 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:24:21.210 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:29:22.210 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:34:23.209 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:39:24.209 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:44:25.208 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.
+2024-08-21 11:49:26.209 [error] [/root/.vscode/extensions/ms-python.debugpy-2024.10.0-linux-x64]: Extension is not compatible with Code 1.91.0. Extension requires: ^1.92.0.

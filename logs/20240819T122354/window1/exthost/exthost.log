@@ -1,0 +1,112 @@
+2024-08-19 12:23:56.766 [info] Extension host with pid 47401 started
+2024-08-19 12:23:56.829 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-08-19 12:23:56.887 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-08-19 12:23:57.016 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-19 12:23:57.372 [info] Eager extensions activated
+2024-08-19 12:23:57.405 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:23:57.410 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:24:20.713 [info] Extension host terminating: renderer closed the MessagePort
+2024-08-19 12:24:20.734 [info] Extension host with pid 47401 exiting with code 0
+2024-08-19 12:24:22.096 [info] Extension host with pid 47545 started
+2024-08-19 12:24:22.096 [info] Skipping acquiring lock for /home/any/Documents/PythonWeb/User/workspaceStorage/9ee920eca49e0f303c5aa3581ffd2089.
+2024-08-19 12:24:22.128 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2024-08-19 12:24:22.197 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-19 12:24:22.245 [info] Eager extensions activated
+2024-08-19 12:24:22.284 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:24:22.288 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:24:26.870 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2024-08-19 12:24:37.999 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-08-19 12:25:48.566 [info] Extension host terminating: renderer closed the MessagePort
+2024-08-19 12:25:48.586 [info] Extension host with pid 47545 exiting with code 0
+2024-08-19 12:25:50.418 [info] Extension host with pid 47757 started
+2024-08-19 12:25:50.418 [info] Skipping acquiring lock for /home/any/Documents/PythonWeb/User/workspaceStorage/b35733537ca38ff025bcd4f649a49b22.
+2024-08-19 12:25:50.479 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-08-19 12:25:50.613 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-08-19 12:25:50.655 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-19 12:25:50.732 [info] Eager extensions activated
+2024-08-19 12:25:50.769 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:25:50.772 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:25:55.751 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-08-19 12:26:29.581 [info] Extension host terminating: renderer closed the MessagePort
+2024-08-19 12:26:29.602 [info] Extension host with pid 47757 exiting with code 0
+2024-08-19 12:26:31.497 [info] Extension host with pid 47886 started
+2024-08-19 12:26:31.497 [info] Skipping acquiring lock for /home/any/Documents/PythonWeb/User/workspaceStorage/9ee920eca49e0f303c5aa3581ffd2089.
+2024-08-19 12:26:31.637 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-08-19 12:26:31.673 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-08-19 12:26:31.720 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-19 12:26:31.812 [info] Eager extensions activated
+2024-08-19 12:26:31.838 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:26:31.841 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 12:26:38.305 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2024-08-19 12:26:38.421 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-08-19 12:27:19.916 [info] ExtensionService#_doActivateExtension ms-vscode.remote-server, startup: false, activationEvent: 'onCommand:remote-tunnels.connectCurrentWindowToTunnel'
+2024-08-19 12:27:59.515 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2024-08-19 15:01:43.760 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2024-08-19 15:01:44.661 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2024-08-19 15:01:44.802 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'
+2024-08-19 15:38:47.940 [info] Extension host terminating: renderer closed the MessagePort
+2024-08-19 15:38:48.038 [info] Extension host with pid 47886 exiting with code 0
+2024-08-19 15:38:49.992 [info] Extension host with pid 53175 started
+2024-08-19 15:38:49.992 [info] Skipping acquiring lock for /home/any/Documents/PythonWeb/User/workspaceStorage/b35733537ca38ff025bcd4f649a49b22.
+2024-08-19 15:38:50.188 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-08-19 15:38:50.201 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2024-08-19 15:38:50.641 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2024-08-19 15:38:50.681 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'
+2024-08-19 15:38:51.174 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-08-19 15:38:51.184 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-08-19 15:38:51.234 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-19 15:38:51.347 [info] Eager extensions activated
+2024-08-19 15:38:51.392 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 15:38:51.397 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 15:39:02.923 [info] Extension host terminating: renderer closed the MessagePort
+2024-08-19 15:39:02.950 [info] Extension host with pid 53175 exiting with code 0
+2024-08-19 15:39:04.373 [info] Extension host with pid 53452 started
+2024-08-19 15:39:04.373 [info] Skipping acquiring lock for /home/any/Documents/PythonWeb/User/workspaceStorage/9ee920eca49e0f303c5aa3581ffd2089.
+2024-08-19 15:39:04.529 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-08-19 15:39:04.539 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2024-08-19 15:39:05.511 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-08-19 15:39:05.514 [info] ExtensionService#_doActivateExtension ms-python.python, startup: true, activationEvent: 'workspaceContains:manage.py'
+2024-08-19 15:39:05.730 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-08-19 15:39:05.801 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-19 15:39:05.965 [info] Eager extensions activated
+2024-08-19 15:39:06.061 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 15:39:06.064 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-19 15:39:06.184 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'api', root cause: ms-python.python
+2024-08-19 15:55:46.355 [info] ExtensionService#_doActivateExtension vscode.css-language-features, startup: false, activationEvent: 'onLanguage:css'
+2024-08-19 16:08:26.171 [error] [vscode.emmet] provider FAILED
+2024-08-19 16:08:26.173 [error] Error: Unable to find matching pair for < at char 645
+	at r.error (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:22533)
+	at d (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:21763)
+	at u (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:14745)
+	at d (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:14879)
+	at /usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:15491
+	at v (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:15597)
+	at j (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:16543)
+	at P (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:16953)
+	at t.getRootNode (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:145560)
+	at t.DefaultCompletionItemProvider.provideCompletionItemsInternal (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:131101)
+	at t.DefaultCompletionItemProvider.provideCompletionItems (/usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain.js:1:129879)
+	at De.provideCompletionItems (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:114139)
+	at /usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:140414
+	at Pe.s (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:131471)
+	at Pe.$provideCompletionItems (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:154:140400)
+	at S (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:5986)
+	at S.Q (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:5752)
+	at S.M (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:4739)
+	at S.L (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:3605)
+	at n.value (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:151:2297)
+	at r.B (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:737)
+	at r.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:954)
+	at o.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:108:14502)
+	at n.value (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:177:8639)
+	at r.B (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:737)
+	at r.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:83:954)
+	at o.fire (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:108:14502)
+	at MessagePortMain.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:177:6765)
+	at MessagePortMain.emit (node:events:514:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2285)
+2024-08-19 16:19:39.158 [info] ExtensionService#_doActivateExtension vscode.media-preview, startup: false, activationEvent: 'onCustomEditor:imagePreview.previewEditor'
+2024-08-19 16:29:10.753 [error] EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/any/Documents/PythonWeb/home/templates/pages/static/images/1.png'
+	at P.e (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:153:6131)
+	at Object.stat (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:153:3902)
+2024-08-19 21:01:21.868 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'

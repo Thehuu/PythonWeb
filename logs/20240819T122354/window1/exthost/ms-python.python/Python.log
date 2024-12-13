@@ -1,0 +1,243 @@
+2024-08-19 15:01:44.401 [info] Experiment 'pythonCreateEnvOnPipInstall' is active
+2024-08-19 15:01:44.401 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2024-08-19 15:01:44.401 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2024-08-19 15:01:44.401 [info] Experiment 'pythonTestAdapter' is active
+2024-08-19 15:01:44.431 [error] Reading directory to watch failed [Error: ENOENT: no such file or directory, scandir '/home/any/Documents/PythonWeb/.pixi/envs'
+	at Object.readdirSync (node:fs:1515:3)
+	at t.readdirSync (node:electron/js2c/node_init:2:11289)
+	at /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586747
+	at /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586938
+	at Array.map (<anonymous>)
+	at d.initWatchers (/root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586656)
+	at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+	at async d.ensureWatchersReady (/root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:543067)] {
+  errno: -2,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: '/home/any/Documents/PythonWeb/.pixi/envs'
+}
+2024-08-19 15:01:44.433 [error] Dir "/home/any/Documents/PythonWeb/.pixi/envs" is not watchable (directory does not exist)
+2024-08-19 15:01:44.502 [info] Default formatter is set to null for workspace /home/any/Documents/PythonWeb
+2024-08-19 15:01:44.516 [info] Starting Environment refresh
+2024-08-19 15:01:44.516 [info] Searching for interpreters in posix paths locator
+2024-08-19 15:01:44.529 [info] Searching for pyenv environments
+2024-08-19 15:01:44.529 [info] Searching for conda environments
+2024-08-19 15:01:44.530 [info] Searching for global virtual environments
+2024-08-19 15:01:44.530 [info] Searching for custom virtual environments
+2024-08-19 15:01:44.542 [info] pyenv is not installed
+2024-08-19 15:01:44.542 [info] Finished searching for pyenv environments: 24 milliseconds
+2024-08-19 15:01:44.542 [info] Finished searching for custom virtual envs: 21 milliseconds
+2024-08-19 15:01:44.552 [info] > conda info --json
+2024-08-19 15:01:44.562 [info] > pixi --version
+2024-08-19 15:01:44.566 [error] [Error: spawn pixi ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+	at onErrorNT (node:internal/child_process:484:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn pixi',
+  path: 'pixi',
+  spawnargs: [ '--version' ]
+}
+2024-08-19 15:01:44.573 [info] > hatch env show --json
+2024-08-19 15:01:44.573 [info] cwd: .
+2024-08-19 15:01:44.587 [info] > pyenv which python
+2024-08-19 15:01:44.587 [info] cwd: .
+2024-08-19 15:01:44.587 [info] Finished searching for global virtual envs: 67 milliseconds
+2024-08-19 15:01:44.614 [info] Found: /bin/python --> /bin/python3.11
+2024-08-19 15:01:44.621 [info] Found: /bin/python2 --> /bin/python2.7
+2024-08-19 15:01:44.622 [info] Found: /bin/python2.7 --> /bin/python2.7
+2024-08-19 15:01:44.627 [info] Found: /bin/python3 --> /bin/python3.11
+2024-08-19 15:01:44.628 [info] Found: /bin/python3.11 --> /bin/python3.11
+2024-08-19 15:01:44.629 [info] Found: /bin/python3.12 --> /bin/python3.12
+2024-08-19 15:01:45.531 [info] Found: /usr/bin/python --> /usr/bin/python3.11
+2024-08-19 15:01:45.541 [info] Found: /usr/bin/python2 --> /usr/bin/python2.7
+2024-08-19 15:01:45.542 [info] Found: /usr/bin/python2.7 --> /usr/bin/python2.7
+2024-08-19 15:01:45.544 [info] Found: /usr/bin/python3 --> /usr/bin/python3.11
+2024-08-19 15:01:45.545 [info] Found: /usr/bin/python3.11 --> /usr/bin/python3.11
+2024-08-19 15:01:45.545 [info] Found: /usr/bin/python3.12 --> /usr/bin/python3.12
+2024-08-19 15:01:45.617 [info] > /bin/python -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.646 [info] > /bin/python2 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.658 [warning] [Error: Command failed: /bin/python2 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+Unknown option: -I
+usage: /bin/python2 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+
+	at ChildProcess.exithandler (node:child_process:423:12)
+	at ChildProcess.emit (node:events:526:35)
+	at maybeClose (node:internal/child_process:1105:16)
+	at Socket.<anonymous> (node:internal/child_process:457:11)
+	at Socket.emit (node:events:514:28)
+	at Pipe.<anonymous> (node:net:337:12)] {
+  code: 2,
+  killed: false,
+  signal: null,
+  cmd: '/bin/python2 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py'
+}
+2024-08-19 15:01:45.658 [error] Support for Python 2.7 has been dropped by the Python extension so certain features may not work, upgrade to using Python 3.
+2024-08-19 15:01:45.664 [info] > /bin/python2 ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.680 [info] > /bin/python3.12 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.716 [info] > /usr/bin/python -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.734 [info] Finished searching for interpreters in posix paths locator: 1220 milliseconds
+2024-08-19 15:01:45.751 [info] Environments refresh paths discovered (event): 1238 milliseconds
+2024-08-19 15:01:45.751 [info] Environments refresh paths discovered: 1238 milliseconds
+2024-08-19 15:01:45.815 [info] > /usr/bin/python2 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.824 [info] > /usr/bin/python3.12 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.828 [warning] [Error: Command failed: /usr/bin/python2 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+Unknown option: -I
+usage: /usr/bin/python2 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+
+	at ChildProcess.exithandler (node:child_process:423:12)
+	at ChildProcess.emit (node:events:526:35)
+	at maybeClose (node:internal/child_process:1105:16)
+	at Socket.<anonymous> (node:internal/child_process:457:11)
+	at Socket.emit (node:events:514:28)
+	at Pipe.<anonymous> (node:net:337:12)] {
+  code: 2,
+  killed: false,
+  signal: null,
+  cmd: '/usr/bin/python2 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py'
+}
+2024-08-19 15:01:45.828 [error] Support for Python 2.7 has been dropped by the Python extension so certain features may not work, upgrade to using Python 3.
+2024-08-19 15:01:45.836 [info] > /usr/bin/python2 ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:45.909 [info] Environments refresh finished (event): 1396 milliseconds
+2024-08-19 15:01:45.924 [info] Environment refresh took 1411 milliseconds
+2024-08-19 15:01:45.927 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:01:45.932 [info] Python interpreter path: /bin/python3.12
+2024-08-19 15:01:45.966 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:01:45.979 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:01:46.094 [info] > /usr/bin/python2.7 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.102 [info] > /usr/bin/python3.11 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.108 [info] > /bin/python2.7 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.120 [info] > /bin/python3.11 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.121 [warning] [Error: Command failed: /usr/bin/python2.7 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+Unknown option: -I
+usage: /usr/bin/python2.7 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+
+	at ChildProcess.exithandler (node:child_process:423:12)
+	at ChildProcess.emit (node:events:526:35)
+	at maybeClose (node:internal/child_process:1105:16)
+	at Socket.<anonymous> (node:internal/child_process:457:11)
+	at Socket.emit (node:events:514:28)
+	at Pipe.<anonymous> (node:net:337:12)] {
+  code: 2,
+  killed: false,
+  signal: null,
+  cmd: '/usr/bin/python2.7 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py'
+}
+2024-08-19 15:01:46.121 [error] Support for Python 2.7 has been dropped by the Python extension so certain features may not work, upgrade to using Python 3.
+2024-08-19 15:01:46.126 [info] > /usr/bin/python2.7 ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.128 [warning] [Error: Command failed: /bin/python2.7 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+Unknown option: -I
+usage: /bin/python2.7 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Try `python -h' for more information.
+
+	at ChildProcess.exithandler (node:child_process:423:12)
+	at ChildProcess.emit (node:events:526:35)
+	at maybeClose (node:internal/child_process:1105:16)
+	at Socket.<anonymous> (node:internal/child_process:457:11)
+	at Socket.emit (node:events:514:28)
+	at Pipe.<anonymous> (node:net:337:12)] {
+  code: 2,
+  killed: false,
+  signal: null,
+  cmd: '/bin/python2.7 -I /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py'
+}
+2024-08-19 15:01:46.128 [error] Support for Python 2.7 has been dropped by the Python extension so certain features may not work, upgrade to using Python 3.
+2024-08-19 15:01:46.133 [info] > /bin/python2.7 ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.183 [info] > /usr/bin/python3 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:46.203 [info] > /bin/python3 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:01:47.264 [info] Starting Pylance language server.
+2024-08-19 15:38:50.471 [info] Experiment 'pythonCreateEnvOnPipInstall' is active
+2024-08-19 15:38:50.471 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2024-08-19 15:38:50.471 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2024-08-19 15:38:50.471 [info] Experiment 'pythonTestAdapter' is active
+2024-08-19 15:38:50.471 [error] Reading directory to watch failed [Error: ENOENT: no such file or directory, scandir '/home/any/Documents/PythonWeb/PythonWeb/.pixi/envs'
+	at Object.readdirSync (node:fs:1515:3)
+	at t.readdirSync (node:electron/js2c/node_init:2:11289)
+	at /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586747
+	at /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586938
+	at Array.map (<anonymous>)
+	at d.initWatchers (/root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586656)
+	at async d.ensureWatchersReady (/root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:543067)] {
+  errno: -2,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: '/home/any/Documents/PythonWeb/PythonWeb/.pixi/envs'
+}
+2024-08-19 15:38:50.471 [error] Dir "/home/any/Documents/PythonWeb/PythonWeb/.pixi/envs" is not watchable (directory does not exist)
+2024-08-19 15:38:50.540 [info] Default formatter is set to null for workspace /home/any/Documents/PythonWeb/PythonWeb
+2024-08-19 15:38:50.555 [info] Starting Environment refresh
+2024-08-19 15:38:50.556 [info] Starting Environment refresh
+2024-08-19 15:38:50.586 [info] > pixi --version
+2024-08-19 15:38:50.589 [error] [Error: spawn pixi ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+	at onErrorNT (node:internal/child_process:484:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn pixi',
+  path: 'pixi',
+  spawnargs: [ '--version' ]
+}
+2024-08-19 15:38:50.599 [info] > hatch env show --json
+2024-08-19 15:38:50.599 [info] cwd: .
+2024-08-19 15:38:50.612 [info] Environments refresh finished (event): 58 milliseconds
+2024-08-19 15:38:50.612 [info] Environments refresh paths discovered: 58 milliseconds
+2024-08-19 15:38:50.613 [info] Environments refresh finished (event): 58 milliseconds
+2024-08-19 15:38:50.613 [info] Environments refresh paths discovered: 58 milliseconds
+2024-08-19 15:38:50.616 [info] Environment refresh took 61 milliseconds
+2024-08-19 15:38:50.616 [info] Environment refresh took 61 milliseconds
+2024-08-19 15:38:50.625 [info] > pyenv which python
+2024-08-19 15:38:50.626 [info] cwd: .
+2024-08-19 15:38:51.016 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:38:51.048 [info] Python interpreter path: /bin/python3.12
+2024-08-19 15:38:51.069 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:38:51.324 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:38:52.789 [info] Starting Pylance language server.
+2024-08-19 15:39:05.977 [info] Experiment 'pythonCreateEnvOnPipInstall' is active
+2024-08-19 15:39:05.977 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2024-08-19 15:39:05.977 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2024-08-19 15:39:05.977 [info] Experiment 'pythonTestAdapter' is active
+2024-08-19 15:39:05.977 [error] Reading directory to watch failed [Error: ENOENT: no such file or directory, scandir '/home/any/Documents/PythonWeb/.pixi/envs'
+	at Object.readdirSync (node:fs:1515:3)
+	at t.readdirSync (node:electron/js2c/node_init:2:11289)
+	at /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586747
+	at /root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586938
+	at Array.map (<anonymous>)
+	at d.initWatchers (/root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:586656)
+	at async d.ensureWatchersReady (/root/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/out/client/extension.js:2:543067)] {
+  errno: -2,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: '/home/any/Documents/PythonWeb/.pixi/envs'
+}
+2024-08-19 15:39:05.977 [error] Dir "/home/any/Documents/PythonWeb/.pixi/envs" is not watchable (directory does not exist)
+2024-08-19 15:39:05.977 [info] Default formatter is set to null for workspace /home/any/Documents/PythonWeb
+2024-08-19 15:39:05.977 [info] Starting Environment refresh
+2024-08-19 15:39:05.985 [info] > pixi --version
+2024-08-19 15:39:05.987 [error] [Error: spawn pixi ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+	at onErrorNT (node:internal/child_process:484:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn pixi',
+  path: 'pixi',
+  spawnargs: [ '--version' ]
+}
+2024-08-19 15:39:05.994 [info] > hatch env show --json
+2024-08-19 15:39:05.994 [info] cwd: .
+2024-08-19 15:39:06.007 [info] Python interpreter path: /bin/python3.12
+2024-08-19 15:39:06.090 [info] > pyenv which python
+2024-08-19 15:39:06.090 [info] cwd: .
+2024-08-19 15:39:06.180 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:39:06.557 [warning] could not find a pixi interpreter for the interpreter at /bin/python3.12
+2024-08-19 15:39:06.598 [info] > /bin/python3.12 -I ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/get_output_via_markers.py ~/.vscode/extensions/ms-python.python-2024.12.3-linux-x64/python_files/interpreterInfo.py
+2024-08-19 15:39:06.687 [info] Environments refresh finished (event): 759 milliseconds
+2024-08-19 15:39:06.687 [info] Environments refresh paths discovered: 760 milliseconds
+2024-08-19 15:39:06.696 [info] Environment refresh took 769 milliseconds
+2024-08-19 15:39:08.038 [info] Starting Pylance language server.
+2024-08-19 21:12:36.861 [info] Discover tests for workspace name: PythonWeb - uri: /home/any/Documents/PythonWeb/home/views.py
