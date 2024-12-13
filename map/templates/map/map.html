@@ -13,6 +13,22 @@
     <!-- Google Maps API -->
     <script loading=async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
     
+    <style>
+        .toggle-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
     <script>
         let map, markers = [], autocomplete, selectedPlace, currentLocationMarker;
         
@@ -170,7 +186,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="height:30px;">
         <a class="navbar-brand" href="#">Map</a>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Article</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
@@ -184,7 +200,7 @@
             <button class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button>
             <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí...">
             <button class="btn btn-secondary mt-2" type="button" onclick="goToLocation()">Đi đến vị trí</button>
-            <button class="toggle-button" id="toggle-form-btn">NẾU BẠN CẦN GIÚP ĐỠ</button>
+            <button class="toggle-button" id="toggle-form-btn" style="top: 2px !important;">NẾU BẠN CẦN GIÚP ĐỠ</button>
         </div>
         <div class="form-container" id="form-container">
             <form method="post" action="{% url 'save_location' %}">

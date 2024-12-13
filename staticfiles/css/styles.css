@@ -92,8 +92,8 @@ h1 {
     cursor: pointer;
     font-size: 14px;
     position: absolute;
-    top: -30px;
-    right: 2px;
+    top: 10px; /* Adjusted to make it visible */
+    right: 10px; /* Adjusted to make it visible */
     display: block;
     margin-bottom: 5px;
 }
