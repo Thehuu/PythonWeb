@@ -5,11 +5,15 @@ from django.db import models
 class ReliefLocation(models.Model):
     #CharField: Dùng cho chuỗi ngắn, bắt buộc phải cung cấp max_length
     #TextField: Dùng cho chuỗi dài, không yêu cầu max_length.
-    name = models.CharField(max_length=255)  # Tên vị trí cứu trợ
-    mobile=models.IntegerField(null=True, blank=True)
-    latitude = models.DecimalField(max_digits=13, decimal_places=6)  # Vĩ độ, lưu trữ tối đa 9 chữ số với 6 số sau dấu ,
-    longitude = models.DecimalField(max_digits=13, decimal_places=6)  # Kinh độ
-    description = models.TextField(blank=True)  # Mô tả thêm về vị trí
+    name = models.CharField(max_length=100)  # Tên vị trí cứu trợ
+    mobile = models.CharField(max_length=15,null=True, blank=True)  # Số điện thoại liên hệ
+    latitude = models.FloatField()  # Vĩ độ, lưu trữ tối đa 9 chữ số với 6 số sau dấu ,
+    longitude = models.FloatField()  # Kinh độ
+    description = models.TextField()  # Mô tả thêm về vị trí cứu trợ
+    
+    # Thêm trường image
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)  # Thời gian tạo
     
     STATUS_CHOICES = [
