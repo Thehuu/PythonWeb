@@ -2,6 +2,7 @@
 #db trong Django liên quan đến thao tác CSDL
 #models định nghĩa các cấu trúc dữ liệu, các thuộc tính (fields), mối quan hệ
 from django.db import models
+
 class ReliefLocation(models.Model):
     #CharField: Dùng cho chuỗi ngắn, bắt buộc phải cung cấp max_length
     #TextField: Dùng cho chuỗi dài, không yêu cầu max_length.
@@ -35,3 +36,17 @@ class ReliefLocation(models.Model):
 
     def __str__(self):
         return self.name
+
+class Incident(models.Model):
+    TYPE_CHOICES = [
+        ('TNGT', 'Tai nạn giao thông'),
+        ('DROWNING', 'Đuối nước'),
+        ('FIRE', 'Cháy'),
+        ('DISASTER', 'Thiên tai'),
+    ]
+    incident_type = models.CharField(max_length=10, choices=TYPE_CHOICES)  # Loại sự kiện
+    description = models.TextField()  # Mô tả sự kiện
+    date = models.DateTimeField(auto_now_add=True)  # Thời gian xảy ra sự kiện
+
+    def __str__(self):
+        return f"{self.get_incident_type_display()} - {self.date.strftime('%Y-%m-%d %H:%M:%S')}"

@@ -136,3 +136,40 @@ button[type="submit"] {
     border-radius: 4px; /* Bo tròn các góc */
     border: 1px solid #ccc; /* Đường viền cho các trường */
 }
+
+.info-panel {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.statistics-container {
+    position: fixed;
+    top: 5px; /* Di chuyển lên trên */
+    right: 10px; /* Căn phải */
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    width: 600px;
+    z-index: 1000; /* Đảm bảo nó nằm trên các phần tử khác */
+}
+
+.statistics-container table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+
+.statistics-container th, .statistics-container td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.statistics-container thead tr {
+    background-color: #f7f7f7;
+}
