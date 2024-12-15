@@ -10,7 +10,8 @@ function initMap() {
         zoom: 9.5
     });
 
-    var locations = {{ locations|safe }};
+    var locations = window.locations; // Sử dụng biến locations từ window
+
     locations.forEach(function(location) {
         var marker = new google.maps.Marker({
             position: { lat: location.latitude, lng: location.longitude },
