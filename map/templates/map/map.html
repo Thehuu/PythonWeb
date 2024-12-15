@@ -1,3 +1,34 @@
+<!-- 
+### Các hàm JavaScript:
+- **initMap()**: Khởi tạo Google Map, đặt trung tâm và mức thu phóng, thêm các điểm đánh dấu cho các vị trí được xác định trước và xử lý các sự kiện nhấp vào bản đồ để lấy tọa độ.
+- **goToLocation()**: Đặt trung tâm bản đồ đến vị trí đã tìm kiếm.
+- **getCurrentLocation()**: Sử dụng định vị địa lý của trình duyệt để lấy vị trí hiện tại của người dùng và đặt trung tâm bản đồ đến đó.
+
+### Các phần tử HTML:
+- **Navbar**: Thanh điều hướng đơn giản với các liên kết đến trang Home, Article và Contact.
+- **Map Container**: Chứa bản đồ và các nút để lấy vị trí hiện tại, tìm kiếm vị trí và chuyển đổi biểu mẫu. Được thiết lập chiều cao hợp lý để hiển thị bản đồ.
+- **Form Container**: Biểu mẫu ẩn xuất hiện khi nhấp vào nút "NẾU BẠN CẦN GIÚP ĐỠ". Biểu mẫu cho phép người dùng gửi chi tiết vị trí.
+- **Statistics Container**: Hiển thị bảng thống kê về các loại sự cố khác nhau.
+
+### Trình nghe sự kiện:
+- **DOMContentLoaded**: Khởi tạo bản đồ và thiết lập trình nghe sự kiện để chuyển đổi biểu mẫu và nhập tìm kiếm.
+
+### Các kiểu:
+- **.toggle-button**: Kiểu cho nút chuyển đổi hiển thị biểu mẫu.
+- **.statistics-container**: Kiểu cho bảng thống kê.
+
+### Thư viện bên ngoài:
+- **Bootstrap JS**: Để thiết kế đáp ứng và tương tác.
+- **jQuery**: Để thao tác DOM.
+- **Popper.js**: Để định vị tooltip và popover.
+
+### Bảo mật:
+- **CSRF Token**: Được bao gồm trong biểu mẫu để bảo mật chống lại tấn công giả mạo yêu cầu giữa các trang.
+
+### Ghi chú:
+- Khóa API Google Maps nên được giữ bảo mật và không được tiết lộ trong mã phía máy khách.
+- Các trường biểu mẫu được điền động bằng cách sử dụng thẻ mẫu Django.
+-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
