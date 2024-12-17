@@ -230,7 +230,8 @@
             <div id="map"></div>
             <button class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button>
             <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí..." />
-            <button class="btn btn-secondary mt-2" type="button" onclick="goToLocation()">Đi đến vị trí</button>
+<!--         <button class="btn btn-secondary mt-2" type="button" onclick="goToLocation()">Đi đến vị trí</button>
+-->
             <button class="toggle-button" id="toggle-form-btn" style="top: 2px !important">NẾU BẠN CẦN GIÚP ĐỠ</button>
         </div>
         <div class="form-container" id="form-container">
@@ -245,19 +246,15 @@
                 <div class="form-group">
                     {{ form.mobile.label_tag }} {{ form.mobile }}
                 </div>
-                <div class="form-group">
-                    {{ form.latitude.label_tag }} {{ form.latitude }}
-                </div>
-                <div class="form-group">
-                    {{ form.longitude.label_tag }} {{ form.longitude }}
-                </div>
+                {{ form.latitude }}
+                {{ form.longitude }}
                 <div class="form-group">
                     {{ form.description.label_tag }} {{ form.description }}
                 </div>
                 <div class="form-group">
                     {{ form.image.label_tag }} {{ form.image }}
                 </div>
-                <button type="submit" class="btn btn-primary">Lưu vị trí</button>
+                <button type="submit" class="btn btn-primary">Lưu khai báo</button>
             </form>
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
@@ -275,33 +272,33 @@
                     <th style="padding: 10px; border-bottom: 1px solid #ddd;">Số vụ</th>
                     <th style="padding: 10px; border-bottom: 1px solid #ddd;">Chờ duyệt</th>
                     <th style="padding: 10px; border-bottom: 1px solid #ddd;">Đã duyệt</th>
-                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Đã giải quyết</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #ddd;">Giải quyết</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Số vụ tai nạn giao thông</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">TNGT</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ traffic_accidents_count }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ traffic_accidents_pending }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ traffic_accidents_approved }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ traffic_accidents_rescued }}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Số vụ đuối nước</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Đuối nước</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ drowning_incidents_count }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ drowning_incidents_pending }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ drowning_incidents_approved }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ drowning_incidents_rescued }}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Số vụ cháy</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Vụ cháy</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ fire_incidents_count }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ fire_incidents_pending }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ fire_incidents_approved }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ fire_incidents_rescued }}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Số vụ thiên tai</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Thiên tai</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ natural_disasters_count }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ natural_disasters_pending }}</td>
                     <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ natural_disasters_approved }}</td>

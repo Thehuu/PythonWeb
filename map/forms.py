@@ -20,7 +20,9 @@ class ReliefPointForm(forms.ModelForm):
     #định nghĩa các thông tin cấu hình quan trọng cho form
     #Meta thể hiện rằng lớp này quản lý "metadata" của form
         model = ReliefLocation # Chỉ định form sẽ tuân theo model ReliefLocation
-        fields = ['incident_type', 'name', 'mobile', 'description', 'image']# Chỉ định các trường hiển thị trong form: 'latitude', 'longitude',
+        #fields = ['incident_type', 'name', 'mobile', 'description', 'image']# Chỉ định các trường hiển thị trong form: 'latitude', 'longitude',
+        fields = ['incident_type', 'name', 'mobile','latitude', 'longitude','description', 'image']# Chỉ định các trường hiển thị trong form: 'latitude', 'longitude',
+
         labels = {
             'name': 'Họ và tên',  # Đổi nhãn cho trường name
             'mobile':'Số điện thoại',
@@ -33,8 +35,10 @@ class ReliefPointForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}), # Thiết lập widget cho trường tên người dùng
             'mobile': forms.TextInput(attrs={'class': 'form-control'}), # Thiết lập widget cho trường số điện thoại
-           # 'latitude': forms.NumberInput(attrs={'class': 'form-control'}), # Thiết lập widget cho trường vĩ độ
+            'latitude': forms.HiddenInput(), # Thiết lập widget cho trường vĩ độ
+            'longitude': forms.HiddenInput(),
+            #'latitude': forms.NumberInput(attrs={'class': 'form-control'}), # Thiết lập widget cho trường vĩ độ
             #'longitude': forms.NumberInput(attrs={'class': 'form-control'}), # Thiết lập widget cho trường kinh độ
-            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}), # Thiết lập widget cho trường mô tả
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 2}), # Thiết lập widget cho trường mô tả
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}), # Thiết lập widget cho trường hình ảnh
         }
