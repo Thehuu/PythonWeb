@@ -35,7 +35,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map</title>
+    <title>Bản đồ</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -215,12 +215,11 @@
 </head>
 <body onload="initMap()">
     <nav class="navbar navbar-expand-lg navbar-dark" style="height: 30px">
-        <a class="navbar-brand" href="#">Map</a>
-        <div class="collapse navbar-collapse">
+        <a class="navbar-brand" href="#">Bản đồ</a>
+        <div class="collapse navbar-collapse">git
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Article</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
             </ul>
         </div>
     </nav>
@@ -232,7 +231,7 @@
             <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí..." />
 <!--         <button class="btn btn-secondary mt-2" type="button" onclick="goToLocation()">Đi đến vị trí</button>
 -->
-            <button class="toggle-button" id="toggle-form-btn" style="top: 2px !important">NẾU BẠN CẦN GIÚP ĐỠ</button>
+            <button class="toggle-button" id="toggle-form-btn" style="top: 2px !important">KHAI BÁO</button>
         </div>
         <div class="form-container" id="form-container">
             <form method="post" action="{% url 'save_location' %}" enctype="multipart/form-data">
@@ -254,7 +253,10 @@
                 <div class="form-group">
                     {{ form.image.label_tag }} {{ form.image }}
                 </div>
-                <button type="submit" class="btn btn-primary">Lưu khai báo</button>
+                <button type="submit" class="btn btn-primary">LƯU</button>
+                <button type="button" class="btn btn-secondary" onclick="document.getElementById('form-container').style.display='none'; document.querySelector('.map-container').style.width='100%'">HUỶ</button>
+
+
             </form>
             <script>
                 document.addEventListener("DOMContentLoaded", function () {
@@ -264,7 +266,7 @@
         </div>
     </div>
 
-    <div class="statistics-container" style="top: auto; position: fixed; bottom: auto; left: 0; background-color: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); width: 600px;">
+    <!-- <div class="statistics-container" style="top: auto; position: fixed; bottom: auto; left: 0; background-color: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); width: 600px;">
         <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; color: #333;">
             <thead>
                 <tr style="background-color: #f7f7f7; text-align: left;">
@@ -306,7 +308,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 
     <!-- Bootstrap JS và các thư viện phụ thuộc -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

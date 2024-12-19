@@ -1,0 +1,264 @@
+<!-- 
+### Các hàm JavaScript:
+- **initMap()**: Khởi tạo Google Map, đặt trung tâm và mức thu phóng, thêm các điểm đánh dấu cho các vị trí được xác định trước và xử lý các sự kiện nhấp vào bản đồ để lấy tọa độ.
+- **goToLocation()**: Đặt trung tâm bản đồ đến vị trí đã tìm kiếm.
+- **getCurrentLocation()**: Sử dụng định vị địa lý của trình duyệt để lấy vị trí hiện tại của người dùng và đặt trung tâm bản đồ đến đó.
+
+### Các phần tử HTML:
+- **Navbar**: Thanh điều hướng đơn giản với các liên kết đến trang Home, Article và Contact.
+- **Map Container**: Chứa bản đồ và các nút để lấy vị trí hiện tại, tìm kiếm vị trí và chuyển đổi biểu mẫu. Được thiết lập chiều cao hợp lý để hiển thị bản đồ.
+- **Form Container**: Biểu mẫu ẩn xuất hiện khi nhấp vào nút "KHAI BÁO". Biểu mẫu cho phép người dùng gửi chi tiết vị trí.
+- **Statistics Container**: Hiển thị bảng thống kê về các loại sự cố khác nhau.
+
+### Trình nghe sự kiện:
+- **DOMContentLoaded**: Khởi tạo bản đồ và thiết lập trình nghe sự kiện để chuyển đổi biểu mẫu và nhập tìm kiếm.
+
+### Các kiểu:
+- **.toggle-button**: Kiểu cho nút chuyển đổi hiển thị biểu mẫu.
+- **.statistics-container**: Kiểu cho bảng thống kê.
+
+### Thư viện bên ngoài:
+- **Bootstrap JS**: Để thiết kế đáp ứng và tương tác.
+- **jQuery**: Để thao tác DOM.
+- **Popper.js**: Để định vị tooltip và popover.
+
+### Bảo mật:
+- **CSRF Token**: Được bao gồm trong biểu mẫu để bảo mật chống lại tấn công giả mạo yêu cầu giữa các trang.
+
+### Ghi chú:
+- Khóa API Google Maps nên được giữ bảo mật và không được tiết lộ trong mã phía máy khách.
+- Các trường biểu mẫu được điền động bằng cách sử dụng thẻ mẫu Django.
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
+
+    <!-- Google Maps API -->
+    <script
+      loading="async"
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"
+    ></script>
+    <!-- Bootstrap JS và các thư viện phụ thuộc -->
+    <script src="https://code.jquery.com/jquery-5.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@0.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/2.5.2/js/bootstrap.min.js"></script>
+    <script src="./static/js/map.js"></script>
+    <style>
+      .toggle-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .toggle-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body onload="initMap()">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height: 30px">
+      <a class="navbar-brand" href="#">Map</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-map">
+      <div class="map-container">
+        <div id="map"></div>
+        <button
+          class="btn btn-primary"
+          type="button"
+          onclick="getCurrentLocation()"
+        >
+          Vị trí hiện tại
+        </button>
+        <input
+          id="searchInput"
+          type="text"
+          class="form-control mt-2"
+          placeholder="Hoặc tìm kiếm vị trí..."
+        />
+        <!--         <button class="btn btn-secondary mt-2" type="button" onclick="goToLocation()">Đi đến vị trí</button>
+-->
+        <button
+          class="toggle-button"
+          id="toggle-form-btn"
+          style="top: 2px !important"
+        >
+          KHAI BÁO
+        </button>
+      </div>
+      <div class="form-container" id="form-container">
+        <form
+          method="post"
+          action="{% url 'save_location' %}"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="form-group">
+            {{ form.incident_type.label_tag }} {{ form.incident_type }}
+          </div>
+          <div class="form-group">
+            {{ form.name.label_tag }} {{ form.name }}
+          </div>
+          <div class="form-group">
+            {{ form.mobile.label_tag }} {{ form.mobile }}
+          </div>
+          {{ form.latitude }} {{ form.longitude }}
+          <div class="form-group">
+            {{ form.description.label_tag }} {{ form.description }}
+          </div>
+          <div class="form-group">
+            {{ form.image.label_tag }} {{ form.image }}
+          </div>
+          <button type="submit" class="btn btn-primary">LƯU</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="document.getElementById('form-container').style.display='none'; document.getElementById('toggle-form-btn').style.display='block'; document.querySelector('.map-container').style.width='100%';"
+          >
+            ĐÓNG
+          </button>
+        </form>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(
+              'select[name="incident_type"]'
+            ).selectedIndex = -1;
+          });
+        </script>
+      </div>
+    </div>
+
+    <div
+      class="statistics-container"
+      style="
+        top: auto;
+        position: fixed;
+        bottom: auto;
+        left: 0;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        width: 600px;
+      "
+    >
+      <table
+        style="
+          width: 100%;
+          border-collapse: collapse;
+          text-align: left;
+          font-size: 14px;
+          color: #333;
+        "
+      >
+        <thead>
+          <tr style="background-color: #f7f7f7; text-align: left">
+            <th style="padding: 10px; border-bottom: 1px solid #ddd">
+              Phân loại
+            </th>
+            <th style="padding: 10px; border-bottom: 1px solid #ddd">Số vụ</th>
+            <th style="padding: 10px; border-bottom: 1px solid #ddd">
+              Chờ duyệt
+            </th>
+            <th style="padding: 10px; border-bottom: 1px solid #ddd">
+              Đã duyệt
+            </th>
+            <th style="padding: 10px; border-bottom: 1px solid #ddd">
+              Giải quyết
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">TNGT</td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ traffic_accidents_count }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ traffic_accidents_pending }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ traffic_accidents_approved }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ traffic_accidents_rescued }}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              Đuối nước
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ drowning_incidents_count }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ drowning_incidents_pending }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ drowning_incidents_approved }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ drowning_incidents_rescued }}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              Vụ cháy
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ fire_incidents_count }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ fire_incidents_pending }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ fire_incidents_approved }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ fire_incidents_rescued }}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              Thiên tai
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ natural_disasters_count }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ natural_disasters_pending }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ natural_disasters_approved }}
+            </td>
+            <td style="padding: 10px; border-bottom: 1px solid #ddd">
+              {{ natural_disasters_rescued }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
