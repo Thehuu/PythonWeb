@@ -4,17 +4,20 @@
 from django.db import models
 
 class ReliefLocation(models.Model):
-    #CharField: Dùng cho chuỗi ngắn, bắt buộc phải cung cấp max_length
-    #TextField: Dùng cho chuỗi dài, không yêu cầu max_length.
+    INCIDENT_CHOICES = [
+        ('traffic_accident', 'Tai nạn giao thông'),
+        ('drowning', 'Đuối nước'),
+        ('fire', 'Cháy'),
+        ('natural_disaster', 'Thiên tai'),
+    ]
+
+    incident_type = models.CharField(max_length=20, choices=INCIDENT_CHOICES,null=True)
     name = models.CharField(max_length=100)  # Tên vị trí cứu trợ
-    mobile = models.CharField(max_length=15,null=True, blank=True)  # Số điện thoại liên hệ
+    mobile = models.CharField(max_length=15, null=True, blank=True)  # Số điện thoại liên hệ
     latitude = models.FloatField()  # Vĩ độ, lưu trữ tối đa 9 chữ số với 6 số sau dấu ,
     longitude = models.FloatField()  # Kinh độ
-    description = models.TextField()  # Mô tả thêm về vị trí cứu trợ
-    
-    # Thêm trường image
+    description = models.TextField(blank=True, null=True)  # Mô tả thêm về vị trí cứu trợ
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    
     created_at = models.DateTimeField(auto_now_add=True)  # Thời gian tạo
     
     STATUS_CHOICES = [
@@ -37,6 +40,11 @@ class ReliefLocation(models.Model):
     def __str__(self):
         return self.name
 
+
+
+
+
+#có vẻ thừa chỗ này
 class Incident(models.Model):
     TYPE_CHOICES = [
         ('TNGT', 'Tai nạn giao thông'),

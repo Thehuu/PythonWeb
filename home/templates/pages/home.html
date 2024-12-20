@@ -64,14 +64,14 @@
                         <span class="navbar-text">{{ user.username }}</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
                     </li>
                 {% endif %}
             </ul>
@@ -86,9 +86,9 @@
                         Navigation
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="/">Owner</a></li>
-                        <li class="list-group-item"><a href="{% url 'blog' %}">Article</a></li>
-                        <li class="list-group-item"><a href="{% url 'contact' %}">Contact</a></li>
+                        <li class="list-group-item"><a href="/">Trang chủ</a></li>
+                        <li class="list-group-item"><a href="/map/">Khai báo</a></li>
+                        <li class="list-group-item"><a href="{% url 'contact' %}">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
@@ -109,32 +109,32 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="table-cell">TNGT</td>
-                                <td class="table-cell">{{ traffic_accidents_count }}</td>
-                                <td class="table-cell">{{ traffic_accidents_pending }}</td>
-                                <td class="table-cell">{{ traffic_accidents_approved }}</td>
-                                <td class="table-cell">{{ traffic_accidents_rescued }}</td>
+                                <td class="table-cell"><a href="{% url 'traffic_accidents_list' %}">TNGT</a></td>
+                                <td class="table-cell"><a href="{% url 'traffic_accidents_list' %}">{{ traffic_accidents_count }}</a></td>
+                                <td class="table-cell"><a href="{% url 'traffic_accidents_pending_list' %}">{{ traffic_accidents_pending }}</a></td>
+                                <td class="table-cell"><a href="{% url 'traffic_accidents_approved_list' %}">{{ traffic_accidents_approved }}</a></td>
+                                <td class="table-cell"><a href="{% url 'traffic_accidents_rescued_list' %}">{{ traffic_accidents_rescued }}</a></td>
                             </tr>
                             <tr>
-                                <td class="table-cell">Đuối nước</td>
-                                <td class="table-cell">{{ drowning_incidents_count }}</td>
-                                <td class="table-cell">{{ drowning_incidents_pending }}</td>
-                                <td class="table-cell">{{ drowning_incidents_approved }}</td>
-                                <td class="table-cell">{{ drowning_incidents_rescued }}</td>
+                                <td class="table-cell"><a href="{% url 'drowning_incidents_list' %}">Đuối nước</a></td>
+                                <td class="table-cell"><a href="{% url 'drowning_incidents_list' %}">{{ drowning_incidents_count }}</a></td>
+                                <td class="table-cell"><a href="{% url 'drowning_incidents_pending_list' %}">{{ drowning_incidents_pending }}</a></td>
+                                <td class="table-cell"><a href="{% url 'drowning_incidents_approved_list' %}">{{ drowning_incidents_approved }}</a></td>
+                                <td class="table-cell"><a href="{% url 'drowning_incidents_rescued_list' %}">{{ drowning_incidents_rescued }}</a></td>
                             </tr>
                             <tr>
-                                <td class="table-cell">Vụ cháy</td>
-                                <td class="table-cell">{{ fire_incidents_count }}</td>
-                                <td class="table-cell">{{ fire_incidents_pending }}</td>
-                                <td class="table-cell">{{ fire_incidents_approved }}</td>
-                                <td class="table-cell">{{ fire_incidents_rescued }}</td>
+                                <td class="table-cell"><a href="{% url 'fire_incidents_list' %}">Vụ cháy</a></td>
+                                <td class="table-cell"><a href="{% url 'fire_incidents_list' %}">{{ fire_incidents_count }}</a></td>
+                                <td class="table-cell"><a href="{% url 'fire_incidents_pending_list' %}">{{ fire_incidents_pending }}</a></td>
+                                <td class="table-cell"><a href="{% url 'fire_incidents_approved_list' %}">{{ fire_incidents_approved }}</a></td>
+                                <td class="table-cell"><a href="{% url 'fire_incidents_rescued_list' %}">{{ fire_incidents_rescued }}</a></td>
                             </tr>
                             <tr>
-                                <td class="table-cell">Thiên tai</td>
-                                <td class="table-cell">{{ natural_disasters_count }}</td>
-                                <td class="table-cell">{{ natural_disasters_pending }}</td>
-                                <td class="table-cell">{{ natural_disasters_approved }}</td>
-                                <td class="table-cell">{{ natural_disasters_rescued }}</td>
+                                <td class="table-cell"><a href="{% url 'natural_disasters_list' %}">Thiên tai</a></td>
+                                <td class="table-cell"><a href="{% url 'natural_disasters_list' %}">{{ natural_disasters_count }}</a></td>
+                                <td class="table-cell"><a href="{% url 'natural_disasters_pending_list' %}">{{ natural_disasters_pending }}</a></td>
+                                <td class="table-cell"><a href="{% url 'natural_disasters_approved_list' %}">{{ natural_disasters_approved }}</a></td>
+                                <td class="table-cell"><a href="{% url 'natural_disasters_rescued_list' %}">{{ natural_disasters_rescued }}</a></td>
                             </tr>
                         </tbody>
                     </table>
