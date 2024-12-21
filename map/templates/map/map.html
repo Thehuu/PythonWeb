@@ -33,42 +33,54 @@
         let map, markers = [], autocomplete, selectedPlace, currentLocationMarker;
 
         function initMap() {
+            // Khởi tạo bản đồ
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 22.1261475, lng: 105.8329401 },
                 zoom: 11
             });
 
+            // Lấy danh sách các địa điểm từ server
             const locations = {{ locations|safe }};
-            const emergencyIcon = {
-                url: '{% static "images/SOS.jpg" %}',
-                scaledSize: new google.maps.Size(30, 30),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(15, 30)
+            const icons = {
+                'fire': '{% static "images/fire_icon.png" %}',
+                'drowning': '{% static "images/drowning_icon.jpg" %}',
+                'natural_disaster': '{% static "images/natural_disaster_icon.png" %}',
+                'traffic_accident': '{% static "images/traffic_accident_icon.png" %}',
+                'default': '{% static "images/SOS.jpg" %}'
             };
 
             const infoWindow = new google.maps.InfoWindow();
 
+            // Tạo các marker cho từng địa điểm
             locations.forEach((location) => {
+                const iconUrl = icons[location.incident_type];
                 const marker = new google.maps.Marker({
                     position: { lat: location.latitude, lng: location.longitude },
                     map: map,
-                    icon: emergencyIcon,
+                    icon: {
+                        url: iconUrl,
+                        scaledSize: new google.maps.Size(40, 40),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(20, 40)
+                    },
                     title: location.name
                 });
 
+                // Hiệu ứng nhấp nháy cho marker
                 let size = 30, growing = true;
                 setInterval(() => {
                     size += growing ? 1 : -1;
                     if (size >= 40) growing = false;
                     if (size <= 25) growing = true;
                     marker.setIcon({
-                        url: '{% static "images/SOS.jpg" %}',
+                        url: iconUrl,
                         scaledSize: new google.maps.Size(size, size),
                         origin: new google.maps.Point(0, 0),
                         anchor: new google.maps.Point(15, 30)
                     });
                 }, 100);
 
+                // Thêm sự kiện click cho marker
                 const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}`;
                 marker.addListener('click', () => {
                     infoWindow.setContent(`
@@ -84,6 +96,7 @@
                 markers.push(marker);
             });
 
+            // Sự kiện click trên bản đồ để chọn vị trí
             map.addListener('click', function(event) {
                 const latitude = event.latLng.lat();
                 const longitude = event.latLng.lng();
@@ -102,6 +115,7 @@
                 });
             });
 
+            // Tìm kiếm địa điểm
             const input = document.getElementById('searchInput');
             autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);

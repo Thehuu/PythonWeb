@@ -17,7 +17,9 @@ def show_map(request):
             'mobile': loc.mobile,  # Số điện thoại liên hệ
             'latitude': float(loc.latitude),  # Vĩ độ
             'longitude': float(loc.longitude),  # Kinh độ
-            'description': loc.description  # Mô tả địa điểm
+            'description': loc.description,  # Mô tả địa điểm
+            'incident_type': loc.incident_type,  # Loại sự cố
+
         }
         for loc in locations
     ]
