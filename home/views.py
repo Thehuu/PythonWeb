@@ -69,30 +69,9 @@ def register(request):
             return HttpResponseRedirect ('/') #sao lưu xong thì chuyển hướng đến trang chủ
     return render(request,'pages/register.html',{'form':form}) #{'form':...} chuyển form sang HTML
 
-def traffic_accidents_list(request, status=None):
+def incidents_list(request, incident_type, status=None):
     if status:
-        incidents = ReliefLocation.objects.filter(incident_type='traffic_accident', status=status)
+        incidents = ReliefLocation.objects.filter(incident_type=incident_type, status=status)
     else:
-        incidents = ReliefLocation.objects.filter(incident_type='traffic_accident')
-    return render(request, 'pages/traffic_accidents_list.html', {'incidents': incidents, 'status': status})
-
-def drowning_incidents_list(request, status=None):
-    if status:
-        incidents = ReliefLocation.objects.filter(incident_type='drowning', status=status)
-    else:
-        incidents = ReliefLocation.objects.filter(incident_type='drowning')
-    return render(request, 'pages/drowning_incidents_list.html', {'incidents': incidents, 'status': status})
-
-def fire_incidents_list(request, status=None):
-    if status:
-        incidents = ReliefLocation.objects.filter(incident_type='fire', status=status)
-    else:
-        incidents = ReliefLocation.objects.filter(incident_type='fire')
-    return render(request, 'pages/fire_incidents_list.html', {'incidents': incidents, 'status': status})
-
-def natural_disasters_list(request, status=None):
-    if status:
-        incidents = ReliefLocation.objects.filter(incident_type='natural_disaster', status=status)
-    else:
-        incidents = ReliefLocation.objects.filter(incident_type='natural_disaster')
-    return render(request, 'pages/natural_disasters_list.html', {'incidents': incidents, 'status': status})
+        incidents = ReliefLocation.objects.filter(incident_type=incident_type)
+    return render(request, 'pages/incidents_list.html', {'incidents': incidents, 'status': status, 'incident_type': incident_type})

@@ -8,10 +8,10 @@ body {background-image: url('static/images/Picture4-scaled.jpg');}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Danh sách TNGT{% if status %} - {{ status|title }}{% endif %}</title>
+    <title>Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</title>
 </head>
 <body>
-    <h1>Danh sách TNGT{% if status %} - {{ status|title }}{% endif %}</h1>
+    <h1>Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</h1>
     <ul>
         {% for incident in incidents %}
             <li>

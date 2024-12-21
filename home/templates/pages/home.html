@@ -1,7 +1,7 @@
 {% extends "pages/bases.html" %}
 body {background-image: url('static/images/Picture4-scaled.jpg');}
-{% block title %}Contact{% endblock  %}
-{% block content  %}
+{% block title %}Contact{% endblock %}
+{% block content %}
 <body>
     <div class="col-lg-10">
         <div class="content-wrapper">
@@ -18,70 +18,70 @@ body {background-image: url('static/images/Picture4-scaled.jpg');}
                 <tbody>
                     <tr>
                         <td class="table-cell">
-                            <a href="{% url 'traffic_accidents_list' %}" class="btn btn-primary">TNGT</a>
+                            <a href="{% url 'incidents_list' 'traffic_accident' %}" class="btn btn-primary">Tai nạn giao thông</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'traffic_accidents_list' %}" class="btn btn-info">{{ traffic_accidents_count }}</a>
+                            <a href="{% url 'incidents_list' 'traffic_accident' %}" class="btn btn-info">{{ traffic_accidents_count }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'traffic_accidents_status_list' 'pending' %}" class="btn btn-warning">{{ traffic_accidents_pending }}</a>
+                            <a href="{% url 'incidents_status_list' 'traffic_accident' 'pending' %}" class="btn btn-warning">{{ traffic_accidents_pending }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'traffic_accidents_status_list' 'approved' %}" class="btn btn-success">{{ traffic_accidents_approved }}</a>
+                            <a href="{% url 'incidents_status_list' 'traffic_accident' 'approved' %}" class="btn btn-success">{{ traffic_accidents_approved }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'traffic_accidents_status_list' 'rescued' %}" class="btn btn-danger">{{ traffic_accidents_rescued }}</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="table-cell">
-                            <a href="{% url 'drowning_incidents_list' %}" class="btn btn-primary">Đuối nước</a>
-                        </td>
-                        <td class="table-cell">
-                            <a href="{% url 'drowning_incidents_list' %}" class="btn btn-info">{{ drowning_incidents_count }}</a>
-                        </td>
-                        <td class="table-cell">
-                            <a href="{% url 'drowning_incidents_status_list' 'pending' %}" class="btn btn-warning">{{ drowning_incidents_pending }}</a>
-                        </td>
-                        <td class="table-cell">
-                            <a href="{% url 'drowning_incidents_status_list' 'approved' %}" class="btn btn-success">{{ drowning_incidents_approved }}</a>
-                        </td>
-                        <td class="table-cell">
-                            <a href="{% url 'drowning_incidents_status_list' 'rescued' %}" class="btn btn-danger">{{ drowning_incidents_rescued }}</a>
+                            <a href="{% url 'incidents_status_list' 'traffic_accident' 'rescued' %}" class="btn btn-danger">{{ traffic_accidents_rescued }}</a>
                         </td>
                     </tr>
                     <tr>
                         <td class="table-cell">
-                            <a href="{% url 'fire_incidents_list' %}" class="btn btn-primary">Vụ cháy</a>
+                            <a href="{% url 'incidents_list' 'drowning' %}" class="btn btn-primary">Đuối nước</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'fire_incidents_list' %}" class="btn btn-info">{{ fire_incidents_count }}</a>
+                            <a href="{% url 'incidents_list' 'drowning' %}" class="btn btn-info">{{ drowning_incidents_count }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'fire_incidents_status_list' 'pending' %}" class="btn btn-warning">{{ fire_incidents_pending }}</a>
+                            <a href="{% url 'incidents_status_list' 'drowning' 'pending' %}" class="btn btn-warning">{{ drowning_incidents_pending }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'fire_incidents_status_list' 'approved' %}" class="btn btn-success">{{ fire_incidents_approved }}</a>
+                            <a href="{% url 'incidents_status_list' 'drowning' 'approved' %}" class="btn btn-success">{{ drowning_incidents_approved }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'fire_incidents_status_list' 'rescued' %}" class="btn btn-danger">{{ fire_incidents_rescued }}</a>
+                            <a href="{% url 'incidents_status_list' 'drowning' 'rescued' %}" class="btn btn-danger">{{ drowning_incidents_rescued }}</a>
                         </td>
                     </tr>
                     <tr>
                         <td class="table-cell">
-                            <a href="{% url 'natural_disasters_list' %}" class="btn btn-primary">Thiên tai</a>
+                            <a href="{% url 'incidents_list' 'natural_disaster' %}" class="btn btn-primary">Thiên tai</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'natural_disasters_list' %}" class="btn btn-info">{{ natural_disasters_count }}</a>
+                            <a href="{% url 'incidents_list' 'natural_disaster' %}" class="btn btn-info">{{ natural_disasters_count }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'natural_disasters_status_list' 'pending' %}" class="btn btn-warning">{{ natural_disasters_pending }}</a>
+                            <a href="{% url 'incidents_status_list' 'natural_disaster' 'pending' %}" class="btn btn-warning">{{ natural_disasters_pending }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'natural_disasters_status_list' 'approved' %}" class="btn btn-success">{{ natural_disasters_approved }}</a>
+                            <a href="{% url 'incidents_status_list' 'natural_disaster' 'approved' %}" class="btn btn-success">{{ natural_disasters_approved }}</a>
                         </td>
                         <td class="table-cell">
-                            <a href="{% url 'natural_disasters_status_list' 'rescued' %}" class="btn btn-danger">{{ natural_disasters_rescued }}</a>
+                            <a href="{% url 'incidents_status_list' 'natural_disaster' 'rescued' %}" class="btn btn-danger">{{ natural_disasters_rescued }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">
+                            <a href="{% url 'incidents_list' 'fire' %}" class="btn btn-primary">Vụ cháy</a>
+                        </td>
+                        <td class="table-cell">
+                            <a href="{% url 'incidents_list' 'fire' %}" class="btn btn-info">{{ fire_incidents_count }}</a>
+                        </td>
+                        <td class="table-cell">
+                            <a href="{% url 'incidents_status_list' 'fire' 'pending' %}" class="btn btn-warning">{{ fire_incidents_pending }}</a>
+                        </td>
+                        <td class="table-cell">
+                            <a href="{% url 'incidents_status_list' 'fire' 'approved' %}" class="btn btn-success">{{ fire_incidents_approved }}</a>
+                        </td>
+                        <td class="table-cell">
+                            <a href="{% url 'incidents_status_list' 'fire' 'rescued' %}" class="btn btn-danger">{{ fire_incidents_rescued }}</a>
                         </td>
                     </tr>
                 </tbody>
@@ -89,5 +89,4 @@ body {background-image: url('static/images/Picture4-scaled.jpg');}
         </div>
     </div>
 </body>
-
-{% endblock  %}
+{% endblock %}
