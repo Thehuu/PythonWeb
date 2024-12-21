@@ -1,0 +1,37 @@
+<!-- home/templates/pages/traffic_accidents_list.html -->
+{% extends "pages/bases.html" %}
+body {background-image: url('static/images/Picture4-scaled.jpg');}
+{% block title %}Contact{% endblock  %}
+{% block content  %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Danh sách TNGT{% if status %} - {{ status|title }}{% endif %}</title>
+</head>
+<body>
+    <h1>Danh sách TNGT{% if status %} - {{ status|title }}{% endif %}</h1>
+    <ul>
+        {% for incident in incidents %}
+            <li>
+                <strong>Tên:</strong> {{ incident.name }}<br>
+                <strong>Loại sự kiện:</strong> {{ incident.get_incident_type_display }}<br>
+                <strong>Số điện thoại:</strong> {{ incident.mobile }}<br>
+                <strong>Vĩ độ:</strong> {{ incident.latitude }}<br>
+                <strong>Kinh độ:</strong> {{ incident.longitude }}<br>
+                <strong>Mô tả:</strong> {{ incident.description }}<br>
+                <strong>Trạng thái:</strong> {{ incident.get_status_display }}<br>
+                {% if incident.image %}
+                    <strong>Hình ảnh:</strong><br>
+                    <img src="{{ incident.image.url }}" alt="{{ incident.name }}" style="max-width: 200px;"><br>
+                {% endif %}
+                <strong>Thời gian tạo:</strong> {{ incident.created_at }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+{% endblock  %}
