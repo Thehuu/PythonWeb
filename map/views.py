@@ -49,9 +49,18 @@ def save_location(request):
         form = ReliefPointForm(request.POST)  # Lấy dữ liệu từ request và khởi tạo form
         if form.is_valid():  # Kiểm tra tính hợp lệ của form
             form.save()  # Lưu dữ liệu vào cơ sở dữ liệu
-            return JsonResponse({'status': 'success'})  # Trả về phản hồi thành công
+                        # Thêm thông điệp thành công và nút bấm quay trở lại trang chủ, quay trở lại map
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Địa điểm cứu trợ đã được lưu thành công!',
+                'home_url': '/',  # URL trang chủ
+                'map_url': '/map/'  # URL trang bản đồ
+            })
         else:
+
             # Trả về phản hồi lỗi kèm thông tin lỗi từ form
             return JsonResponse({'status': 'error', 'errors': form.errors})
     # Trả về phản hồi cho yêu cầu không hợp lệ
-    return JsonResponse({'status': 'invalid request'})
+    return JsonResponse({'status': 'invalid request'
+                         
+                         })
