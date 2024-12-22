@@ -228,14 +228,20 @@
                 <div class="form-group">
                     {{ form.mobile.label_tag }} {{ form.mobile }}
                 </div>
-                {{ form.latitude }}
-                {{ form.longitude }}
+                <div class="form-group">
+                    {{ form.residence.label_tag }} {{ form.residence }}
+                </div>
+                <div class="form-group">
+                    <label>Vị trí: Click "Vị trí hiện tại" hoặc "Tìm kiếm vị trí"</label>
+                </div>
                 <div class="form-group">
                     {{ form.description.label_tag }} {{ form.description }}
                 </div>
                 <div class="form-group">
                     {{ form.image.label_tag }} {{ form.image }}
                 </div>
+                <input type="hidden" name="latitude" id="id_latitude" value="{{ form.latitude.value }}">
+                <input type="hidden" name="longitude" id="id_longitude" value="{{ form.longitude.value }}">
                 <button type="submit" class="btn btn-primary">LƯU</button>
                 <button type="button" class="btn btn-secondary">HUỶ</button>
             </form>

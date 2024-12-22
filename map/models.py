@@ -14,6 +14,7 @@ class ReliefLocation(models.Model):
     incident_type = models.CharField(max_length=20, choices=INCIDENT_CHOICES,null=True)
     name = models.CharField(max_length=100)  # Tên vị trí cứu trợ
     mobile = models.CharField(max_length=15, null=True, blank=True)  # Số điện thoại liên hệ
+    residence = models.CharField(max_length=255, null=True, blank=True)  # Nơi cư trú
     latitude = models.FloatField()  # Vĩ độ, lưu trữ tối đa 9 chữ số với 6 số sau dấu ,
     longitude = models.FloatField()  # Kinh độ
     description = models.TextField(blank=True, null=True)  # Mô tả thêm về vị trí cứu trợ

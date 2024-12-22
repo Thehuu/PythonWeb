@@ -15,6 +15,7 @@ def show_map(request):
         {
             'name': loc.name,  # Tên địa điểm
             'mobile': loc.mobile,  # Số điện thoại liên hệ
+            'residence': loc.residence, #nơi cư trú
             'latitude': float(loc.latitude),  # Vĩ độ
             'longitude': float(loc.longitude),  # Kinh độ
             'description': loc.description,  # Mô tả địa điểm
@@ -46,21 +47,13 @@ def show_map(request):
 # Hàm lưu địa điểm cứu trợ vào cơ sở dữ liệu
 def save_location(request):
     if request.method == 'POST':  # Kiểm tra nếu phương thức là POST
-        form = ReliefPointForm(request.POST)  # Lấy dữ liệu từ request và khởi tạo form
+        form = ReliefPointForm(request.POST, request.FILES)  # Lấy dữ liệu từ request và khởi tạo form
         if form.is_valid():  # Kiểm tra tính hợp lệ của form
             form.save()  # Lưu dữ liệu vào cơ sở dữ liệu
-                        # Thêm thông điệp thành công và nút bấm quay trở lại trang chủ, quay trở lại map
-            return JsonResponse({
-                'status': 'success',
-                'message': 'Địa điểm cứu trợ đã được lưu thành công!',
-                'home_url': '/',  # URL trang chủ
-                'map_url': '/map/'  # URL trang bản đồ
-            })
+            # Chuyển hướng đến trang thành công
+            return render(request, 'map/success.html')
         else:
-
-            # Trả về phản hồi lỗi kèm thông tin lỗi từ form
-            return JsonResponse({'status': 'error', 'errors': form.errors})
+            # Chuyển hướng đến trang lỗi với thông tin lỗi từ form
+            return render(request, 'map/error.html', {'errors': form.errors})
     # Trả về phản hồi cho yêu cầu không hợp lệ
-    return JsonResponse({'status': 'invalid request'
-                         
-                         })
+    return render(request, 'map/error.html', {'errors': 'Invalid request'})

@@ -52,8 +52,8 @@ def contact(request):
     return render(request,'pages/contact.html')
 
 #def error_404
-def error_404(request):
-    return render(request, 'pages/error.html')
+def error_404(request, exception):
+    return render(request, 'home/404.html', status=404)
 
 #def path error_500
 def error_500(request):
