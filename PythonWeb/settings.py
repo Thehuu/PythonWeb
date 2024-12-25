@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'map',
+    'home1',
  
 ]
 #Thêm cấu hình cho CKEditor

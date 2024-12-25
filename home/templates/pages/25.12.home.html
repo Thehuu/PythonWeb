@@ -1,0 +1,87 @@
+{% extends "pages/bases.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<body>
+  <div class="spacer"></div>
+  <div class="col-lg-10 custom-col">
+    <div class="content-wrapper">
+      <table class="table table-bordered custom-table">
+        <thead>
+          <tr class="custom-header">
+            <th class="responsive-header">Loại</th>
+            <th class="responsive-header">Số vụ</th>
+            <th class="responsive-header">Chờ duyệt</th>
+            <th class="responsive-header">Đã duyệt</th>
+            {% comment %}
+            <th>Giải quyết</th>
+            {% endcomment %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="table-cell">
+              <a href="{% url 'incidents_list' 'drowning' %}" class="btn btn-primary">Đuối nước</a>
+            </td>
+            <td class="table-cell" style="text-align: center">
+              <a href="{% url 'incidents_list' 'drowning' %}" class="btn btn-info">{{ drowning_incidents_count }}</a>
+            </td>
+            <td class="table-cell" style="text-align: center">
+              <a href="{% url 'incidents_status_list' 'drowning' 'pending' %}" class="btn btn-warning">{{ drowning_incidents_pending }}</a>
+            </td>
+            <td class="table-cell" style="text-align: center">
+              <a href="{% url 'incidents_status_list' 'drowning' 'approved' %}" class="btn btn-success">{{ drowning_incidents_approved }}</a>
+            </td>
+            {% comment %}
+            <td class="table-cell">
+              <a href="{% url 'incidents_status_list' 'drowning' 'rescued' %}" class="btn btn-danger">{{ drowning_incidents_rescued }}</a>
+            </td>
+            {% endcomment %}
+          </tr>
+          <tr>
+            <td class="responsive-cell">
+              <a href="{% url 'incidents_list' 'natural_disaster' %}" class="btn btn-primary">Thiên tai</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_list' 'natural_disaster' %}" class="btn btn-info">{{ natural_disasters_count }}</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_status_list' 'natural_disaster' 'pending' %}" class="btn btn-warning">{{ natural_disasters_pending }}</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_status_list' 'natural_disaster' 'approved' %}" class="btn btn-success">{{ natural_disasters_approved }}</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="responsive-cell">
+              <a href="{% url 'incidents_list' 'traffic_accident' %}" class="btn btn-primary">TNGT</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_list' 'traffic_accident' %}" class="btn btn-info">{{ traffic_accidents_count }}</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_status_list' 'traffic_accident' 'pending' %}" class="btn btn-warning">{{ traffic_accidents_pending }}</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_status_list' 'traffic_accident' 'approved' %}" class="btn btn-success">{{ traffic_accidents_approved }}</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="responsive-cell">
+              <a href="{% url 'incidents_list' 'fire' %}" class="btn btn-primary">Cháy</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_list' 'fire' %}" class="btn btn-info">{{ fire_incidents_count }}</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_status_list' 'fire' 'pending' %}" class="btn btn-warning">{{ fire_incidents_pending }}</a>
+            </td>
+            <td class="responsive-cell text-center">
+              <a href="{% url 'incidents_status_list' 'fire' 'approved' %}" class="btn btn-success">{{ fire_incidents_approved }}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+{% endblock content %}
