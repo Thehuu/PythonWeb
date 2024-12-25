@@ -30,7 +30,7 @@ urlpatterns = [
     path("blog/",include("blog.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path("map/",include("map.urls")),
-    path("home1/",include("home1.urls")),
+    # path("home1/",include("home1.urls")),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
