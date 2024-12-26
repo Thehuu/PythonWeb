@@ -8,180 +8,227 @@
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}" />
-  <style>
-    body {
-      background-image: url("{% static 'images/back_ground.jpg' %}");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-  </style>
+    <style>
+      {% comment %} CStrangn bộ trang {% endcomment %}
+      body {
+        background-image: url("{% static 'images/babe.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: "Arial", sans-serif;
+        color: #333;
+      }
+
+      {% comment %} Thanh điều hướng {% endcomment %}
+      nav {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+        font-weight: bold;
+        padding: 8px 16px;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        background-color: #fff;
+        color: #007bff;
+        border-color: #007bff;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+      }
+
+      .nav-link.logout {
+        background: linear-gradient(45deg, #ff5f6d, #ffc371);
+        color: white;
+        border: none;
+      }
+
+      .nav-link.logout:hover {
+        background: linear-gradient(45deg, #ffc371, #ff5f6d);
+        box-shadow: 0 4px 10px rgba(255, 95, 109, 0.4);
+        transform: scale(1.05);
+      }
+
+      .navbar-toggler {
+        border-color: #fff;
+      }
+
+      .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+      .tm-hero {
+        text-align: center;
+        color: #fff;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        margin: 20px;
+      }
+
+      .tm-hero h2 {
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      .tm-gallery img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .tm-gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .tm-footer {
+        background-color: #f8f9fa;
+        color: #6c757d;
+      }
+
+      .tm-footer-links a {
+        text-decoration: none;
+        color: #007bff;
+      }
+
+      .tm-footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      {% comment %} Tối ưu hiển thị trên điện thoại {% endcomment %}
+      @media (max-width: 768px) {
+        .nav-item {
+          text-align: center;
+          margin: 8px 0;
+        }
+
+        .nav-link {
+          font-size: 14px;
+          padding: 1px;
+          border: 1px solid;
+          color: #000;
+        }
+
+        .navbar-collapse {
+          background-color: ;
+        }
+
+        .tm-hero {
+          margin: 10px;
+          padding: 10px;
+        }
+
+        .tm-hero h2 {
+          font-size: 1.2rem;
+        }
+        #navbarNav {
+            position: fixed;
+            top: 0px;
+            left: 80px;
+            background:#007bff00;
+            width: 140px;
+            padding: 1px;
+            border-radius: 5px; /* Bo tròn các góc của navbar */
+
+        }
+    </style>
   </head>
   <body>
-    <!-- Page Loader -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      {% comment %} nút trên màn hình nhỏ, cho phép mở hoặc đóng menu điều hướng. {% endcomment %}
+    <nav class="navbar navbar-expand-lg">
       <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <span class="navbar-text text-white">{{ user.username }}</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'logout' %}">Đăng xuất</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'register' %}">Đăng ký</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'login' %}">Đăng nhập</a>
-        </li>
-        {% endif %}
-      </ul>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="navbar-text text-white">{{ user.username }}</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+          </li>
+          {% endif %}
+        </ul>
       </div>
     </nav>
 
-    <div
-      class="tm-hero d-flex justify-content-center align-items-center"
-      data-parallax="scroll"
-      style="background-image: url('{% static 'images/cnch.jpg' %}'); background-size: cover; background-position: center;height: 3px;">
-      <h2 class="tm-text-primary mb-4 tm-footer-title">
-      <span class="display-6 font-weight-bold text-white text-shadow">Trang khai báo tai nạn, thiên tai tỉnh Bắc Kạn</span>
-      </h2>
+    <div class="tm-hero">
+      <h2>Trang khai báo tai nạn, thiên tai tỉnh Bắc Kạn</h2>
     </div>
 
-    
-    {% comment %} Các nút chức năng trang chủ {% endcomment %}
-    <div class="container-fluid tm-container-content tm-mt-60" style="height: auto;">
-      <div class="row tm-mb-90 tm-gallery">
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-5">
-          <figure class="effect-ming tm-video-item">
+    <div class="container tm-container-content mt-4">
+      <div class="row tm-gallery">
+        <div class="col-6 col-md-3 mb-4">
+          <figure>
             <img
               src="{% static 'images/img-03.jpg' %}"
               alt="Image"
               class="img-fluid w-100"
-                style="object-fit: cover; height: 200px;" class="img-fluid w-100 d-none d-md-block"/>
-            <figcaption
-              class="d-flex align-items-center justify-content-center" >
-              <a href="#"></a>
-            </figcaption>
+            />
           </figure>
-          <div class="d-flex justify-content-between tm-text-gray">
-            <span class="tm-text-gray-light">Báo cáo thống kê</span>
+          <div class="text-center">
+            <span>Khai báo</span>
           </div>
         </div>
-      
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-5">
-          <figure class="effect-ming tm-video-item">
+        <div class="col-6 col-md-3 mb-4">
+          <figure>
             <img
               src="{% static 'images/img-04.jpg' %}"
               alt="Image"
               class="img-fluid w-100"
-              style="object-fit: cover; height: 200px;"/>
-            <figcaption
-              class="d-flex align-items-center justify-content-center"
-            >
-              <a href="map.html"></a>
-            </figcaption>
+            />
           </figure>
-          <div class="d-flex justify-content-between tm-text-gray">
-            <span class="tm-text-gray-light">Đang gặp sự cố</span>
+          <div class="text-center">
+            <span>Đang giải quyết</span>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-5">
-          <figure class="effect-ming tm-video-item">
+        <div class="col-6 col-md-3 mb-4">
+          <figure>
             <img
               src="{% static 'images/img-05.jpg' %}"
               alt="Image"
               class="img-fluid w-100"
-              style="object-fit: cover; height: 200px;"/>
-            <figcaption
-              class="d-flex align-items-center justify-content-center"
-            >
-              <a href="/map/"></a>
-            </figcaption>
+            />
           </figure>
-          <div class="d-flex justify-content-between tm-text-gray">
-            <span class="tm-text-gray-light">Khai báo sự cố</span>
+          <div class="text-center">
+            <span>Thống kê</span>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-5">
-          <figure class="effect-ming tm-video-item">
+        <div class="col-6 col-md-3 mb-4">
+          <figure>
             <img
               src="{% static 'images/img-06.jpg' %}"
               alt="Image"
               class="img-fluid w-100"
-              style="object-fit: cover; height: 200px;"/>
-            <figcaption
-              class="d-flex align-items-center justify-content-center"
-            >
-              <a href="contact.html"></a>
-            </figcaption>
+            />
           </figure>
-          <div class="d-flex justify-content-between tm-text-gray">
-            <span class="tm-text-gray-light">Liên hệ</span>
+          <div class="text-center">
+            <span>Liên hệ</span>
           </div>
         </div>
       </div>
-      <!-- row -->
     </div>
-    <!-- container-fluid, tm-container-content -->
 
-    <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
-      <div class="container-fluid tm-container-small">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
-            <h3 class="tm-text-primary mb-4 tm-footer-title">
-              Thông tin trang Web
-            </h3>
-            <p>
-              Đây là trang miễn phí
-              <a rel="sponsored" href="#"
-                >phục vụ</a
-              >
-              khai báo, tìm kiếm công dân gặp tai nạn, thiên tai trên địa bàn Bắc Kạn
-            </p>
-          </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-            <h3 class="tm-text-primary mb-4 tm-footer-title">Trang liên quan</h3>
-            <ul class="tm-footer-links pl-0">
-              <li><a href="#"><i class="fab fa-internet-explorer"></i> Cổng thông tin</a></li>
-              <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-              <li><a href="#"><i class="fab fa-facebook"></i> Zalo</a></li>
-            </ul>
-            </div>
-
-          <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
-            Designed by
-            <a
-              href="#"
-              class="tm-text-gray"
-              rel="sponsored"
-              target="_parent"
-              >T</a            >
-          </div>
-        </div>
-      </div>
+    <footer class="tm-footer text-center py-3">
+      <p>Designed by T | Bản quyền © 2024</p>
     </footer>
 
     <script src="{% static 'js/plugins.js' %}"></script>
-    <script>
-      $(window).on("load", function () {
-        $("body").addClass("loaded");
-      });
-    </script>
   </body>
 </html>
