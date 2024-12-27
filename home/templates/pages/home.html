@@ -1,249 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-    <style>
-      {% comment %} CStrangn bộ trang {% endcomment %}
-      body {
-        background-image: url("{% static 'images/babe.jpg' %}");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        font-family: "Arial", sans-serif;
-        color: #333;
-      }
+{% extends "pages/bases.html" %}
+{% block title %}Home{% endblock  %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
-      {% comment %} Thanh điều hướng {% endcomment %}
-      nav {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+{% block content  %}
 
-      .nav-link {
-        font-weight: bold;
-        padding: 8px 16px;
-        border: 2px solid transparent;
-        border-radius: 8px;
-        transition: all 0.3s ease-in-out;
-      }
+<div class="tm-hero" style="background: url('{% static 'images/CAND.jpg' %}') no-repeat center center; background-size: cover; display: flex; justify-content: center;">
+  <h2>
+    <strong class="hero-title">
+      Khai báo tai nạn, thiên tai, cháy
+    </strong>
+  </h2>
+</div>
 
-      .nav-link:hover {
-        background-color: #fff;
-        color: #007bff;
-        border-color: #007bff;
-        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
-      }
-
-      .nav-link.logout {
-        background: linear-gradient(45deg, #ff5f6d, #ffc371);
-        color: white;
-        border: none;
-      }
-
-      .nav-link.logout:hover {
-        background: linear-gradient(45deg, #ffc371, #ff5f6d);
-        box-shadow: 0 4px 10px rgba(255, 95, 109, 0.4);
-        transform: scale(1.05);
-      }
-
-      .navbar-toggler {
-        border-color: #fff;
-        background-color: rgb(232, 221, 212);
-
-      }
-
-      .navbar-dark .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-      }
-
-      .tm-hero {
-        text-align: center;
-        color: #fff;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        margin: 20px;
-      }
-
-      .tm-hero h2 {
-        font-size: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-      }
-
-      .tm-gallery img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .tm-gallery img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .tm-footer {
-        background-color: #f8f9fa;
-        color: #6c757d;
-      }
-
-      .tm-footer-links a {
-        text-decoration: none;
-        color: #007bff;
-      }
-
-      .tm-footer-links a:hover {
-        text-decoration: underline;
-      }
-
-      {% comment %} Tối ưu hiển thị trên điện thoại {% endcomment %}
-      @media (max-width: 768px) {
-        .nav-item {
-          text-align: center;
-          margin: 8px 0;
-        }
-
-        .nav-link {
-          font-size: 14px;
-          padding: 1px;
-          border: 1px solid;
-          color: #000;
-        }
-
-        .navbar-collapse {
-          background-color: ;
-        }
-
-        .tm-hero {
-          margin: 10px;
-          padding: 10px;
-        }
-
-        .tm-hero h2 {
-          font-size: 1.2rem;
-        }
-        #navbarNav {
-            position: fixed;
-            top: 0px;
-            left: 80px;
-            background:#007bff00;
-            width: 140px;
-            padding: 1px;
-            border-radius: 5px; /* Bo tròn các góc của navbar */
-
-        }
-        .text-center{
-          color: rgb(218, 105, 12);
-           margin-top: 3px;
-           border: 2px solid rgb(218, 105, 12); 
-           padding: 10px; 
-           border-radius: 8px;
-           background-color: rgb(232, 221, 212);
-
-        }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <span class="navbar-text text-white">{{ user.username }}</span>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
-          </li>
-          {% endif %}
-        </ul>
+<div class="container tm-container-content mt-4">
+  <div class="row">
+    <div class="col-6 col-md-3 mb-4">
+      <a href="/map/">
+        <figure>
+          <img
+        src="{% static 'images/khai_bao.png' %}"
+        alt="Image"
+        class="img-fluid w-100"
+        style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+        onmouseover="this.style.transform='scale(1.1)';"
+        onmouseout="this.style.transform='scale(1)';"
+          />
+        </figure>
+      </a>
+      <div class="text-center">
+        <span>Khai báo</span>
       </div>
-    </nav>
-
-    <div class="tm-hero" style="background: url('{% static 'images/CAND.jpg' %}') no-repeat center center; background-size: cover; display: flex; justify-content: center;">
-      <h2>
-        <strong style="color: rgb(214, 69, 25); margin-top: 3px;border: 2px solid rgb(218, 105, 12); padding: 10px; border-radius: 8px; background-color: rgb(232, 221, 212);; ">
-          Khai báo tai nạn, thiên tai, cháy
-        </strong>
-      </h2>
-    </div>
-
-    <div class="container tm-container-content mt-4">
-      <div class="row tm-gallery">
-        <div class="col-6 col-md-3 mb-4">
-          <figure>
-            <img
-              src="{% static 'images/khai_bao.png' %}"
-              alt="Image"
-              class="img-fluid w-100"
-            />
-          </figure>
-          <div class="text-center">
-            <span>Khai báo</span>
-          </div>
         </div>
         <div class="col-6 col-md-3 mb-4">
-          <figure>
-            <img
-              src="{% static 'images/dang_giai_quyet.jpeg' %}"
-              alt="Image"
-              class="img-fluid w-100"
-            />
-          </figure>
-          <div class="text-center">
-            <span>Cần cứu hộ, cứu nạn</span>
-          </div>
+      <figure>
+        <img
+          src="{% static 'images/dang_giai_quyet.jpeg' %}"
+          alt="Image"
+          class="img-fluid w-100 equal-height rounded-corners"
+          style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+          onmouseover="this.style.transform='scale(1.1)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </figure>
+      <div class="text-center">
+        <span>Điểm cứu hộ, cứu nạn</span>
+      </div>
         </div>
         <div class="col-6 col-md-3 mb-4">
-          <figure>
-            <img
-              src="{% static 'images/thong_ke.jpeg' %}"
-              alt="Image"
-              class="img-fluid w-100"
-            />
-          </figure>
-          <div class="text-center">
-            <span>Thống kê</span>
-          </div>
+      <figure>
+        <img
+          src="{% static 'images/thong_ke.jpeg' %}"
+          alt="Image"
+          class="img-fluid w-100 equal-height rounded-corners"
+          style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+          onmouseover="this.style.transform='scale(1.1)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </figure>
+      <div class="text-center">
+        <span>Thống kê</span>
+      </div>
         </div>
         <div class="col-6 col-md-3 mb-4">
-          <figure>
-            <img
-              src="{% static 'images/lien_he.jpeg' %}"
-              alt="Image"
-              class="img-fluid w-100"
-            />
-          </figure>
-          <div class="text-center">
-            <span>Liên hệ</span>
-          </div>
+      <figure>
+        <img
+          src="{% static 'images/lien_he.jpeg' %}"
+          alt="Image"
+          class="img-fluid w-100 equal-height rounded-corners"
+          style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+          onmouseover="this.style.transform='scale(1.1)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </figure>
+      <div class="text-center">
+        <span>Liên hệ</span>
+      </div>
         </div>
       </div>
-    </div>
+</div>
 
-    <footer class="tm-footer text-center py-3">
-      <p>Designed by T | Năm 2025</p>
-    </footer>
-
-    <script src="{% static 'js/plugins.js' %}"></script>
-  </body>
-</html>
+{% endblock  %}
