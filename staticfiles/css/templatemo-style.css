@@ -649,3 +649,19 @@ select:not([multiple]) {
     }
   }
 
+
+  
+  .tm-gallery img {
+    width: 100px;             /* Chiều rộng cố định cho ảnh */
+    height: 100px;            /* Chiều cao cố định cho ảnh */
+    object-fit: cover;        /* Cắt ảnh để vừa khung */
+    border-radius: 5%;       /* Bo tròn ảnh */
+    border: 2px solid #ccc;   /* Viền nhẹ cho ảnh */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng (tùy chọn) */
+    margin: 0 auto;           /* Căn giữa trong container */
+  }
+  
+  .tm-gallery .col-6 {
+    text-align: center;       /* Căn giữa nội dung trong từng cột */
+  }
+  
