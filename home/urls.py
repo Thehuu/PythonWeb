@@ -9,6 +9,7 @@ from django.urls import reverse_lazy #hàm Django để lấy URL của view d�
 urlpatterns = [
     path("", views.index, name='index'),# Đặt tên để tham chiếu URL bằng {% url 'index' %}
     path("contact/", views.contact, name='contact'),
+    path("statistic/", views.statistic, name='statistic'),
     path("register/", views.register, name='register'),
     #LoginView.as_view() view class mặc định xử lý login, gồm các logic cần thiết, giảm việc tự viết code
     path('login/', LoginView.as_view(template_name='pages/login.html', success_url=reverse_lazy('index')), name='login'),
