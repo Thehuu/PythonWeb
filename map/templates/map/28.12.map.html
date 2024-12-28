@@ -15,8 +15,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-
 
     <!-- Google Maps API -->
     <script loading="async" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
@@ -44,11 +42,7 @@
             // Khởi tạo bản đồ
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 22.1261475, lng: 105.8329401 },
-                zoom: 11,
-                mapTypeControl: false, // Loại bỏ nút Map/Satellite
-                streetViewControl: false, // Loại bỏ hình người (Street View)
-                zoomControl: false, // Loại bỏ nút phóng to/thu nhỏ
-                fullscreenControl: false, // Loại bỏ nút toàn màn hình
+                zoom: 11
             });
 
             // Lấy danh sách các địa điểm từ server
@@ -210,11 +204,12 @@
         });
     </script>
 </head>
-<body onload="initMap()" style="top: 4px;">
+<body onload="initMap()">
     <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="height: 20px"> -->
-        <!-- <a class="navbar-brand" href="#">Bản đồ</a> -->
-    <a class="text-center" style="top: 8px;" href="#">Trang chủ</a>
-    <a class="text-center" style="top: 8px;" href="#">Liên hệ</a>
+        <a class="navbar-brand" href="#">Bản đồ</a>
+        <a class="navbar-brand" href="#">Bản đồ</a>
+        <a class="navbar-brand" href="#">Bản đồ</a>
+
 
     <div class="container-map">
         <div class="map-container">

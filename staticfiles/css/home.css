@@ -210,3 +210,33 @@ nav {
 a.tm-text-primary:hover {
     color: #666666;
 }
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hoverEffect {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05); /* Phóng to nhẹ */
+  }
+}
+
+/* Áp dụng hiệu ứng fadeIn khi tải trang */
+.tm-hero {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Áp dụng hiệu ứng hover cho nền */
+.tm-hero:hover {
+  animation: hoverEffect 0.3s forwards;
+  cursor: pointer; /* Tùy chọn: Hiển thị con trỏ */
+}
