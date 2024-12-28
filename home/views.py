@@ -8,44 +8,44 @@ from map.models import ReliefLocation
 # def trang chủ
 def index(request):
     # Render dữ liệu từ database vào trang chủ
-    traffic_accidents_count = ReliefLocation.objects.filter(incident_type='traffic_accident').count()                        
-    traffic_accidents_pending = ReliefLocation.objects.filter(incident_type='traffic_accident', status='pending').count()
-    traffic_accidents_approved = ReliefLocation.objects.filter(incident_type='traffic_accident', status='approved').count()
-    traffic_accidents_rescued = ReliefLocation.objects.filter(incident_type='traffic_accident', status='rescued').count()
+    # traffic_accidents_count = ReliefLocation.objects.filter(incident_type='traffic_accident').count()                        
+    # traffic_accidents_pending = ReliefLocation.objects.filter(incident_type='traffic_accident', status='pending').count()
+    # traffic_accidents_approved = ReliefLocation.objects.filter(incident_type='traffic_accident', status='approved').count()
+    # traffic_accidents_rescued = ReliefLocation.objects.filter(incident_type='traffic_accident', status='rescued').count()
 
-    drowning_incidents_count = ReliefLocation.objects.filter(incident_type='drowning').count()
-    drowning_incidents_pending = ReliefLocation.objects.filter(incident_type='drowning', status='pending').count()
-    drowning_incidents_approved = ReliefLocation.objects.filter(incident_type='drowning', status='approved').count()
-    drowning_incidents_rescued = ReliefLocation.objects.filter(incident_type='drowning', status='rescued').count()
+    # drowning_incidents_count = ReliefLocation.objects.filter(incident_type='drowning').count()
+    # drowning_incidents_pending = ReliefLocation.objects.filter(incident_type='drowning', status='pending').count()
+    # drowning_incidents_approved = ReliefLocation.objects.filter(incident_type='drowning', status='approved').count()
+    # drowning_incidents_rescued = ReliefLocation.objects.filter(incident_type='drowning', status='rescued').count()
 
-    fire_incidents_count = ReliefLocation.objects.filter(incident_type='fire').count()
-    fire_incidents_pending = ReliefLocation.objects.filter(incident_type='fire', status='pending').count()
-    fire_incidents_approved = ReliefLocation.objects.filter(incident_type='fire', status='approved').count()
-    fire_incidents_rescued = ReliefLocation.objects.filter(incident_type='fire', status='rescued').count()
+    # fire_incidents_count = ReliefLocation.objects.filter(incident_type='fire').count()
+    # fire_incidents_pending = ReliefLocation.objects.filter(incident_type='fire', status='pending').count()
+    # fire_incidents_approved = ReliefLocation.objects.filter(incident_type='fire', status='approved').count()
+    # fire_incidents_rescued = ReliefLocation.objects.filter(incident_type='fire', status='rescued').count()
 
-    natural_disasters_count = ReliefLocation.objects.filter(incident_type='natural_disaster').count()
-    natural_disasters_pending = ReliefLocation.objects.filter(incident_type='natural_disaster', status='pending').count()
-    natural_disasters_approved = ReliefLocation.objects.filter(incident_type='natural_disaster', status='approved').count()
-    natural_disasters_rescued = ReliefLocation.objects.filter(incident_type='natural_disaster', status='rescued').count()
-    context = {
-        'traffic_accidents_count': traffic_accidents_count,
-        'traffic_accidents_pending': traffic_accidents_pending,
-        'traffic_accidents_approved': traffic_accidents_approved,
-        'traffic_accidents_rescued': traffic_accidents_rescued,
-        'drowning_incidents_count': drowning_incidents_count,
-        'drowning_incidents_pending': drowning_incidents_pending,
-        'drowning_incidents_approved': drowning_incidents_approved,
-        'drowning_incidents_rescued': drowning_incidents_rescued,
-        'fire_incidents_count': fire_incidents_count,
-        'fire_incidents_pending': fire_incidents_pending,
-        'fire_incidents_approved': fire_incidents_approved,
-        'fire_incidents_rescued': fire_incidents_rescued,
-        'natural_disasters_count': natural_disasters_count,
-        'natural_disasters_pending': natural_disasters_pending,
-        'natural_disasters_approved': natural_disasters_approved,
-        'natural_disasters_rescued': natural_disasters_rescued,
-    }
-    return render(request,'pages/home.html',context)
+    # natural_disasters_count = ReliefLocation.objects.filter(incident_type='natural_disaster').count()
+    # natural_disasters_pending = ReliefLocation.objects.filter(incident_type='natural_disaster', status='pending').count()
+    # natural_disasters_approved = ReliefLocation.objects.filter(incident_type='natural_disaster', status='approved').count()
+    # natural_disasters_rescued = ReliefLocation.objects.filter(incident_type='natural_disaster', status='rescued').count()
+    # context = {
+    #     'traffic_accidents_count': traffic_accidents_count,
+    #     'traffic_accidents_pending': traffic_accidents_pending,
+    #     'traffic_accidents_approved': traffic_accidents_approved,
+    #     'traffic_accidents_rescued': traffic_accidents_rescued,
+    #     'drowning_incidents_count': drowning_incidents_count,
+    #     'drowning_incidents_pending': drowning_incidents_pending,
+    #     'drowning_incidents_approved': drowning_incidents_approved,
+    #     'drowning_incidents_rescued': drowning_incidents_rescued,
+    #     'fire_incidents_count': fire_incidents_count,
+    #     'fire_incidents_pending': fire_incidents_pending,
+    #     'fire_incidents_approved': fire_incidents_approved,
+    #     'fire_incidents_rescued': fire_incidents_rescued,
+    #     'natural_disasters_count': natural_disasters_count,
+    #     'natural_disasters_pending': natural_disasters_pending,
+    #     'natural_disasters_approved': natural_disasters_approved,
+    #     'natural_disasters_rescued': natural_disasters_rescued,
+    # }
+    return render(request,'pages/home.html')
 
 # def contact
 def contact(request):
@@ -77,7 +77,7 @@ def incidents_list(request, incident_type, status=None):
     return render(request, 'pages/incidents_list.html', {'incidents': incidents, 'status': status, 'incident_type': incident_type})
 
 def statistic(request):
-    # Render dữ liệu từ database vào trang chủ
+    # Render dữ liệu từ database vào vào statistic.html
     traffic_accidents_count = ReliefLocation.objects.filter(incident_type='traffic_accident').count()                        
     traffic_accidents_pending = ReliefLocation.objects.filter(incident_type='traffic_accident', status='pending').count()
     traffic_accidents_approved = ReliefLocation.objects.filter(incident_type='traffic_accident', status='approved').count()
@@ -97,6 +97,10 @@ def statistic(request):
     natural_disasters_pending = ReliefLocation.objects.filter(incident_type='natural_disaster', status='pending').count()
     natural_disasters_approved = ReliefLocation.objects.filter(incident_type='natural_disaster', status='approved').count()
     natural_disasters_rescued = ReliefLocation.objects.filter(incident_type='natural_disaster', status='rescued').count()
+
+    # Lấy danh sách sự kiện, sắp xếp theo thời gian giảm dần
+    incidents = ReliefLocation.objects.order_by('-created_at')
+
     context = {
         'traffic_accidents_count': traffic_accidents_count,
         'traffic_accidents_pending': traffic_accidents_pending,
