@@ -4,7 +4,6 @@
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bases.css' %}" />
@@ -15,6 +14,39 @@
       background-size: cover;
     }
   </style>
+  <body>
+    <!-- <nav class="navbar navbar-expand-lg">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="navbar-text text-white">{{ user.username }}</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav> -->
     {% block content %}
 
 
@@ -24,6 +56,6 @@
       <p>Designed by T | 2025</p>
     </footer>
 
-    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- <script src="{% static 'js/plugins.js' %}"></script> -->
   </body>
 </html>

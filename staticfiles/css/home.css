@@ -44,23 +44,26 @@ nav {
 .navbar-toggler {
     border-color: #fff;
     background-color: rgb(232, 221, 212);
+
 }
 
-.navbar-dark .navbar-toggler-icon {
+/* .navbar-dark .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
+} */
 
 /* Phần Hero */
 .tm-hero {
-    min-height: 310px;
+    width: auto; /* Tự động điều chỉnh theo nội dung */
+    height: auto; /* Tự động điều chỉnh theo chiều cao nội dung */
+    /* min-height: flex; */
     background: transparent;
     margin-top: 30px;
     text-align: center;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    margin: 20px;
+    margin: 10px;
 }
 
 .tm-hero h2 {
@@ -69,6 +72,8 @@ nav {
 }
 
 .hero-title {
+    width: fit-content; /* Chiều rộng vừa đủ cho nội dung */
+    height: fit-content; /* Chiều cao vừa đủ cho nội dung */
     color: rgb(214, 69, 25);
     margin-top: 3px;
     border: 2px solid rgb(218, 105, 12);
@@ -142,7 +147,7 @@ nav {
     }
 
     #navbarNav {
-        position: fixed;
+        /* position: fixed; */
         top: 0px;
         left: 80px;
         background: #007bff00;
@@ -240,3 +245,13 @@ a.tm-text-primary:hover {
   animation: hoverEffect 0.3s forwards;
   cursor: pointer; /* Tùy chọn: Hiển thị con trỏ */
 }
+
+@keyframes zoomInOut {
+    0%, 100% {
+      transform: scale(1); /* Kích thước gốc */
+    }
+    50% {
+      transform: scale(1.2); /* Tăng kích thước lên 1.2 lần */
+    }
+  }
+  

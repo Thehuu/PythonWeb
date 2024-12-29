@@ -130,6 +130,7 @@ nav {
     }
 
     #navbarNav {
+        margin-left: 10px !important;
         position: fixed;
         top: 0px;
         left: 80px;

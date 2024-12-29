@@ -1,7 +1,7 @@
 /* Cấu hình chung cho trang */
 body {
-    background-color: #1a1a2e;
-    color: #fff;
+    /* background-color: #1a1a2e; */
+    /* color: #fff; */
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -32,10 +32,11 @@ h1 {
     height: auto;
     margin: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: auto;
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
+    /* padding: auto; */
     position: relative;
+    top: 10px;
 }
 
 /* Kiểm soát kích thước form */
