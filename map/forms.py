@@ -10,20 +10,32 @@ class ReliefPointForm(forms.ModelForm):
         model = ReliefLocation
         fields = ['incident_type', 'name', 'mobile', 'latitude', 'longitude', 'description', 'image', 'residence']
         widgets = {
-            'incident_type': forms.Select(attrs={'class': 'form-control'}),
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'mobile': forms.TextInput(attrs={'class': 'form-control'}),
-            #'latitude': forms.TextInput(attrs={'class': 'form-control'}),
-            #'longitude': forms.TextInput(attrs={'class': 'form-control'}),
-            'residence':forms.Textarea(attrs={'class': 'form-control','rows': 1}),
-            'description': forms.Textarea(attrs={'class': 'form-control','rows': 1}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'incident_type': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Chọn loại sự cố'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập họ tên'}),
+            'mobile': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập số điện thoại'}),
+            # 'latitude': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập vĩ độ'}),
+            # 'longitude': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập kinh độ'}),
+            'residence': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 1,
+                'placeholder': 'Nhập nơi cư trú'
+            }),
+            'description': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 1.5,
+                'placeholder': 'Nhập ghi chú'
+            }),
+            'image': forms.ClearableFileInput(attrs={
+                'class': 'form-control',
+                
+                }),
         }
+
         labels = {
-            'incident_type': 'Lựa chọn khai báo',
-            'name': 'Họ tên',
-            'mobile': 'Điện thoại',
-            'residence': 'Nơi cư trú',
-            'description' : "Ghi chú",
-            'image': 'Hình ảnh',
+            # 'incident_type': 'Lựa chọn khai báo',
+            # 'name': 'Họ tên',
+            # 'mobile': 'Điện thoại',
+            # 'residence': 'Nơi cư trú',
+            # 'description' : "Ghi chú",
+            'image': 'Đính kèm ảnh',
         }

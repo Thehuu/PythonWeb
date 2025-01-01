@@ -11,29 +11,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/home.css' %}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-
     <!-- Google Maps API -->
     <script loading="async" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
-
-    <style>
-        .toggle-button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .toggle-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-
     <script>
         let map, markers = [], autocomplete, selectedPlace, currentLocationMarker;
 
@@ -194,8 +175,8 @@
                 if (formContainer.style.display === "none") {
                     formContainer.style.display = "block";
                     toggleButton.style.display = "none";
-                    document.querySelector('.map-container').style.width = '35%';
-                    document.querySelector('.form-container').style.width = '65%';
+                    document.querySelector('.map-container').style.width = '50%';
+                    document.querySelector('.form-container').style.width = '50%';
                 }
             });
 
@@ -215,36 +196,48 @@
             <i class="fas fa-arrow-left"></i>
         </a>
      </nav>
+     
     <div class="container-map">
         <div class="map-container">
             <div id="map"></div>
-            <button class="toggle-button" id="toggle-form-btn" style="top: 6.5px; border-radius: 15px;">KHAI BÁO</button>
-            <button style="margin-top: 25px;left: 11px;" class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button>
+            <button class="toggle-button" id="toggle-form-btn" style="top:0px; border-radius: 15px;margin: 0px;">KHAI BÁO</button>
+            <button style="margin-top: 0px;left: 11px;" class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button>
             <!-- <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí..." /> -->
         </div>
         <div class="form-container" id="form-container">
             <form method="post" action="{% url 'save_location' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group" style="color: white;">
-                    {{ form.incident_type.label_tag }} {{ form.incident_type }}
+                    <!-- {{ form.incident_type.label_tag }}  -->
+                    {{ form.incident_type }}
                 </div>
                 <div class="form-group" style="color: white;">
-                    {{ form.name.label_tag }} {{ form.name }}
+                    <!-- {{ form.name.label_tag }}  -->
+                    {{ form.name }}
+                    <span class="hint" data-hint="Nhập họ tên">Họ và tên</span>
                 </div>
                 <div class="form-group" style="color: white;">
-                    {{ form.mobile.label_tag }} {{ form.mobile }}
+                    <!-- {{ form.mobile.label_tag }}  -->
+                    {{ form.mobile }}
+                    <span class="hint" data-hint="Nhập số điện thoại">Số điện thoại</span>
                 </div>
                 <div class="form-group" style="color: white;">
-                    {{ form.residence.label_tag }} {{ form.residence }}
+                    <!-- {{ form.residence.label_tag }}  -->
+                    {{ form.residence }}
+                    <span class="hint" data-hint="Nhập nơi cư trú">Nơi cư trú</span>
+                </div>
+                <div class="form-group" style="color: white;">
+                    <!-- {{ form.description.label_tag }} -->
+                     {{ form.description }}
+                <span class="hint" data-hint="Ghi chú">Mô tả thêm</span>
+
                 </div>
                 <div class="form-group" style="color: white;">
                     <label>Nơi xảy ra: Ấn "Vị trí hiện tại"</label>
                 </div>
+
                 <div class="form-group" style="color: white;">
-                    {{ form.description.label_tag }} {{ form.description }}
-                </div>
-                <div class="form-group" style="color: white;">
-                    {{ form.image.label_tag }} {{ form.image }}
+                {{ form.image.label_tag }} {{ form.image }}
                 </div>
                 <input type="hidden" name="latitude" id="id_latitude" value="{{ form.latitude.value }}">
                 <input type="hidden" name="longitude" id="id_longitude" value="{{ form.longitude.value }}">

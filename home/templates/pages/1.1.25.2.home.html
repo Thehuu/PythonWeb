@@ -5,21 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <style>
+      body {
+        background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
+        background-size: cover;
+      }
+    </style>
 </head>
-<style> 
-   body {
-    background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
-    background-size: cover;
-   }
 
-</style>
 
-<body >
+<body>
   <!-- Nút đăng nhập, đăng ký -->
-  <nav class="navbar navbar-expand-lg custom-navbar">
+  <nav class="navbar navbar-expand-lg" style="height: auto ;width: auto; margin: 10px; border-radius: 10px;
+">
     <button
       class="navbar-toggler"
       type="button"
@@ -28,6 +30,7 @@
       aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      style="margin-left: 9px;"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -54,14 +57,16 @@
 
   <!-- Ảnh CAND -->
   <h4 class="hero-title">
-    <strong> Khai báo tai nạn, thiên tai, cháy </strong>
+    <strong >
+      Khai báo tai nạn, thiên tai, cháy
+    </strong>
   </h4>
 
-  <div class="tm-hero" style="background-image: url('{% static 'images/CAND.jpg' %}');"></div>
-  
+  <div class="tm-hero" style="background: url('{% static 'images/CAND.jpg' %}') no-repeat center center; background-size: cover;">
+  </div>
 
   <!-- 4 nút chức năng -->
-  <div class="container tm-container-content mt-4">
+  <div class="container tm-container-content mt-4" style="height: 50%;">
     <div class="row">
       <div class="col-6 col-md-3 mb-4">
         <a href="/map/">
@@ -69,7 +74,10 @@
             <img
               src="{% static 'images/khai_bao.png' %}"
               alt="Image"
-              class="img-fluid custom-img"
+              class="img-fluid w-100"
+              style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+              onmouseover="this.style.transform='scale(1.2)';"
+              onmouseout="this.style.transform='scale(1)';"
             />
           </figure>
         </a>
@@ -83,7 +91,10 @@
             <img
               src="{% static 'images/dang_giai_quyet.jpeg' %}"
               alt="Image"
-              class="img-fluid custom-img"
+              class="img-fluid w-100"
+              style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+              onmouseover="this.style.transform='scale(1.2)';"
+              onmouseout="this.style.transform='scale(1)';"
             />
           </figure>
         </a>
@@ -97,7 +108,10 @@
             <img
               src="{% static 'images/thong_ke.jpeg' %}"
               alt="Image"
-              class="img-fluid custom-img"
+              class="img-fluid w-100"
+              style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+              onmouseover="this.style.transform='scale(1.2)';"
+              onmouseout="this.style.transform='scale(1)';"
             />
           </figure>
         </a>
@@ -111,7 +125,10 @@
             <img
               src="{% static 'images/lien_he.jpeg' %}"
               alt="Image"
-              class="img-fluid custom-img"
+              class="img-fluid w-100"
+              style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+              onmouseover="this.style.transform='scale(1.2)';"
+              onmouseout="this.style.transform='scale(1)';"
             />
           </figure>
         </a>
@@ -121,9 +138,8 @@
       </div>
     </div>
   </div>
-
-  <footer class="tm-footer cuser">
-    <p>Designed by T | 2025</p>
-  </footer>
+  <footer class="tm-footer">
+    <p style="justify-content: center;">Designed by T | 2025</p>
+  </footer>  
 </body>
 </html>

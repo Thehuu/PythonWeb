@@ -1,0 +1,121 @@
+{% extends "pages/bases.html" %}
+{% block title %}Home{% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+{% block content %}
+<nav class="navbar navbar-expand-lg">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    style="margin-left: 9px;"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <span class="navbar-text text-white">{{ user.username }}</span>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+<div class="tm-hero" 
+  style="background: url('{% static 'images/CAND.jpg' %}') no-repeat center center; background-size: cover;">
+  <h4  style="width:100%;">
+    <strong class="hero-title" style="width:100%;">
+      Khai báo tai nạn, thiên tai, cháy
+    </strong>
+  </h4>
+</div>
+
+<div class="container tm-container-content mt-4">
+  <div class="row">
+    <div class="col-6 col-md-3 mb-4">
+      <a href="/map/">
+        <figure>
+          <img
+            src="{% static 'images/khai_bao.png' %}"
+            alt="Image"
+            class="img-fluid w-100"
+            style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+        </figure>
+      </a>
+      <div class="text-center">
+        <span>Khai báo</span>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 mb-4">
+      <a href="/map/">
+        <figure>
+          <img
+            src="{% static 'images/dang_giai_quyet.jpeg' %}"
+            alt="Image"
+            class="img-fluid w-100"
+            style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+        </figure>
+      </a>
+      <div class="text-center">
+        <span>Điểm CNCH</span>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 mb-4">
+      <a href="/statistic/">
+        <figure>
+          <img
+            src="{% static 'images/thong_ke.jpeg' %}"
+            alt="Image"
+            class="img-fluid w-100"
+            style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+        </figure>
+      </a>
+      <div class="text-center">
+        <span>Thống kê</span>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 mb-4">
+      <a href="/contact/">
+        <figure>
+          <img
+            src="{% static 'images/lien_he.jpeg' %}"
+            alt="Image"
+            class="img-fluid w-100"
+            style="height: 160px; border-radius: 10px; transition: transform 0.3s;"
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+        </figure>
+      </a>
+      <div class="text-center">
+        <span>Liên hệ</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

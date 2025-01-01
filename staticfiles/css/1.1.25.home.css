@@ -1,0 +1,267 @@
+/* Các kiểu chung */
+{% load static %}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Arial", sans-serif;
+    color: #333;
+}
+
+/* Kiểu cho Navbar */
+nav {
+    /* margin: 10px; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    /* background-color: #fff; */
+    color: #007bff;
+    border-color: #007bff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.nav-link.logout {
+    background: linear-gradient(45deg, #ff5f6d, #ffc371);
+    color: white;
+    border: none;
+}
+
+.nav-link.logout:hover {
+    background: linear-gradient(45deg, #ffc371, #ff5f6d);
+    box-shadow: 0 4px 10px rgba(255, 95, 109, 0.4);
+    transform: scale(1.05);
+}
+
+.navbar-toggler {
+    border-color: #fff;
+    /* background-color: rgb(232, 221, 212); */
+
+}
+
+
+.hero-title {
+    top: 10px;
+    /* width: 100%; */
+    height: 50px;
+    margin: 10px;
+    display: flex;      /* Kích hoạt Flexbox */
+    align-items: center; /* Căn giữa dọc */
+    justify-content: center; /* Căn giữa ngang (cho flex) */
+    font-size: clamp(16px, 5vw, 24px);  /* Kích thước chữ linh hoạt nhưng không vượt quá 24px */
+    font-weight: bold; /* Tô đậm */
+    line-height: 1.5; /* Tăng khoảng cách dòng (nếu cần) */
+    color: rgb(214, 69, 25);
+    border-radius: 10px;
+    background-color: rgb(232, 221, 212);
+}
+
+
+
+.tm-hero {
+    width: auto; /* Tự động điều chỉnh theo nội dung */
+    height: 150px; 
+    /* Tự động điều chỉnh theo chiều cao nội dung */ */
+    /* min-height: flex; */
+    /* background: transparent; */
+    /* margin-top: 20px; */
+    text-align: center;
+    color: #fff;
+    /* padding: 10px; */
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+
+
+
+/* Phần Gallery */
+.tm-gallery img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 160px;
+
+}
+
+.tm-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Đảm bảo chiều cao các ảnh bằng nhau và bo góc */
+.equal-height {
+  height: 200px !important; /* Bạn có thể điều chỉnh chiều cao theo ý muốn */
+  object-fit: cover;
+}
+
+.rounded-corners {
+  border-radius: 10px !important; /* Bạn có thể điều chỉnh độ bo góc theo ý muốn */
+}
+
+/* Phần Footer */
+.tm-footer {
+    height: 50px;
+    display: flex;      /* Kích hoạt Flexbox  để dễ căn giữa*/
+    align-items: center; /* Căn giữa dọc */
+    justify-content: center; /* Căn giữa ngang (cho flex) */
+    background-color: rgb(232, 221, 212);
+    color: rgb(218, 105, 12);
+    margin: 10px;  /* margin như này để đều khoảng cách */
+    border-radius: 10px !important; /* Bạn có thể điều chỉnh độ bo góc theo ý muốn */
+
+}
+
+.tm-footer-links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.tm-footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Kiểu Responsive */
+@media (max-width: 768px) {
+    .nav-item {
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 1px;
+        border: 1px solid;
+        color: #000;
+    }
+
+    .navbar-collapse {
+        background-color: ;
+    }
+
+    .tm-hero {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .tm-hero h2 {
+        font-size: 1.2rem;
+    }
+
+    #navbarNav {
+        /* position: fixed; */
+        top: 0px;
+        left: 80px;
+        background: #007bff00;
+        width: 140px;
+        padding: 1px;
+        border-radius: 5px;
+    }
+
+    .text-center {
+        color: rgb(218, 105, 12);
+        margin-top: 3px;
+        /* border: 2px solid rgb(218, 105, 12); */
+        /* padding: 10px; */
+        border-radius: 10px;
+        background-color: rgb(232, 221, 212);
+    }
+}
+
+/* Các lớp tiện ích */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.tm-btn-big {
+    padding: 12px 90px 14px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-brand {
+    color: #3399CC;
+    font-size: 1.6rem;
+}
+
+.navbar-brand i {
+    font-size: 2rem;
+}
+
+.tm-mt-60 {
+    margin-top: 60px;
+}
+
+.tm-mb-50 {
+    margin-bottom: 50px;
+}
+
+.tm-mb-74 {
+    margin-bottom: 74px;
+}
+
+.tm-mb-90 {
+    margin-bottom: 90px;
+}
+
+.tm-text-primary {
+    color: #009999;
+}
+
+.tm-text-secondary {
+    color: #CC6699;
+}
+
+a.tm-text-primary:hover {
+    color: #666666;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hoverEffect {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05); /* Phóng to nhẹ */
+  }
+}
+
+/* Áp dụng hiệu ứng fadeIn khi tải trang */
+.tm-hero {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Áp dụng hiệu ứng hover cho nền */
+.tm-hero:hover {
+  animation: hoverEffect 0.3s forwards;
+  cursor: pointer; /* Tùy chọn: Hiển thị con trỏ */
+}
+
+@keyframes zoomInOut {
+    0%, 100% {
+      transform: scale(1); /* Kích thước gốc */
+    }
+    50% {
+      transform: scale(1.2); /* Tăng kích thước lên 1.2 lần */
+    }
+  }
+  
