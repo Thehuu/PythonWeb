@@ -17,12 +17,12 @@ class ReliefPointForm(forms.ModelForm):
             # 'longitude': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập kinh độ'}),
             'residence': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 1,
+                'rows': 2,
                 'placeholder': 'Nhập nơi cư trú'
             }),
             'description': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 1.5,
+                'rows': 2,
                 'placeholder': 'Nhập ghi chú'
             }),
             'image': forms.ClearableFileInput(attrs={
