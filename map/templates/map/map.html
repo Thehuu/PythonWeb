@@ -21,15 +21,44 @@
         function initMap() {
             // Khởi tạo bản đồ
             map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 22.1261475, lng: 105.8329401 },
-                zoom: 11,
-                mapTypeControl: false, // Loại bỏ nút Map/Satellite
-                streetViewControl: false, // Loại bỏ hình người (Street View)
-                zoomControl: false, // Loại bỏ nút phóng to/thu nhỏ
-                fullscreenControl: false, // Loại bỏ nút toàn màn hình
+            center: { lat: 22.1261475, lng: 105.8329401 },
+            zoom: 9.6,
+            mapTypeControl: false, // Loại bỏ nút Map/Satellite
+            streetViewControl: false, // Loại bỏ hình người (Street View)
+            zoomControl: false, // Loại bỏ nút phóng to/thu nhỏ
+            fullscreenControl: false, // Loại bỏ nút toàn màn hình
             });
 
-            // Lấy danh sách các địa điểm từ server
+            // Thêm tên các huyện lên bản đồ với màu sắc khác nhau
+            const districts = [
+                { name: 'Ba Bể', lat: 22.4099, lng: 105.7200, color: 'blue' },
+                { name: 'Bạch Thông', lat: 22.2461, lng: 105.8329, color: 'blue' },
+                { name: 'Chợ Đồn', lat: 22.1456, lng: 105.5852, color: 'blue' },
+                { name: 'Chợ Mới', lat: 21.9784, lng: 105.8487, color: 'blue' },
+                { name: 'Na Rì', lat: 22.2633, lng: 106.1145, color: 'blue' },
+                { name: 'Ngân Sơn', lat: 22.4928, lng: 105.9475, color: 'blue' },
+                { name: 'Pác Nặm', lat: 22.5863, lng: 105.6655, color: 'blue' },
+            ];
+
+            districts.forEach(district => {
+                const marker = new google.maps.Marker({
+                    position: { lat: district.lat, lng: district.lng },
+                    map: map,
+                    label: {
+                        text: district.name,
+                        color: district.color,
+                        fontSize: '16px',
+                        fontWeight: 'bold'
+                    },
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 0
+                    }
+                });
+            });
+
+
+        // Lấy danh sách các địa điểm từ server
             const locations = {{ locations|safe }};
             const icons = {
                 'fire': '{% static "images/fire_icon.png" %}',
@@ -186,7 +215,18 @@
                 document.querySelector('.map-container').style.width = '100%';
             });
         });
+
     </script>
+
+    <!-- nút SOS -->
+
+    <script>
+        function toggleSOSMenu() {
+            const menu = document.getElementById('sosMenu');
+            menu.classList.toggle('show');
+        }
+    </script>
+
 </head>
 <body onload="initMap()">
    
@@ -252,14 +292,36 @@
         </div>
     </div>
 
-    <!-- Nút lấy vị trí hiện tại -->
-    <div>
-    <button class="toggle-button  btn" onclick="getCurrentLocation()">VỊ TRÍ HIỆN TẠI</button>
-    <!-- <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí..." /> -->
+    <!-- Nút lấy vị trí hiện tại và SOS-->
+<!-- Khi click vào thì các thông tin trên marker sẽ hiện ra -->
+<!-- tuy nhiên nếu không có thì không hiện (bây giờ đang vẫn hiện cái khác) -->
+    <div class="action-container">
+        <div class="sos-menu" id="sosMenu">
+            <!-- <button onclick="filterMarkers('drowning')" class="sos-item">Đuối Nước</button>
+            <button onclick="filterMarkers('natural_disaster')" class="sos-item">Thiên Tai</button>
+            <button onclick="filterMarkers('traffic_accident')" class="sos-item">TNGT</button>
+            <button onclick="filterMarkers('fire')" class="sos-item">Cháy</button>
+        </div> -->
+            <button onclick="showAllMarkersInfo('drowning')" class="sos-item">Đuối Nước</button>
+            <button onclick="showAllMarkersInfo('natural_disaster')" class="sos-item">Thiên Tai</button>
+            <button onclick="showAllMarkersInfo('traffic_accident')" class="sos-item">TNGT</button>
+            <button onclick="showAllMarkersInfo('fire')" class="sos-item">Cháy</button>
+        </div>
+        <script>
+            function showAllMarkersInfo(type) {
+                markers.forEach(marker => {
+                    if (marker.icon.url.includes(type)) {
+                        google.maps.event.trigger(marker, 'click');
+                    }
+                });
+            }
+        </script>
+        <button class="sos-button" onclick="toggleSOSMenu()">SOS</button>
     </div>
-
+    
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-{% endblock  %}
+{% endblock %}
