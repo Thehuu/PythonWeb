@@ -17,6 +17,7 @@
     <script loading="async" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
     <script>
         let map, markers = [], autocomplete, selectedPlace, currentLocationMarker;
+        let currentInfoWindows = []; // Lưu trữ InfoWindow đang mở
 
         function initMap() {
             // Khởi tạo bản đồ
@@ -82,7 +83,15 @@
                         origin: new google.maps.Point(0, 0),
                         anchor: new google.maps.Point(20, 40)
                     },
-                    title: location.name
+                    title: location.name,
+                    infoContent: `
+                        <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
+                            <strong style="margin-top: auto;">Họ tên: ${location.name}</strong><br>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Điện thoại: ${location.mobile}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Ghi chú: ${location.description}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;"><a href="https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}" target="_blank">Xem trên Google Maps</a></p>
+                        </div>
+                    `
                 });
 
                 // Hiệu ứng nhấp nháy cho marker
@@ -100,16 +109,8 @@
                 }, 100);
 
                 // Thêm sự kiện click cho marker
-                const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}`;
                 marker.addListener('click', () => {
-                    infoWindow.setContent(`
-                        <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
-                            <strong style="margin-top: auto;">Họ tên: ${location.name}</strong><br>
-                            <p style="margin-bottom: 0px; margin-top: 1px;">Điện thoại: ${location.mobile}</p>
-                            <p style="margin-bottom: 0px; margin-top: 1px;">Ghi chú: ${location.description}</p>
-                            <p style="margin-bottom: 0px; margin-top: 1px;"><a href="${googleMapsLink}" target="_blank">Xem trên Google Maps</a></p>
-                        </div>
-                    `);
+                    infoWindow.setContent(marker.infoContent);
                     infoWindow.open(map, marker);
                 });
                 markers.push(marker);
@@ -216,15 +217,35 @@
             });
         });
 
-    </script>
 
-    <!-- nút SOS -->
+        function showAllMarkersInfo(type) {
+            // Đóng tất cả các InfoWindow đang mở trước đó
+            currentInfoWindows.forEach(infoWindow => infoWindow.close());
+            currentInfoWindows = []; // Reset danh sách InfoWindow
 
-    <script>
+            // Hiển thị InfoWindow cho tất cả marker khớp với loại
+            markers.forEach(marker => {
+                if (marker.icon.url.includes(type)) {
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: marker.infoContent // Sử dụng nội dung của marker
+                    });
+                    infoWindow.open(marker.getMap(), marker);
+                    currentInfoWindows.push(infoWindow); // Lưu lại InfoWindow đang mở
+                }
+            });
+
+            // Nếu không có marker nào khớp, hiển thị thông báo
+            if (currentInfoWindows.length === 0) {
+                alert('Không có thông tin cho loại này.');
+            }
+        }
+
         function toggleSOSMenu() {
             const menu = document.getElementById('sosMenu');
             menu.classList.toggle('show');
         }
+
+
     </script>
 
 </head>
@@ -307,15 +328,6 @@
             <button onclick="showAllMarkersInfo('traffic_accident')" class="sos-item">TNGT</button>
             <button onclick="showAllMarkersInfo('fire')" class="sos-item">Cháy</button>
         </div>
-        <script>
-            function showAllMarkersInfo(type) {
-                markers.forEach(marker => {
-                    if (marker.icon.url.includes(type)) {
-                        google.maps.event.trigger(marker, 'click');
-                    }
-                });
-            }
-        </script>
         <button class="sos-button" onclick="toggleSOSMenu()">SOS</button>
     </div>
     
