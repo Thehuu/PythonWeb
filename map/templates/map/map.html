@@ -32,13 +32,13 @@
 
             // Thêm tên các huyện lên bản đồ với màu sắc khác nhau
             const districts = [
-                { name: 'Ba Bể', lat: 22.4099, lng: 105.7200, color: 'blue' },
-                { name: 'Bạch Thông', lat: 22.2461, lng: 105.8329, color: 'blue' },
-                { name: 'Chợ Đồn', lat: 22.1456, lng: 105.5852, color: 'blue' },
-                { name: 'Chợ Mới', lat: 21.9784, lng: 105.8487, color: 'blue' },
-                { name: 'Na Rì', lat: 22.2633, lng: 106.1145, color: 'blue' },
-                { name: 'Ngân Sơn', lat: 22.4928, lng: 105.9475, color: 'blue' },
-                { name: 'Pác Nặm', lat: 22.5863, lng: 105.6655, color: 'blue' },
+                { name: 'Ba Bể', lat: 22.4099, lng: 105.7200, color: 'red' },
+                { name: 'Bạch Thông', lat: 22.2461, lng: 105.8329, color: 'red' },
+                { name: 'Chợ Đồn', lat: 22.1456, lng: 105.5852, color: 'red' },
+                { name: 'Chợ Mới', lat: 21.9784, lng: 105.8487, color: 'red' },
+                { name: 'Na Rì', lat: 22.2633, lng: 106.1145, color: 'red' },
+                { name: 'Ngân Sơn', lat: 22.4928, lng: 105.9475, color: 'red' },
+                { name: 'Pác Nặm', lat: 22.5863, lng: 105.6655, color: 'red' },
             ];
 
             districts.forEach(district => {
@@ -236,7 +236,7 @@
 
             // Nếu không có marker nào khớp, hiển thị thông báo
             if (currentInfoWindows.length === 0) {
-                alert('Không có thông tin cho loại này.');
+                alert('Không có.');
             }
         }
 

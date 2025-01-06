@@ -131,13 +131,13 @@ nav {
 @media (max-width: 576px) {
     .hero-title {
         font-size: clamp(14px, 4vw, 18px);
-        margin: 5px;
+        /* margin: 5px; */
         height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
     }
 
     .tm-hero {
         height: 25vh;
-        margin: 5px;
+        /* margin: 5px; */
         padding: 5px;
     }
 

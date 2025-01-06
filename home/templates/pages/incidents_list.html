@@ -1,74 +1,69 @@
-<!-- home/templates/pages/traffic_accidents_list.html -->
 {% extends "pages/bases.html" %}
 {% block title %}Danh sách{% endblock  %}
 {% block content  %}
-    <head>
-        <title>Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</title>
-    </head>
-    <body>
-        <h1>Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</h1>
+<head>
+    <title>Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</h1>
 
         {% for incident in incidents %}
-            <div style="display: flex; gap: 20px; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
-                <!-- Hiển thị số thứ tự -->
-                <div style="flex: 0 0 50px; text-align: center; font-weight: bold;">
-                    Vụ thứ {{ forloop.counter }}
+            <div class="card mb-3">
+                <div class="card-header">
+                    <strong>Vụ thứ {{ forloop.counter }}</strong>
                 </div>
-                <!-- Thông tin vụ việc -->
-                <div style="flex: 1; border: 1px solid #ccc; padding: 10px;">
-                   <strong>Tên:</strong> {{ incident.name }}<br>
-                    <strong>Loại sự kiện:</strong> {{ incident.get_incident_type_display }}<br>
-                    <strong>Số điện thoại:</strong> {{ incident.mobile }}<br>
-                    <strong>Vĩ độ:</strong> {{ incident.latitude }}<br>
-                    <strong>Kinh độ:</strong> {{ incident.longitude }}<br>
-                    <strong>Mô tả:</strong> {{ incident.description }}<br>
-                    <strong>Trạng thái:</strong> {{ incident.get_status_display }}<br>
-                  <strong>Thời gian tạo:</strong> {{ incident.created_at }}<br>
-                </div>
-                <!-- Hình ảnh -->
-                <div style="flex: 1; border: 1px solid #ccc; padding: 10px; overflow-y: auto; max-height: 250px;">
-                    {% if incident.image %}
-                        <strong>Hình ảnh:</strong><br>
-                        <img src="{{ incident.image.url }}" alt="{{ incident.name }}" style="max-width: 220px; margin-bottom: 5px;">
-                    {% endif %}
-               </div>
-            </div>
-        {% endfor %}
-    
-
-
-            <!-- {% for incident in incidents %}
-        <div style="display: flex; gap: 20px; border: 1px solid #ddd; padding: 10px;">
-            <div style="flex: 1; border: 1px solid #ccc; padding: 10px;">
-                <strong>Tên:</strong> {{ incident.name }}<br>
-                <strong>Loại sự kiện:</strong> {{ incident.get_incident_type_display }}<br>
-                <strong>Số điện thoại:</strong> {{ incident.mobile }}<br>
-                <strong>Vĩ độ:</strong> {{ incident.latitude }}<br>
-                <strong>Kinh độ:</strong> {{ incident.longitude }}<br>
-                <strong>Mô tả:</strong> {{ incident.description }}<br>
-                <strong>Trạng thái:</strong> {{ incident.get_status_display }}<br>                    <strong>Thời gian tạo:</strong> {{ incident.created_at }}<br>
-            </div>
-            <div style="flex: 1; border: 1px solid #ccc; padding: 10px; overflow-y: auto;">
-                {% if incident.image %}
-                    <strong>Hình ảnh:</strong><br>
-                    <img src="{{ incident.image.url }}" alt="{{ incident.name }}" style="max-width: 250px; margin-bottom: 5px;">
-                {% endif %}
-            </div>     
-        </div>        -->
-        <!-- 
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p><strong>Tên:</strong> {{ incident.name }}</p>
+                            <p><strong>Loại sự kiện:</strong> {{ incident.get_incident_type_display }}</p>
+                            <p><strong>Số điện thoại:</strong> {{ incident.mobile }}</p>
+                            <p><strong>Vĩ độ:</strong> {{ incident.latitude }}</p>
+                            <p><strong>Kinh độ:</strong> {{ incident.longitude }}</p>
+                            <p><strong>Mô tả:</strong> {{ incident.description }}</p>
+                            <p><strong>Trạng thái:</strong> {{ incident.get_status_display }}</p>
+                            <p><strong>Thời gian tạo:</strong> {{ incident.created_at }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            {% if incident.image %}
+                                <img src="{{ incident.image.url }}" alt="{{ incident.name }}" class="img-fluid rounded">
+                            {% else %}
+                                <p>Không có hình ảnh.</p>
+                            {% endif %}
+                        </div>
                     </div>
-                    <strong>Tên:</strong> {{ incident.name }}<br>
-                    <strong>Loại sự kiện:</strong> {{ incident.get_incident_type_display }}<br>
-                    <strong>Số điện thoại:</strong> {{ incident.mobile }}<br>
-                    <strong>Vĩ độ:</strong> {{ incident.latitude }}<br>
-                    <strong>Kinh độ:</strong> {{ incident.longitude }}<br>
-                    <strong>Mô tả:</strong> {{ incident.description }}<br>
-                    <strong>Trạng thái:</strong> {{ incident.get_status_display }}<br>
-                    {% if incident.image %}
-                        <strong>Hình ảnh:</strong><br>
-                        <img src="{{ incident.image.url }}" alt="{{ incident.name }}" style="max-width: 200px;"><br>
-                    {% endif %}
-                    <strong>Thời gian tạo:</strong> {{ incident.created_at }}<br> -->
-            <!-- {% endfor %} -->
-    </body>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">Không có sự kiện nào.</p>
+        {% endfor %}
+
+        <div class="d-flex justify-content-center">
+            {% if incidents|length > 2 %}
+                <nav>
+                    <ul class="pagination">
+                        {% if incidents.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ incidents.previous_page_number }}">&laquo;</a>
+                            </li>
+                        {% endif %}
+
+                        {% for num in incidents.paginator.page_range %}
+                            <li class="page-item {% if num == incidents.number %}active{% endif %}">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endfor %}
+
+                        {% if incidents.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ incidents.next_page_number }}">&raquo;</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</body>
 {% endblock  %}
