@@ -62,7 +62,7 @@ nav {
 
 /* Hero */
 .tm-hero {
-    height: 30vh; /* Chiều cao linh hoạt với màn hình */
+    /* height: 30vh; Chiều cao linh hoạt với màn hình */
     text-align: center;
     color: #fff;
     background: rgba(0, 0, 0, 0.6);
@@ -122,21 +122,21 @@ nav {
         top: 0px;
         left: 80px;
         background: #007bff00;
-        width: 140px;
+        width: 140px;   
         padding: 1px;
         border-radius: 5px;
     }
 }
 
 @media (max-width: 576px) {
-    .hero-title {
+    .hero-title {   
         font-size: clamp(14px, 4vw, 18px);
         /* margin: 5px; */
         height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
     }
 
     .tm-hero {
-        height: 25vh;
+        height: 21vh;
         /* margin: 5px; */
         padding: 5px;
     }

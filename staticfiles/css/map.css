@@ -112,7 +112,7 @@ h1 {
 /* Cấu hình bản đồ */
 #map {
     top:0px;
-    height: 75vh;
+    height: 70vh;
     width: 100%;
     transition: width 0.3s;
     border-radius: 15px;
@@ -124,7 +124,7 @@ h1 {
 
 /* Kiểm soát kích thước form */
 .form-container {
-    height:75vh;
+    height: 70vh;
     /* width: 35%; */
     padding: 10px;
     background-color: #162447;
