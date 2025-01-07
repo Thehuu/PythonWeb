@@ -33,8 +33,6 @@
             // Thêm tên các huyện lên bản đồ với màu sắc khác nhau
             const districts = [
                 { name: 'Ba Bể', lat: 22.4099, lng: 105.7200, color: '#4682B4' },
-                { name: 'Bắc Kạn', lat: 22.1470, lng: 105.8342, color: '#4682B4' },
-                { name: 'Bạch Thông', lat: 22.2461, lng: 105.8329, color: '#4682B4' },
                 { name: 'Chợ Đồn', lat: 22.1456, lng: 105.5852, color: '#4682B4' },
                 { name: 'Chợ Mới', lat: 21.9784, lng: 105.8487, color: '#4682B4' },
                 { name: 'Na Rì', lat: 22.2633, lng: 106.1145, color: '#4682B4' },
@@ -61,80 +59,80 @@
 
 
         // Lấy danh sách các địa điểm từ server
-            // const locations = {{ locations|safe }};
-            // const icons = {
-            //     'fire': '{% static "images/fire_icon.png" %}',
-            //     'drowning': '{% static "images/drowning_icon.jpg" %}',
-            //     'natural_disaster': '{% static "images/natural_disaster_icon.png" %}',
-            //     'traffic_accident': '{% static "images/traffic_accident_icon.png" %}',
-            //     'default': '{% static "images/SOS.jpg" %}'
-            // };
+            const locations = {{ locations|safe }};
+            const icons = {
+                'fire': '{% static "images/fire_icon.png" %}',
+                'drowning': '{% static "images/drowning_icon.jpg" %}',
+                'natural_disaster': '{% static "images/natural_disaster_icon.png" %}',
+                'traffic_accident': '{% static "images/traffic_accident_icon.png" %}',
+                'default': '{% static "images/SOS.jpg" %}'
+            };
 
-            // const infoWindow = new google.maps.InfoWindow();
+            const infoWindow = new google.maps.InfoWindow();
 
             // Tạo các marker cho từng địa điểm
-            // locations.forEach((location) => {
-            //     const iconUrl = icons[location.incident_type];
-            //     const marker = new google.maps.Marker({
-            //         position: { lat: location.latitude, lng: location.longitude },
-            //         map: map,
-            //         icon: {
-            //             url: iconUrl,
-            //             scaledSize: new google.maps.Size(40, 40),
-            //             origin: new google.maps.Point(0, 0),
-            //             anchor: new google.maps.Point(20, 40)
-            //         },
-            //         title: location.name,
-            //         infoContent: `
-            //             <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
-            //                 <strong style="margin-top: auto;">Họ tên: ${location.name}</strong><br>
-            //                 <p style="margin-bottom: 0px; margin-top: 1px;">Điện thoại: ${location.mobile}</p>
-            //                 <p style="margin-bottom: 0px; margin-top: 1px;">Ghi chú: ${location.description}</p>
-            //                 <p style="margin-bottom: 0px; margin-top: 1px;"><a href="https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}" target="_blank">Xem trên Google Maps</a></p>
-            //             </div>
-            //         `
-            //     });
+            locations.forEach((location) => {
+                const iconUrl = icons[location.incident_type];
+                const marker = new google.maps.Marker({
+                    position: { lat: location.latitude, lng: location.longitude },
+                    map: map,
+                    icon: {
+                        url: iconUrl,
+                        scaledSize: new google.maps.Size(40, 40),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(20, 40)
+                    },
+                    title: location.name,
+                    infoContent: `
+                        <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
+                            <strong style="margin-top: auto;">Họ tên: ${location.name}</strong><br>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Điện thoại: ${location.mobile}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Ghi chú: ${location.description}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;"><a href="https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}" target="_blank">Xem trên Google Maps</a></p>
+                        </div>
+                    `
+                });
 
                 // Hiệu ứng nhấp nháy cho marker
-                // let size = 30, growing = true;
-                // setInterval(() => {
-                //     size += growing ? 1 : -1;
-                //     if (size >= 40) growing = false;
-                //     if (size <= 25) growing = true;
-                //     marker.setIcon({
-                //         url: iconUrl,
-                //         scaledSize: new google.maps.Size(size, size),
-                //         origin: new google.maps.Point(0, 0),
-                //         anchor: new google.maps.Point(15, 30)
-                //     });
-                // }, 100);
+                let size = 30, growing = true;
+                setInterval(() => {
+                    size += growing ? 1 : -1;
+                    if (size >= 40) growing = false;
+                    if (size <= 25) growing = true;
+                    marker.setIcon({
+                        url: iconUrl,
+                        scaledSize: new google.maps.Size(size, size),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(15, 30)
+                    });
+                }, 100);
 
                 // Thêm sự kiện click cho marker
-            //     marker.addListener('click', () => {
-            //         infoWindow.setContent(marker.infoContent);
-            //         infoWindow.open(map, marker);
-            //     });
-            //     markers.push(marker);
-            // });
+                marker.addListener('click', () => {
+                    infoWindow.setContent(marker.infoContent);
+                    infoWindow.open(map, marker);
+                });
+                markers.push(marker);
+            });
 
             // Sự kiện click trên bản đồ để chọn vị trí
-            map.addListener('click', function(event) {
-                const latitude = event.latLng.lat();
-                const longitude = event.latLng.lng();
+            // map.addListener('click', function(event) {
+            //     const latitude = event.latLng.lat();
+            //     const longitude = event.latLng.lng();
 
-                document.getElementById('id_latitude').value = latitude;
-                document.getElementById('id_longitude').value = longitude;
+            //     document.getElementById('id_latitude').value = latitude;
+            //     document.getElementById('id_longitude').value = longitude;
 
-                if (currentLocationMarker) {
-                    currentLocationMarker.setMap(null);
-                }
+            //     if (currentLocationMarker) {
+            //         currentLocationMarker.setMap(null);
+            //     }
 
-                currentLocationMarker = new google.maps.Marker({
-                    position: event.latLng,
-                    map: map,
-                    title: 'Vị trí đã chọn'
-                });
-            });
+            //     currentLocationMarker = new google.maps.Marker({
+            //         position: event.latLng,
+            //         map: map,
+            //         title: 'Vị trí đã chọn'
+            //     });
+            // });
 
             // Tìm kiếm địa điểm
             const input = document.getElementById('searchInput');
@@ -257,7 +255,10 @@
         <a href="/" class="btn btn-primary">
             <i class="fas fa-arrow-left"></i>
         </a>
-        <button class="toggle-button" id="toggle-form-btn">KHAI BÁO</button>
+        <d class="hero-title">
+        <strong> Điểm cần giải quyết </strong>
+        <d>
+        <!-- <button class="toggle-button" id="toggle-form-btn">KHAI BÁO</button> -->
     </nav>
 
 
@@ -313,11 +314,26 @@
             </form>
         </div>
     </div>
-    <div class="map-container">
-        <button class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button>
-        <!-- <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí..." /> -->
-    </div>
 
+    <!-- Nút lấy vị trí hiện tại và SOS-->
+<!-- Khi click vào thì các thông tin trên marker sẽ hiện ra -->
+<!-- tuy nhiên nếu không có thì không hiện (bây giờ đang vẫn hiện cái khác) -->
+    <div class="action-container">
+        <div class="sos-menu" id="sosMenu">
+            <!-- <button onclick="filterMarkers('drowning')" class="sos-item">Đuối Nước</button>
+            <button onclick="filterMarkers('natural_disaster')" class="sos-item">Thiên Tai</button>
+            <button onclick="filterMarkers('traffic_accident')" class="sos-item">TNGT</button>
+            <button onclick="filterMarkers('fire')" class="sos-item">Cháy</button>
+        </div> -->
+            <button onclick="showAllMarkersInfo('drowning')" class="sos-item">Đuối Nước</button>
+            <button onclick="showAllMarkersInfo('natural_disaster')" class="sos-item">Thiên Tai</button>
+            <button onclick="showAllMarkersInfo('traffic_accident')" class="sos-item">TNGT</button>
+            <button onclick="showAllMarkersInfo('fire')" class="sos-item">Cháy</button>
+        </div>
+        <button class="sos-button" onclick="toggleSOSMenu()">
+            <span style="display: block; text-align: center; width: 100%;">SOS</span>
+        </button>
+    </div>
     
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

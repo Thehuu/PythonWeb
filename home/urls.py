@@ -4,6 +4,7 @@ from django.urls import path, include #hàm từ module django.urls, ánh xạ U
 from . import views #tạo đối tượng view
 from django.contrib.auth.views import LogoutView, LoginView #view Django để đăng nhập, xuất
 from django.urls import reverse_lazy #hàm Django để lấy URL của view dựa trên name view
+from map import views as map_views
 
 # list URL app home (index, contact, register, login, logout)
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('incidents/<str:incident_type>/', views.incidents_list, name='incidents_list'),
     path('incidents/<str:incident_type>/<str:status>/', views.incidents_list, name='incidents_status_list'),
+    path("map_statistic/", map_views.map_statistic, name='map_statistic'),
 ]
