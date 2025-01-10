@@ -60,6 +60,7 @@
 
         // Lấy danh sách các địa điểm từ server
             const locations = {{ locations|safe }};
+        // Lấy Icon các điểm marker
             const icons = {
                 'fire': '{% static "images/fire_icon.png" %}',
                 'drowning': '{% static "images/drowning_icon.jpg" %}',
@@ -69,6 +70,27 @@
             };
 
             const infoWindow = new google.maps.InfoWindow();
+            
+
+            // Lấy địa điểm từ toạ độ
+            function getAddress(lat, lng, callback) {
+                const geocoder = new google.maps.Geocoder();
+                const latlng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+
+                geocoder.geocode({ location: latlng }, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            const address = results[0].formatted_address;
+                            callback(address);
+                        } else {
+                            callback("Không tìm thấy địa chỉ");
+                        }
+                    } else {
+                        callback(`Geocoder thất bại: ${status}`);
+                    }
+                });
+            }
+
 
             // Tạo các marker cho từng địa điểm
             locations.forEach((location) => {
@@ -83,14 +105,19 @@
                         anchor: new google.maps.Point(20, 40)
                     },
                     title: location.name,
-                    infoContent: `
+                });
+
+                getAddress(location.latitude, location.longitude, (address) => {
+                    const infoContent = `
                         <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
                             <strong style="margin-top: auto;">Họ tên: ${location.name}</strong><br>
                             <p style="margin-bottom: 0px; margin-top: 1px;">Điện thoại: ${location.mobile}</p>
+                            <p style="margin-bottom: 0px; margin-top: 1px;">Địa chỉ: ${address}</p>
                             <p style="margin-bottom: 0px; margin-top: 1px;">Ghi chú: ${location.description}</p>
                             <p style="margin-bottom: 0px; margin-top: 1px;"><a href="https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}" target="_blank">Xem trên Google Maps</a></p>
                         </div>
-                    `
+                    `;
+                    marker.infoContent = infoContent;
                 });
 
                 // Hiệu ứng nhấp nháy cho marker
