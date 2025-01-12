@@ -9,13 +9,42 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 </head>
-<style> 
-   body {
-    background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
-    background-size: cover;
-   }
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <div id="particles-js"></div>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { enable: true, speed: 2 }
+            }
+        });
+    </script>
 
-</style>
+    <style> 
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            animation: moveBackground 80s linear infinite alternate;
+        }
+
+        /* Keyframes để di chuyển nền */
+        @keyframes moveBackground {
+            0% {
+                background-position: left center;
+            }
+            100% {
+                background-position: right center;
+            }
+        }
+    </style>
 
 <body style="position: relative;">
     <!-- Nút đăng nhập, đăng ký -->
@@ -57,9 +86,9 @@
         <strong> CÔNG AN TỈNH BẮC KẠN
         </strong>
     </h4>
-    <h5 class=" mb-4" style="line-height:2; margin:10px; border-radius:10px; padding: 20px; color:rgb(218, 105, 12); background-color: rgb(232, 221, 212);">
+    <h5 class=" mb-4" style="line-height:1.6; margin:10px; border-radius:10px; padding: 20px; color:rgb(218, 105, 12); background-color: rgb(232, 221, 212);">
         <strong>
-                Khai báo và cung cấp thông tin:</br>- TNGT, tắc đường </br>- Thiên tai, đuối nước </br>- Cháy, nổ</br>
+                Khai báo và cung cấp thông tin:</br>- Thiên tai, đuối nước </br>- TNGT, tắc đường </br>- Cháy, nổ</br>
         </strong>
     </h5>
 
