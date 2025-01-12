@@ -54,6 +54,7 @@ nav {
     height: 50px;
     margin: 10px;
     display: flex;      /* Kích hoạt Flexbox */
+    flex-direction: column;
     align-items: center; /* Căn giữa dọc */
     justify-content: center; /* Căn giữa ngang (cho flex) */
     font-size: clamp(16px, 5vw, 24px);  /* Kích thước chữ linh hoạt nhưng không vượt quá 24px */

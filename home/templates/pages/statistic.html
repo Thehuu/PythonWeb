@@ -1,11 +1,24 @@
 {% extends "pages/bases.html" %}
 {% block title %}Thống kê{% endblock %}
 {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistic</title>
+    <!-- Bao gồm thư viện Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+</head>
 <body>
-  <div class="container mt-4">
-    <div class="text-start mb-3">
-      <a href="/" class="btn btn-outline-primary">Quay về trang chủ</a>
-    </div>
+    <!-- Nút BACK -->
+    <nav class="nav-back">
+        <a href="/" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> <!-- Biểu tượng mũi tên -->
+        </a>
+    </nav>
 
     <div class="card shadow-sm">
       <div class="card-header bg-primary text-white">
@@ -88,4 +101,5 @@
     <p>&copy; 2025 Thống kê</p>
   </footer>
 </body>
+</html>
 {% endblock content %}

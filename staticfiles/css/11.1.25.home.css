@@ -1,0 +1,153 @@
+{% load static %}
+/* Kiểu chung */
+body {
+    background-size: cover;
+    font-family: "Arial", sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kiểu cho Navbar */
+nav {
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 8vh; /* Chiều cao tương đối với màn hình */
+}
+
+/* Liên kết trong Navbar */
+.nav-link {
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.nav-link.logout {
+    background: linear-gradient(45deg, #ff5f6d, #ffc371);
+    color: white;
+    border: none;
+}
+
+.nav-link.logout:hover {
+    background: linear-gradient(45deg, #ffc371, #ff5f6d);
+    box-shadow: 0 4px 10px rgba(255, 95, 109, 0.4);
+}
+
+.navbar-toggler {
+    border-color: #fff;
+    margin-left: 9px;
+}
+
+/* Tiêu đề chính */
+.hero-title {
+    height: 10vh; /* Chiều cao dựa trên viewport height */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(16px, 5vw, 24px);
+    font-weight: bold;
+    color: rgb(214, 69, 25);
+    border-radius: 10px;
+    background-color: rgb(232, 221, 212);
+}
+
+/* Hero */
+.tm-hero {
+    /* height: 30vh; Chiều cao linh hoạt với màn hình */
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 10px;
+    background-size: cover;
+}
+
+/* Ảnh chức năng */
+.img-fluid {
+    height: 20vh; /* Điều chỉnh chiều cao ảnh linh hoạt */
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.img-fluid:hover {
+    transform: scale(1.2);
+}
+
+/* Văn bản dưới ảnh */
+.text-center {
+    color: rgb(218, 105, 12);
+    margin-top: 3px;
+    border-radius: 10px;
+    background-color: rgb(232, 221, 212);
+}
+
+/* Footer */
+.tm-footer {
+    height: 8vh; /* Footer thay đổi chiều cao theo màn hình */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(232, 221, 212);
+    color: rgb(218, 105, 12);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-item {
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .tm-hero {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #navbarNav {
+        top: 0px;
+        left: 80px;
+        background: #007bff00;
+        width: 140px;   
+        padding: 1px;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {   
+        font-size: clamp(10px, 4vw, 11px);
+        /* margin: 5px; */
+        height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
+    }
+
+    .tm-hero {
+        height: 21vh;
+        /* margin: 5px; */
+        padding: 5px;
+    }
+
+    .img-fluid {
+        height: 15vh; /* Điều chỉnh ảnh cho màn hình nhỏ */
+    }
+
+    .tm-footer {
+        height: 6vh;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        body {
+            background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .hero-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin-top: 20px;
+        }
+        .tm-container-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .tm-container-content .col {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .tm-container-content .col:hover {
+            transform: scale(1.05);
+        }
+        .tm-footer {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: #343a40;
+        }
+        .navbar-text {
+            color: white !important;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <!-- Nút đăng nhập, đăng ký -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text">{{ user.username }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+<!-- Tiêu đề -->
+<div class="hero-title">CÔNG AN TỈNH BẮC KẠN</div>
+
+<!-- 4 nút chức năng -->
+<div class="container tm-container-content mt-4">
+    <div class="d-grid gap-4" style="width:100%">
+        <button onclick="window.location.href='/map/'" class="btn btn-outline-dark text-start">
+            <strong>KHAI BÁO</strong><br>
+            - Tai nạn giao thông, tắc đường<br>
+            - Sự cố thiên tai<br>
+            - Cháy, nổ, đuối nước
+        </button>
+        <button onclick="window.location.href='/map_statistic/'" class="btn btn-outline-dark text-start">
+            <strong>CUNG CẤP THÔNG TIN:</strong><br>
+            - Điểm có tai nạn giao thông, tắc đường<br>
+            - Điểm cần cứu nạn, cứu hộ
+        </button>
+        <button onclick="window.location.href='/statistic/'" class="btn btn-outline-dark text-start">
+            <strong>Thống kê</strong>
+        </button>
+        <button onclick="window.location.href='/contact/'" class="btn btn-outline-dark text-start">
+            <strong>Liên hệ</strong>
+        </button>
+    </div>
+</div>
+
+    
+
+    <!-- Footer -->
+    <footer class="tm-footer">
+        <p>Designed by T | 2025</p>
+    </footer>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

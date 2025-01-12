@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+</head>
+<style> 
+   body {
+    background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
+    background-size: cover;
+   }
+
+</style>
+
+<body >
+  <!-- Nút đăng nhập, đăng ký -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="navbar-text text-white">{{ user.username }}</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Ảnh CAND -->
+  <div class="hero-title">
+    <d>Khai báo TNGT, thiên tai, đuối nước, cháy</d>
+    <d>Thông tin điểm cần CNCH, tắc đường</d>
+  </div>
+  <div class="tm-hero" style="background-image: url('{% static 'images/cnch(1).jpg' %}');"></div>
+  
+
+  <!-- 4 nút chức năng -->
+  <div class="container tm-container-content mt-4">
+    <div class="row">
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/map/">
+          <figure>
+            <img
+              src="{% static 'images/registration.png' %}"
+              alt="Image"
+              class="img-fluid custom-img"
+            />
+          </figure>
+        </a>
+        <div class="text-center">
+          <span>Khai báo</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/map_statistic/">
+          <figure>
+            <img
+              src="{% static 'images/giai_quyet.jpg' %}"
+              alt="Image"
+              class="img-fluid custom-img"
+            />
+          </figure>
+        </a>
+        <div class="text-center">
+          <span>Điểm CNCH</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/statistic/">
+          <figure>
+            <img
+              src="{% static 'images/thong_ke.jpeg' %}"
+              alt="Image"
+              class="img-fluid custom-img"
+            />
+          </figure>
+        </a>
+        <div class="text-center">
+          <span>Thống kê</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/contact/">
+          <figure>
+            <img
+              src="{% static 'images/lien_he.jpeg' %}"
+              alt="Image"
+              class="img-fluid custom-img"
+            />
+          </figure>
+        </a>
+        <div class="text-center">
+          <span>Liên hệ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="tm-footer cuser">
+    <p>Designed by T | 2025</p>
+  </footer>
+</body>
+</html>
