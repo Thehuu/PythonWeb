@@ -17,115 +17,116 @@
 
 </style>
 
-<body >
-  <!-- Nút đăng nhập, đăng ký -->
-  <nav class="navbar navbar-expand-lg custom-navbar">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <span class="navbar-text text-white">{{ user.username }}</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
-        </li>
-        {% endif %}
-      </ul>
+<body style="position: relative;">
+    <!-- Nút đăng nhập, đăng ký -->
+    <nav class="navbar navbar-expand-lg custom-navbar mb-4">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="navbar-text text-white">{{ user.username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Ảnh CAND -->
+    <h4 class="hero-title text-center mb-4">
+        <strong> CÔNG AN TỈNH BẮC KẠN
+        </strong>
+    </h4>
+    <h5 class=" mb-4" style="line-height:2; margin:10px; border-radius:10px; padding: 20px; color:rgb(218, 105, 12); background-color: rgb(232, 221, 212);">
+        <strong>
+                Khai báo và cung cấp thông tin:</br>- TNGT, tắc đường </br>- Thiên tai, đuối nước </br>- Cháy, nổ</br>
+        </strong>
+    </h5>
+
+    <!-- 4 nút chức năng -->
+    <div class="container tm-container-content mt-4">
+        <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map/">
+                    <figure>
+                        <img
+                            src="{% static 'images/registration.png' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>Khai báo</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map_statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/giai_quyet.jpg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>Điểm CNCH</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/thong_ke.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>Thống kê</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/contact/">
+                    <figure>
+                        <img
+                            src="{% static 'images/lien_he.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>Liên hệ</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <!-- Ảnh CAND -->
-  <h4 class="hero-title">
-    <strong> Khai báo tai nạn giao thông, cháy, nổ, thiên tai </br>
-      Cung cấp thông tin điểm cần cứu nạn, cứu hộ
-    </strong>
-  </h4>
-
-  <div class="tm-hero" style="background-image: url('{% static 'images/cnch(1).jpg' %}');"></div>
-  
-
-  <!-- 4 nút chức năng -->
-  <div class="container tm-container-content mt-4">
-    <div class="row">
-      <div class="col-6 col-md-3 mb-4">
-        <a href="/map/">
-          <figure>
-            <img
-              src="{% static 'images/registration.png' %}"
-              alt="Image"
-              class="img-fluid custom-img"
-            />
-          </figure>
-        </a>
-        <div class="text-center">
-          <span>Khai báo</span>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 mb-4">
-        <a href="/map_statistic/">
-          <figure>
-            <img
-              src="{% static 'images/giai_quyet.jpg' %}"
-              alt="Image"
-              class="img-fluid custom-img"
-            />
-          </figure>
-        </a>
-        <div class="text-center">
-          <span>Điểm CNCH</span>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 mb-4">
-        <a href="/statistic/">
-          <figure>
-            <img
-              src="{% static 'images/thong_ke.jpeg' %}"
-              alt="Image"
-              class="img-fluid custom-img"
-            />
-          </figure>
-        </a>
-        <div class="text-center">
-          <span>Thống kê</span>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 mb-4">
-        <a href="/contact/">
-          <figure>
-            <img
-              src="{% static 'images/lien_he.jpeg' %}"
-              alt="Image"
-              class="img-fluid custom-img"
-            />
-          </figure>
-        </a>
-        <div class="text-center">
-          <span>Liên hệ</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="tm-footer cuser">
-    <p>Designed by T | 2025</p>
-  </footer>
+    <footer class="tm-footer cuser mt-4">
+        <p>Designed by T | 2025</p>
+    </footer>
 </body>
 </html>

@@ -55,9 +55,9 @@ nav {
     justify-content: center;
     font-size: clamp(16px, 5vw, 24px);
     font-weight: bold;
-    color: rgb(214, 69, 25);
+    color: rgb(7 7 245);
     border-radius: 10px;
-    background-color: rgb(232, 221, 212);
+    background-color: #17f3121c;
 }
 
 /* Hero */
@@ -130,7 +130,7 @@ nav {
 
 @media (max-width: 576px) {
     .hero-title {   
-        font-size: clamp(14px, 4vw, 18px);
+        font-size: x-large;
         /* margin: 5px; */
         height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
     }
