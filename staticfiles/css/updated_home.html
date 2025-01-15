@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+</head>
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <div id="particles-js"></div>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { enable: true, speed: 2 }
+            }
+        });
+    </script>
+
+    
+
+<body style="position: relative;">
+    <!-- Nút đăng nhập, đăng ký -->
+    <nav class="navbar navbar-expand-lg custom-navbar mb-4">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="navbar-text text-white">{{ user.username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Ảnh CAND -->
+    <h4 class="hero-title text-center mb-4">
+        <strong> CÔNG AN TỈNH BẮC KẠN
+        </strong>
+    </h4>
+    <h5 class=" mb-4" style="line-height:1.6; margin:10px; border-radius:10px; padding: 20px; color:rgb(218, 105, 12); background-color: rgb(232, 221, 212);">
+        <strong>
+                Khai báo và cung cấp thông tin:</br>- Thiên tai, đuối nước </br>- TNGT, tắc đường </br>- Cháy, nổ</br>
+        </strong>
+    </h5>
+
+    <!-- 4 nút chức năng -->
+    <div class="container tm-container-content mt-4">
+        <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map/">
+                    <figure>
+                        <img
+                            src="{% static 'images/registration.png' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>KHAI BÁO</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map_statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/giai_quyet.jpg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>THÔNG TIN</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/thong_ke.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>THỐNG KÊ</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/contact/">
+                    <figure>
+                        <img
+                            src="{% static 'images/lien_he.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>LIÊN HỆ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="tm-footer cuser mt-4">
+        <p>Designed by T | 2025</p>
+    </footer>
+</body>
+</html>
