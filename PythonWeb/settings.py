@@ -26,9 +26,20 @@ SECRET_KEY = 'django-insecure-lad$f(8lvg7wj_69&6)z9(o8pjwi96*@s1rnzv=^_^_*j_m+#d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'example.com',  # Thay thế bằng tên miền thực tế của bạn
+    'www.example.com'  # Thay thế bằng tên miền thực tế của bạn
+]
 
-
+# Thêm các nguồn gốc tin cậy vào CSRF_TRUSTED_ORIGINS
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost',
+    'https://127.0.0.1',
+    'https://example.com',  # Thay thế bằng tên miền thực tế của bạn
+    'https://www.example.com'  # Thay thế bằng tên miền thực tế của bạn
+]
 # Application definition
 # Bổ sung đường dẫn các app tại đây
 INSTALLED_APPS = [
@@ -43,6 +54,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'map',
+    'channels',
+
     # 'home1',
  
 ]
@@ -100,8 +113,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PythonWeb.wsgi.application'
+# đổi từ WSGI sang ASGI
+# WSGI_APPLICATION = 'PythonWeb.wsgi.application'
+ASGI_APPLICATION = 'PythonWeb.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -164,6 +184,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cau hinh SSL
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True  # Chuyển hướng HTTP sang HTTPS
+SECURE_SSL_REDIRECT = False  # Chuyển hướng HTTP sang HTTPS
 SESSION_COOKIE_SECURE = True  # Bảo mật cookie session qua HTTPS
 CSRF_COOKIE_SECURE = True  # Bảo mật cookie CSRF qua HTTPS
+

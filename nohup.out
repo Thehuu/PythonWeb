@@ -1,0 +1,8 @@
+2025-01-15 21:42:14,938 INFO     Starting server at unix:/Users/huuthe/PythonWeb/daphne.sock
+2025-01-15 21:42:14,938 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2025-01-15 21:42:14,938 INFO     Configuring endpoint unix:/Users/huuthe/PythonWeb/daphne.sock
+2025-01-15 21:42:14,939 CRITICAL Listen failure: Couldn't listen on any:b'/Users/huuthe/PythonWeb/daphne.sock': Cannot acquire lock.
+2025-01-15 21:42:21,231 INFO     Starting server at unix:/Users/huuthe/PythonWeb/daphne.sock
+2025-01-15 21:42:21,232 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2025-01-15 21:42:21,232 INFO     Configuring endpoint unix:/Users/huuthe/PythonWeb/daphne.sock
+2025-01-15 21:42:21,232 CRITICAL Listen failure: Couldn't listen on any:b'/Users/huuthe/PythonWeb/daphne.sock': Cannot acquire lock.

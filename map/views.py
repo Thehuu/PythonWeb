@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from .models import ReliefLocation, Incident
 from .forms import ReliefPointForm
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 # Hàm hiển thị bản đồ với các thông tin liên quan
 def show_map(request):
@@ -50,6 +52,15 @@ def save_location(request):
         form = ReliefPointForm(request.POST, request.FILES)  # Lấy dữ liệu từ request và khởi tạo form
         if form.is_valid():  # Kiểm tra tính hợp lệ của form
             form.save()  # Lưu dữ liệu vào cơ sở dữ liệu
+            # Gửi thông báo
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(
+                "notifications", # tên nhóm này là như nào  nhỉ
+                {
+                    "type": "send_notification",
+                    "message": "Có điểm khai báo mới nhâp!"
+                }
+            )
             # Chuyển hướng đến trang thành công
             return render(request, 'map/success.html')
         else:
