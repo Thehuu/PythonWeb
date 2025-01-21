@@ -26,6 +26,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const notificationElement = document.getElementById('notification');
+            const closeButton = document.getElementById('close-notification');
+            const detailsButton = document.getElementById('details-notification');
             const socket = new WebSocket('wss://' + window.location.host + '/ws/notifications/');
 
             socket.onopen = function(event) {
@@ -43,12 +45,21 @@
             socket.onmessage = function(event) {
                 console.log("Received data:", event.data); // Log dữ liệu nhận được từ server
                 const data = JSON.parse(event.data);
-                notificationElement.innerText = data.message;
+                notificationElement.querySelector('span').innerText = data.message;
                 notificationElement.style.display = 'block';
+                // Thời gian hiện thông báo
                 setTimeout(() => {
                     notificationElement.style.display = 'none';
-                }, 5000);
+                }, 100000);
             };
+
+            closeButton.addEventListener('click', function() {
+                notificationElement.style.display = 'none';
+            });
+
+            detailsButton.addEventListener('click', function() {
+                alert('Chi tiết thông báo: ' + notificationElement.querySelector('span').innerText);
+            });
         });
     </script>
 
@@ -81,6 +92,8 @@
     <p>Thông báo</p>
     <div id="notification" style="display:none; position: fixed; top: 10px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 10px; border-radius: 5px;">
         <i class="fas fa-bell"></i> <span></span>
+        <button id="close-notification" style="margin-left: 10px;">Tắt</button>
+        <button id="details-notification" style="margin-left: 10px;">Chi tiết</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

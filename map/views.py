@@ -55,10 +55,10 @@ def save_location(request):
             # Gửi thông báo
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
-                "notifications", # tên nhóm này là như nào  nhỉ
+                "notifications", # tên nhóm nhận thông báo
                 {
                     "type": "send_notification",
-                    "message": "Có điểm khai báo mới nhâp!"
+                    "message": "Có khai báo mới!"
                 }
             )
             # Chuyển hướng đến trang thành công
