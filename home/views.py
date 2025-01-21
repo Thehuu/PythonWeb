@@ -5,11 +5,19 @@ from .forms import RegistrationForm # .forms = file forms.py cùng thư mục
 from django.http import HttpResponseRedirect
 from map.models import ReliefLocation
 from django.core.paginator import Paginator
+from map.models import ReliefLocation
 
 
 # def trang chủ
 def index(request):
-    return render(request,'pages/home.html')
+    # Lấy số lượng điểm với trạng thái 'pending' và 'rescued'
+    pending_points_count = ReliefLocation.objects.filter(status='pending').count()
+    approved_points_count = ReliefLocation.objects.filter(status='approved').count()
+    # Render template
+    return render(request, 'pages/home.html', {
+        'pending_points_count': pending_points_count,
+        'approved_points_count': approved_points_count,
+    })
 
 # def contact
 def contact(request):

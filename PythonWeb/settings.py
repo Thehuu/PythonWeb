@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
+    '192.168.1.16',
     '127.0.0.1',
     'example.com',  # Thay thế bằng tên miền thực tế của bạn
     'www.example.com'  # Thay thế bằng tên miền thực tế của bạn

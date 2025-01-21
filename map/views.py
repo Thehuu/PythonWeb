@@ -58,7 +58,7 @@ def save_location(request):
                 "notifications", # tên nhóm nhận thông báo
                 {
                     "type": "send_notification",
-                    "message": "Có khai báo mới!"
+                    "message": "Khai báo mới!"
                 }
             )
             # Chuyển hướng đến trang thành công
