@@ -22,16 +22,16 @@
 
     <div class="card shadow-sm">
       <div class="card-header bg-primary text-white">
-        <h4 class="text-center">Thống kê</h4>
+        <h4 class="text-center">DANH SÁCH</h4>
       </div>
       <div class="card-body">
         <table class="table table-bordered table-responsive-sm">
           <thead class="thead-light">
             <tr>
-              <th>Loại</th>
-              <th class="text-center">Số vụ</th>
+              <th class="">Phân loại</th>
+              <!-- <th class="text-center">Số vụ</th> -->
               <th class="text-center">Chờ duyệt</th>
-              <th class="text-center">Đã duyệt</th>
+              <th class="text-center">Đang giải quyết</th>
             </tr>
           </thead>
           <tbody>
@@ -39,9 +39,9 @@
               <td>
                 <a href="{% url 'incidents_list' 'drowning' %}" class="btn btn-outline-primary btn-block">Đuối nước</a>
               </td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="{% url 'incidents_list' 'drowning' %}" class="btn btn-info">{{ drowning_incidents_count }}</a>
-              </td>
+              </td> -->
               <td class="text-center">
                 <a href="{% url 'incidents_status_list' 'drowning' 'pending' %}" class="btn btn-warning">{{ drowning_incidents_pending }}</a>
               </td>
@@ -53,9 +53,9 @@
               <td>
                 <a href="{% url 'incidents_list' 'natural_disaster' %}" class="btn btn-outline-primary btn-block">Thiên tai</a>
               </td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="{% url 'incidents_list' 'natural_disaster' %}" class="btn btn-info">{{ natural_disasters_count }}</a>
-              </td>
+              </td> -->
               <td class="text-center">
                 <a href="{% url 'incidents_status_list' 'natural_disaster' 'pending' %}" class="btn btn-warning">{{ natural_disasters_pending }}</a>
               </td>
@@ -67,9 +67,9 @@
               <td>
                 <a href="{% url 'incidents_list' 'traffic_accident' %}" class="btn btn-outline-primary btn-block">TNGT</a>
               </td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="{% url 'incidents_list' 'traffic_accident' %}" class="btn btn-info">{{ traffic_accidents_count }}</a>
-              </td>
+              </td> -->
               <td class="text-center">
                 <a href="{% url 'incidents_status_list' 'traffic_accident' 'pending' %}" class="btn btn-warning">{{ traffic_accidents_pending }}</a>
               </td>
@@ -81,9 +81,9 @@
               <td>
                 <a href="{% url 'incidents_list' 'fire' %}" class="btn btn-outline-primary btn-block">Cháy</a>
               </td>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="{% url 'incidents_list' 'fire' %}" class="btn btn-info">{{ fire_incidents_count }}</a>
-              </td>
+              </td> -->
               <td class="text-center">
                 <a href="{% url 'incidents_status_list' 'fire' 'pending' %}" class="btn btn-warning">{{ fire_incidents_pending }}</a>
               </td>
