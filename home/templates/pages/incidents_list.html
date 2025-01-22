@@ -38,6 +38,20 @@
             });
         }
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const incidentId = urlParams.get('incident_id');
+            if (incidentId) {
+                // Làm nổi bật hoặc cuộn đến vụ tương ứng
+                const incidentElement = document.getElementById(`incident-${incidentId}`);
+                if (incidentElement) {
+                    incidentElement.scrollIntoView();
+                    incidentElement.style.backgroundColor = '#ffff99'; // Làm nổi bật vụ việc
+                }
+            }
+        });
+    </script>
 </head>
 <body onload="initMap()">
         <!-- Nút BACK và KHAI BÁO -->
@@ -52,7 +66,7 @@
 
         <!-- Hiển thị danh sách sự kiện -->
         {% for incident in incidents %}
-        <div class="card mb-3">
+        <div id="incident-{{ incident.id }}" class="card mb-3">
             <div class="card-header">
                 <!-- Tính số thứ tự liên tục -->
                 <strong>Vụ thứ {{ forloop.counter|add:start_index }}</strong>

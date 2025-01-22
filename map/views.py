@@ -51,14 +51,15 @@ def save_location(request):
     if request.method == 'POST':  # Kiểm tra nếu phương thức là POST
         form = ReliefPointForm(request.POST, request.FILES)  # Lấy dữ liệu từ request và khởi tạo form
         if form.is_valid():  # Kiểm tra tính hợp lệ của form
-            form.save()  # Lưu dữ liệu vào cơ sở dữ liệu
+            location = form.save()  # Lưu dữ liệu vào cơ sở dữ liệu và lấy đối tượng đã lưu
             # Gửi thông báo
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
-                "notifications", # tên nhóm nhận thông báo
+                "notifications",  # tên nhóm nhận thông báo
                 {
                     "type": "send_notification",
-                    "message": "Khai báo mới!"
+                    "message": "Khai báo mới!",
+                    "incident_id": location.id  # Bao gồm incident_id trong thông báo
                 }
             )
             # Chuyển hướng đến trang thành công
