@@ -59,7 +59,8 @@ def save_location(request):
                 {
                     "type": "send_notification",
                     "message": "Khai báo mới!",
-                    "incident_id": location.id  # Bao gồm incident_id trong thông báo
+                    # "incident_type": location.incident_type,  # Loại sự cố trong thông báo
+                    "incident_id": location.id, # Bao gồm incident_id trong thông báo
                 }
             )
             # Chuyển hướng đến trang thành công

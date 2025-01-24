@@ -1,0 +1,31 @@
+{% extends "pages/bases.html" %}
+{% load static %}
+{% block title %}Danh sách{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+ 
+</head> 
+ <body>
+    <body onload="initMap()">
+        <!-- Nút BACK và KHAI BÁO -->
+    <nav class="nav-back">
+        <a href="/" class="btn btn-primary">
+          Trang chủ
+        </a>
+    </nav>
+    <h1>Điểm khai báo mới nhận</h1>
+    <p><strong>Tên:</strong> {{ incident.name }}</p>
+    <p><strong>Điện thoại:</strong> {{ incident.mobile }}</p>
+    <p><strong>Mô tả:</strong> {{ incident.description }}</p>
+    <p><strong>Trạng thái:</strong> {{ incident.get_status_display }}</p>
+    <p><strong>Thời gian khai báo:</strong> {{ incident.created_at|date:"d/m/Y H:i:s" }}</p>
+    <p><strong>GPS:</strong> {{ incident.latitude }}, {{ incident.longitude }}</p>
+    <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude }},{{ incident.longitude }}" target="_blank">Google map</a></p>
+ </body>
+ </html>
+ {% endblock %}

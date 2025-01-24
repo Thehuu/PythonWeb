@@ -7,6 +7,12 @@ from django.core.exceptions import ObjectDoesNotExist #kiểm tra xem đối tư
 
 
 # class định nghĩa form đăng ký người dùng trong Django kế thừa lớp forms.Form
+# Day cung la bang co so du lieu
+#python manage.py shell
+#from map.models import ReliefLocation
+#columns = [field.name for field in ReliefLocation._meta.get_fields()]
+#print(columns)
+
 class RegistrationForm(forms.Form): #form.Form là class cha
     username = forms.CharField(label="Tài khoản", max_length=30)
     email = forms.EmailField(label='Email')

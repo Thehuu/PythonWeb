@@ -61,8 +61,16 @@ def incidents_list(request, incident_type, status=None):
         'incidents': page_obj,  # Đối tượng trang
         'start_index': start_index,  # Số thứ tự bắt đầu
         'status': status,
-        'incident_type': incident_type
+        'incident_type': incident_type,
     })
+
+from django.shortcuts import render, get_object_or_404
+from map.models import ReliefLocation
+
+def incident_detail(request, incident_id):
+    # Lấy đối tượng ReliefLocation từ cơ sở dữ liệu dựa trên incident_id
+    incident = get_object_or_404(ReliefLocation, id=incident_id)
+    return render(request, 'pages/incident_detail.html', {'incident': incident})
 
 def statistic(request):
     # Render dữ liệu từ database vào vào statistic.html

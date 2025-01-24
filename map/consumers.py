@@ -29,7 +29,8 @@ class NotificationConsumer(AsyncWebsocketConsumer):
         location = await sync_to_async(ReliefLocation.objects.get)(id=incident_id)
         await self.send(text_data=json.dumps({
             'message': message,
-            'incident_id': location.id
+            # "incident_type": location.incident_type,
+            'incident_id': location.id,
         }))
 
 
