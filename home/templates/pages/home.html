@@ -85,22 +85,137 @@
 
 <body style="position: relative;">
     <!-- Thông báo có điểm mới khai báo -->
-    <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
+    <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px; transition: opacity 0.5s;z-index: 1001;">
         <i class="fas"></i> <span id="details-notification"></span>
-        <button id="close-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; margin: 1px;border: 1px solid #c1cc2e; color: rgb(216, 15, 15);">x</button>
+        <button id="close-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; margin: 1px;border: 1px solid #f39c12; color: rgb(216, 15, 15);">x</button>
     </div>
 
     <!-- Thông báo điểm chờ duyệt -->
-    <div id="pending-points" style="display:none; position: fixed; top: 40px; right: 10px; background: #3498db; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
-        <i class="fas"></i> <span id="details-pending-points"><a href="/statistic/" style="color: #fff;text-decoration: none;">{{ pending_points_count }} vụ chờ duyệt</a></span>
-        <button id="close-pending-points" style="margin-left: 10px;border-radius: 10px;background: #3498db; margin: 1px;border: 1px solid #c1cc2e;color: #fff;">x</button>
+    <div id="pending-points" style="display:none; position: fixed; top: 40px; right: 10px; background: #3498db; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s; z-index: 1000;">
+        <i class="fas"></i> 
+        <span id="details-pending-points">
+            <a href="/statistic/" style="color: #fff; text-decoration: none;">{{ pending_points_count }} vụ chờ duyệt</a>
+        </span>
+        <button id="close-pending-points" style="margin-left: 10px; border-radius: 10px; background: #3498db; margin: 1px; border: 1px solid #3498db; color: #fff;">x</button>
     </div>
 
     <!-- Thông báo điểm đang giải quyết -->
     <div id="approved-points" style="display:none; position: fixed; top: 77px; right: 10px; background: #2ecc71; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
         <i class="fas"></i> <span id="details-approved-points"><a href="/statistic/" style="color: #fff;text-decoration: none;">{{ approved_points_count }} vụ đang giải quyết</a></span>
-        <button id="close-approved-points" style="margin-left: 10px;border-radius: 10px;background: #2ecc71; margin: 1px;border: 1px solid #c1cc2e;color: #fff;">x</button>
+        <button id="close-approved-points" style="margin-left: 10px;border-radius: 10px;background: #2ecc71; margin: 1px;border: 1px solid #2ecc71;color: #fff;">x</button>
     </div>
+
+    <!-- Nút đăng nhập, đăng ký -->
+    <nav class="navbar navbar-expand-lg custom-navbar mb-4">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="navbar-text text-white">{{ user.username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Ảnh CAND -->
+    <h4 class="hero-title text-center mb-4">
+        <strong> CÔNG AN TỈNH BẮC KẠN
+        </strong>
+    </h4>
+    
+    <h5 class="cand">
+        <strong>
+                Khai báo và cung cấp thông tin:</br>- Thiên tai, đuối nước </br>- TNGT, tắc đường </br>- Cháy, nổ</br>
+        </strong>
+    </h5>
+
+    <!-- 4 nút chức năng -->
+    <div class="container tm-container-content mt-4">
+        <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map/">
+                    <figure>
+                        <img
+                            src="{% static 'images/registration.png' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>KHAI BÁO</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map_statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/giai_quyet.jpg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>THÔNG TIN</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/thong_ke.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>THỐNG KÊ</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/contact/">
+                    <figure>
+                        <img
+                            src="{% static 'images/lien_he.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>LIÊN HỆ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="tm-footer cuser mt-4">
+        <p>Designed by T | 2025</p>
+    </footer>
 
     <!-- Liên kết thư viện AOS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
