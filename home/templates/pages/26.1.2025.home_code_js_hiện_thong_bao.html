@@ -1,20 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <!-- Liên kết các file CSS -->
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-    <!-- Liên kết file JavaScript -->
     <script src="{% static 'js/particles.min.js' %}"></script>
-    <!-- Phần tử để hiển thị hiệu ứng particles -->
     <div id="particles-js"></div>
     <script>
-        // Cấu hình hiệu ứng particles
         particlesJS('particles-js', {
             particles: {
                 number: { value: 100 },
@@ -26,8 +22,7 @@
             }
         });
     </script>
-    <style>
-        /* Định dạng cho phần tử particles-js */
+    <style> 
         #particles-js {
             position: absolute;
             width: 100%;
@@ -47,8 +42,9 @@
                 background-position: right center;
             }
         }
+    </style>
 
-        /* Định dạng cho modal */
+    <style>
         .modal {
             display: none;
             position: fixed;
@@ -81,28 +77,47 @@
             cursor: pointer;
         }
     </style>
+
 </head>
 
 <body style="position: relative;">
-    <!-- Thông báo có điểm mới khai báo -->
-    <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
+    <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px;">
         <i class="fas"></i> <span id="details-notification"></span>
-        <button id="close-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; margin: 1px;border: 1px solid #c1cc2e; color: rgb(216, 15, 15);">x</button>
+        <!-- <button id="details-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; color: rgb(216, 15, 15);">Xem</button> -->
+        <button id="close-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; color: rgb(216, 15, 15);">x</button>
     </div>
 
-    <!-- Thông báo điểm chờ duyệt -->
-    <div id="pending-points" style="display:none; position: fixed; top: 40px; right: 10px; background: #3498db; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
-        <i class="fas"></i> <span id="details-pending-points"><a href="/statistic/" style="color: #fff;text-decoration: none;">{{ pending_points_count }} vụ chờ duyệt</a></span>
-        <button id="close-pending-points" style="margin-left: 10px;border-radius: 10px;background: #3498db; margin: 1px;border: 1px solid #c1cc2e;color: #fff;">x</button>
+    <div id="pending-points" style="display:none; position: fixed; top: 40px; right: 10px; background: #3498db; color: #fff; padding: 3px; border-radius: 15px;">
+        <i class="fas"></i> <span id="details-pending-points"><a href="/statistic/" style="color: #fff;">{{ pending_points_count }} vụ chờ duyệt</a></span>
+        <!-- <button id="details-pending-points" style="margin-left: 10px;border-radius: 10px;background: #3498db; color: #fff;">Xem</button> -->
+        <button id="close-pending-points" style="margin-left: 10px;border-radius: 10px;background: #3498db; color: #fff;">x</button>
     </div>
 
-    <!-- Thông báo điểm đang giải quyết -->
-    <div id="approved-points" style="display:none; position: fixed; top: 77px; right: 10px; background: #2ecc71; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
-        <i class="fas"></i> <span id="details-approved-points"><a href="/statistic/" style="color: #fff;text-decoration: none;">{{ approved_points_count }} vụ đang giải quyết</a></span>
-        <button id="close-approved-points" style="margin-left: 10px;border-radius: 10px;background: #2ecc71; margin: 1px;border: 1px solid #c1cc2e;color: #fff;">x</button>
+    <div id="approved-points" style="display:none; position: fixed; top: 77px; right: 10px; background: #2ecc71; color: #fff; padding: 3px; border-radius: 15px;">
+        <i class="fas"></i> <span id="details-approved-points"><a href="/statistic/" style="color: #fff;">{{ approved_points_count }} vụ đang giải quyết</a></span>
+
+        <button id="close-approved-points" style="margin-left: 10px;border-radius: 10px;background: #2ecc71; color: #fff;">x</button>
     </div>
 
-    <!-- Liên kết thư viện AOS -->
+    <div id="incidentModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chi tiết điểm cứu trợ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="incidentDetails"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
@@ -118,7 +133,7 @@
             const closeApprovedPointsButton = document.getElementById('close-approved-points');
             const detailsApprovedPointsButton = document.getElementById('details-approved-points');
 
-            // Kết nối WebSocket
+            // WebSocket connection
             const socket = new WebSocket('wss://' + window.location.host + '/ws/notifications/');
 
             socket.onopen = function(event) {
@@ -133,25 +148,30 @@
                 console.log("WebSocket connection closed:", event);
             };
 
-            // Sự kiện khi nhận được thông điệp từ server qua WebSocket
+            // Sự kiện được kích hoạt khi WebSocket nhận được một thông điệp từ server.
             socket.onmessage = function(event) {
                 console.log("Received data:", event.data);
                 const data = JSON.parse(event.data);
                 notificationElement.querySelector('span').innerText = data.message;
                 notificationElement.style.display = 'block';
-                notificationElement.style.opacity = '1';
                 notificationElement.dataset.incidentId = data.incident_id; // Lưu ID vụ việc trong thuộc tính data
 
-                // Tự động ẩn thông báo sau 10 giây
-                setTimeout(() => {
-                    notificationElement.style.opacity = '0';
-                    setTimeout(() => {
-                        notificationElement.style.display = 'none';
-                    }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
+                // Auto-hide notification
+                setTimeout(() => {10000
+                    notificationElement.style.display = 'none';
                 }, 10000);
             };
 
-            // Sự kiện click để chuyển hướng đến trang chi tiết điểm cứu trợ
+            // // Event listeners for notification
+            // closeButton?.addEventListener('click', function() {
+            //     notificationElement.style.display = 'none';
+            // });
+
+            // detailsButton?.addEventListener('click', function() {
+            //     alert('Chi tiết thông báo: ' + notificationElement.querySelector('span').innerText);
+            // });
+
+            // Thêm sự kiện click để chuyển hướng đến trang chi tiết điểm cứu trợ
             notificationElement.addEventListener('click', function() {
                 const incidentId = notificationElement.dataset.incidentId;
                 if (incidentId) {
@@ -160,28 +180,42 @@
                 }
             });
 
-            // Hiển thị thông báo điểm chờ duyệt và điểm đang giải quyết
+            // Đóng modal khi nhấp vào nút đóng
+            document.querySelector('.close').addEventListener('click', function() {
+                document.getElementById('incidentModal').style.display = 'none';
+            });
+
+            // Đóng modal khi nhấp ra ngoài modal
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('incidentModal');
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Show pending points and approved points
             pendingPointsElement.style.display = 'block';
-            pendingPointsElement.style.opacity = '1';
             approvedPointsElement.style.display = 'block';
-            approvedPointsElement.style.opacity = '1';
 
-            // Sự kiện click để ẩn thông báo điểm chờ duyệt
-            closePendingPointsButton.addEventListener('click', function() {
-                pendingPointsElement.style.opacity = '0';
-                setTimeout(() => {
-                    pendingPointsElement.style.display = 'none';
-                }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
-            });
+            // // Event listeners for pending points
+            // closePendingPointsButton?.addEventListener('click', function() {
+            //     pendingPointsElement.style.display = 'none';
+            // });
 
-            // Sự kiện click để ẩn thông báo điểm đang giải quyết
-            closeApprovedPointsButton.addEventListener('click', function() {
-                approvedPointsElement.style.opacity = '0';
-                setTimeout(() => {
-                    approvedPointsElement.style.display = 'none';
-                }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
-            });
+            // detailsPendingPointsButton?.addEventListener('click', function() {
+            //     alert('Chi tiết: ' + pendingPointsElement.querySelector('span').innerText);
+            // });
+
+            // // Event listeners for approved points
+            // closeApprovedPointsButton?.addEventListener('click', function() {
+            //     approvedPointsElement.style.display = 'none';
+            // });
+
+            // detailsApprovedPointsButton?.addEventListener('click', function() {
+            //     alert('Chi tiết: ' + approvedPointsElement.querySelector('span').innerText);
+            // });
         });
     </script>
+
 </body>
 </html>
