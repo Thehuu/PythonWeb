@@ -55,12 +55,24 @@ def save_location(request):
             # Gửi thông báo
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
+                # "notifications",  # tên nhóm nhận thông báo
+                # {
+                #     "type": "send_notification",
+                #     "message": "Khai báo mới!",
+                #     # "incident_type": location.incident_type,  # Loại sự cố trong thông báo
+                #     "incident_id": location.id, # Bao gồm incident_id trong thông báo
+                    
+                # }
                 "notifications",  # tên nhóm nhận thông báo
                 {
                     "type": "send_notification",
                     "message": "Khai báo mới!",
-                    # "incident_type": location.incident_type,  # Loại sự cố trong thông báo
-                    "incident_id": location.id, # Bao gồm incident_id trong thông báo
+                    "incident_id": location.id,  # Bao gồm incident_id trong thông báo
+                    "incident_type": location.incident_type,  # Loại sự cố trong thông báo
+                    "location_name": location.name,  # Tên địa điểm
+                    "latitude": location.latitude,  # Vĩ độ
+                    "longitude": location.longitude,  # Kinh độ
+                    "description": location.description,  # Mô tả
                 }
             )
             # Chuyển hướng đến trang thành công

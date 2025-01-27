@@ -12,6 +12,8 @@ class NotificationConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.channel_layer.group_add("notifications", self.channel_name)
         await self.accept()
+    
+    
 
     #Phương thức này được gọi khi một kết nối WebSocket bị đóng.
     async def disconnect(self, close_code):
