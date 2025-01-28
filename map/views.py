@@ -63,13 +63,15 @@ def save_location(request):
                 #     "incident_id": location.id, # Bao gồm incident_id trong thông báo
                     
                 # }
+                # Có thể phải bổ sung vào đây thì mới có dữ liệu đủ bên consumer
                 "notifications",  # tên nhóm nhận thông báo
                 {
                     "type": "send_notification",
                     "message": "Khai báo mới!",
                     "incident_id": location.id,  # Bao gồm incident_id trong thông báo
                     "incident_type": location.incident_type,  # Loại sự cố trong thông báo
-                    "location_name": location.name,  # Tên địa điểm
+                    "name": location.name,  # Tên
+                    "mobile": location.mobile,  # Số điện thoại
                     "latitude": location.latitude,  # Vĩ độ
                     "longitude": location.longitude,  # Kinh độ
                     "description": location.description,  # Mô tả

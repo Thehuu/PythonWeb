@@ -36,18 +36,25 @@ class NotificationConsumer(AsyncWebsocketConsumer):
         }))
 
 
-    #Phương thức này được gọi khi nhận được một thông báo từ nhóm notifications.
+    #Phương thức này được gọi khi nhận được một thông báo từ nhóm notifications (trong file views.py)
     # Nó xử lý thông báo, truy vấn cơ sở dữ liệu 
     # để lấy thông tin về điểm cứu trợ dựa trên incident_id
     async def send_notification(self, event):
         from .models import ReliefLocation
         message = event['message']
         incident_id = event['incident_id']
-
-        # Lấy đối tượng ReliefLocation từ cơ sở dữ liệu
+        # Lấy đối tượng ReliefLocation từ cơ sở dữ liệ
         location = await sync_to_async(ReliefLocation.objects.get)(id=incident_id)
 
         await self.send(text_data=json.dumps({
             'message': message,
-            'incident_id': location.id
+            'name': location.name, 
+            'mobile': location.mobile,
+            'incident_id': location.id,
+            'incident_type': location.incident_type,
+            # 'location_name': location.name,
+            'latitude': location.latitude,
+            'longitude': location.longitude,
+            'description': location.description,
+            'created_at': location.created_at.strftime('%d/%m/%Y %H:%M')
         }))

@@ -14,6 +14,9 @@ chrome_options.binary_location = "/Users/huuthe/chrome/mac_arm-116.0.5793.0/chro
 service = Service(executable_path="/Users/huuthe/chromedriver/mac_arm-116.0.5793.0/chromedriver-mac-arm64/chromedriver")
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
+
+
+
 # Mở trang ZALO Web
 driver.get("https://chat.zalo.me/")
 time.sleep(25)  # Chờ người dùng đăng nhập
@@ -23,22 +26,32 @@ time.sleep(25)  # Chờ người dùng đăng nhập
 def on_message(ws, message):
     data = json.loads(message)
     notification_message = (
-        f"Thông báo mới: {data.get('message', 'Không có tin nhắn')}\n"
-        f"ID sự cố: {data.get('incident_id', 'N/A')}\n"
-        f"Loại sự cố: {data.get('incident_type', 'N/A')}\n"
-        f"Tên địa điểm: {data.get('location_name', 'N/A')}\n"
-        f"Vĩ độ: {data.get('latitude', 'N/A')}\n"
-        f"Kinh độ: {data.get('longitude', 'N/A')}\n"
-        f"Mô tả: {data.get('description', 'N/A')}"
+        f"{data.get('message', 'Không có tin nhắn')}\n"
+        f" Họ và tên: {data.get('name', 'N/A')}\n"
+        f"; điện thoại: {data.get('mobile', 'N/A')}\n"
+        f"; phân loại: {data.get('incident_type', 'N/A')}\n"
+        f"; thời điểm: {data.get('created_at', 'N/A')}\n"
+        # f"Tên địa điểm: {data.get('location_name', 'N/A')}\n"
+        # f"; Vĩ độ: {data.get('latitude', 'N/A')}\n"
+        # f"; Kinh độ: {data.get('longitude', 'N/A')}\n"
+        f"; mô tả: {data.get('description', 'N/A')}"
+        "; xem thêm tại https://antoan.backan.gov.vn/statistic/"
     )
+    print(notification_message)
 
-    # Tìm ô nhập tin nhắn và gửi tin nhắn
+    # Tìm ô nhập tin nhắn và gửi tin nhắn từng dòng
     message_box = driver.find_element(By.CSS_SELECTOR, '#richInput')  # Ô nhập tin nhắn
     message_box.click()  # Click vào ô nhập tin nhắn để kích hoạt
-    message_box.send_keys(notification_message)  # Nội dung tin nhắn từ WebSocket
+
+    # Gửi từng dòng của thông báo và nhấn Shift + Enter sau mỗi dòng để xuống dòng
+    for line in notification_message.split('\n'):
+        message_box.send_keys(line)
+        # message_box.send_keys(Keys.SHIFT, Keys.ENTER)  # Nhấn Shift + Enter để xuống dòng
+
     message_box.send_keys(Keys.RETURN)  # Nhấn Enter để gửi tin nhắn
     print(f"Đã gửi tin nhắn: {notification_message}")
     time.sleep(2)
+
 
 # Kết nối WebSocket
 def start_websocket():
@@ -50,6 +63,8 @@ def start_websocket():
 websocket_thread = threading.Thread(target=start_websocket)
 websocket_thread.daemon = True
 websocket_thread.start()
+
+
 
 # Giữ cho chương trình chạy liên tục
 try:
