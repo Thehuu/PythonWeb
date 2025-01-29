@@ -19,6 +19,8 @@ application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
         URLRouter(
+            # Định tuyến các kết nối WebSocket đến các consumer 
+            # dựa trên các URL pattern được định nghĩa trong routing.py.
             map.routing.websocket_urlpatterns
         )
     ),

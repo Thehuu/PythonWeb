@@ -22,9 +22,9 @@ class ReliefLocation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Thời gian tạo
     
     STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('approved', 'Approved'),
-        ('rescued', 'Rescued'),
+        ('pending', 'Chờ duyệt'),
+        ('approved', 'Đã duyệt'),
+        ('rescued', 'Đã giải quyết'),
     ]
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')  # Trạng thái cứu trợ
 

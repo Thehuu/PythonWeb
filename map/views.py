@@ -52,32 +52,18 @@ def save_location(request):
         form = ReliefPointForm(request.POST, request.FILES)  # Lấy dữ liệu từ request và khởi tạo form
         if form.is_valid():  # Kiểm tra tính hợp lệ của form
             location = form.save()  # Lưu dữ liệu vào cơ sở dữ liệu và lấy đối tượng đã lưu
-            # Gửi thông báo
+            # Gửi thông báo khi có điểm cứu trợ mới
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
-                # "notifications",  # tên nhóm nhận thông báo
-                # {
-                #     "type": "send_notification",
-                #     "message": "Khai báo mới!",
-                #     # "incident_type": location.incident_type,  # Loại sự cố trong thông báo
-                #     "incident_id": location.id, # Bao gồm incident_id trong thông báo
-                    
-                # }
-                # Có thể phải bổ sung vào đây thì mới có dữ liệu đủ bên consumer
-                "notifications",  # tên nhóm nhận thông báo
+                "notifications",  # tên nhóm nhận thông báo. Dữ liệu này sẽ được gửi đến consumers.NotificationConsumer
                 {
                     "type": "send_notification",
                     "message": "Khai báo mới!",
                     "incident_id": location.id,  # Bao gồm incident_id trong thông báo
-                    "incident_type": location.incident_type,  # Loại sự cố trong thông báo
-                    "name": location.name,  # Tên
-                    "mobile": location.mobile,  # Số điện thoại
-                    "latitude": location.latitude,  # Vĩ độ
-                    "longitude": location.longitude,  # Kinh độ
-                    "description": location.description,  # Mô tả
                 }
             )
             # Chuyển hướng đến trang thành công
+
             return render(request, 'map/success.html')
         else:
             # Chuyển hướng đến trang lỗi với thông tin lỗi từ form

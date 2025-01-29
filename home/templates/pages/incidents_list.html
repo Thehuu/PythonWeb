@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
-    <title>Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</title>
+    <title>Danh sách 
+        {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0"></script>
     <script>
         function initMap() {
@@ -62,8 +63,20 @@
     </nav>
 
     <div class="container mt-4">
-        <h1 class="text-center mb-4">Danh sách {% if incident_type == 'traffic_accident' %}tai nạn giao thông{% elif incident_type == 'drowning' %}đuối nước{% elif incident_type == 'fire' %}vụ cháy{% elif incident_type == 'natural_disaster' %}thiên tai{% endif %}{% if status %} - {{ status|title }}{% endif %}</h1>
+        <h1 class="text-center mb-4">Danh sách thông tin<br>
+            {% if incident_type == 'traffic_accident' %}tai nạn giao thông
+            {% elif incident_type == 'drowning' %}đuối nước
+            {% elif incident_type == 'fire' %}vụ cháy
+            {% elif incident_type == 'natural_disaster' %}thiên tai
+            {% endif %}
 
+            {% if status == 'pending' %}
+            (chờ duyệt)
+            {% elif status == 'approved' %}
+            (đã duyệt)
+            {% elif status == 'rescued' %}
+            (đã giải quyết)
+            {% endif %}</h1>
         <!-- Hiển thị danh sách sự kiện -->
         {% for incident in incidents %}
         <div id="incident-{{ incident.id }}" class="card mb-3">
@@ -100,19 +113,27 @@
         <div class="d-flex justify-content-center">
             <nav>
                 <ul class="pagination">
-                    {% if incidents.has_previous %}
+                    {% if has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ incidents.previous_page_number }}">&laquo;</a>
+                        <a class="page-link" href="?page={{ previous_page_number }}">&laquo;</a>
                     </li>
                     {% endif %}
-                    {% for num in incidents.paginator.page_range %}
-                    <li class="page-item {% if num == incidents.number %}active{% endif %}">
-                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-                    </li>
+
+                    {% for num in page_range %}
+                        {% if num == page_obj.number %}
+                            <li class="page-item active">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
                     {% endfor %}
-                    {% if incidents.has_next %}
+
+                    {% if has_next %}
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ incidents.next_page_number }}">&raquo;</a>
+                        <a class="page-link" href="?page={{ next_page_number }}">&raquo;</a>
                     </li>
                     {% endif %}
                 </ul>

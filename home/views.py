@@ -42,7 +42,6 @@ def register(request):
     return render(request,'pages/register.html',{'form':form}) #{'form':...} chuyển form sang HTML
 
 
-from django.core.paginator import Paginator
 
 def incidents_list(request, incident_type, status=None):
     if status:
@@ -53,15 +52,36 @@ def incidents_list(request, incident_type, status=None):
     paginator = Paginator(incidents, 2)  # Mỗi trang hiển thị 2 vụ
     page_number = request.GET.get('page', 1)  # Lấy số trang từ query string
     page_obj = paginator.get_page(page_number)  # Lấy đối tượng trang hiện tại
-
     # Tính số thứ tự bắt đầu cho trang hiện tại
     start_index = (page_obj.number - 1) * paginator.per_page
+
+    # Tính toán các trang cần hiển thị
+    max_pages_to_show = 5
+    current_page = page_obj.number
+    total_pages = paginator.num_pages
+
+    if total_pages <= max_pages_to_show:
+        page_range = range(1, total_pages + 1)
+    else:
+        start_page = max(current_page - 2, 1)
+        end_page = min(current_page + 2, total_pages)
+        if start_page == 1:
+            end_page = max_pages_to_show
+        if end_page == total_pages:
+            start_page = total_pages - max_pages_to_show + 1
+        page_range = range(start_page, end_page + 1)
 
     return render(request, 'pages/incidents_list.html', {
         'incidents': page_obj,  # Đối tượng trang
         'start_index': start_index,  # Số thứ tự bắt đầu
         'status': status,
         'incident_type': incident_type,
+        'page_obj': page_obj,
+        'page_range': page_range,
+        'has_previous': page_obj.has_previous(),
+        'has_next': page_obj.has_next(),
+        'previous_page_number': page_obj.previous_page_number() if page_obj.has_previous() else None,
+        'next_page_number': page_obj.next_page_number() if page_obj.has_next() else None,
     })
 
 from django.shortcuts import render, get_object_or_404
