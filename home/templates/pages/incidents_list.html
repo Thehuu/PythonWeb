@@ -51,6 +51,13 @@
                     incidentElement.style.backgroundColor = '#ffff99'; // Làm nổi bật vụ việc
                 }
             }
+            var mapLinks = document.querySelectorAll('a.google-map-link');
+            mapLinks.forEach(function(link) {
+                var href = link.getAttribute('href');
+                // Thay thế dấu phẩy bằng dấu chấm trong URL
+                href = href.replace(/,/g, '.');
+                link.setAttribute('href', href);
+            });
         });
     </script>
 </head>
@@ -92,8 +99,8 @@
                         <p><strong>Mô tả:</strong> {{ incident.description }}</p>
                         <p><strong>Trạng thái:</strong> {{ incident.get_status_display }}</p>
                         <p><strong>Thời gian khai báo:</strong> {{ incident.created_at|date:"d/m/Y H:i:s" }}</p>
-                        <p><strong>GPS:</strong> <span id="address-{{ forloop.counter0 }}">Đang tải...</span></p>
-                        <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude }},{{ incident.longitude }}" target="_blank">Google map</a></p>
+                        <p><strong>Địa điểm GPS:</strong> {{ incident.address }}</p>
+                        <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude|floatformat:6 }} {{ incident.longitude|floatformat:6 }}" target="_blank" class="google-map-link">Google map</a></p>
                     </div>
                     <div class="col-md-4">
                         {% if incident.image %}

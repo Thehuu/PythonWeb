@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ</title>
+    <title>Home</title>
     <!-- Liên kết các file CSS -->
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <!-- Liên kết file JavaScript -->
     <script src="{% static 'js/particles.min.js' %}"></script>
@@ -80,14 +81,48 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+
+        .cand strong {
+            animation: changeFont 5s infinite alternate; /* Thay đổi font sau mỗi 5 giây, lặp vô hạn, hiệu ứng qua lại */
+            }
+
+            @keyframes changeFont {
+            25% {
+                font-weight: 500; /* Giá trị trung gian */
+            }
+            50% {
+                font-weight: bold;
+                color: #007bff;
+            }
+            75% {
+                font-weight: 500; /* Giá trị trung gian */
+                color: #1a53ff; /* Màu trung gian */
+            }
+            100% {
+                font-weight: normal;
+                color: #333;
+            }
+            75% {
+                font-weight: 500; /* Giá trị trung gian */
+                color: #1a53ff; /* Màu trung gian */
+            }
+            50% {
+                font-weight: bold;
+                color: #007bff;}
+
+            25% {
+                font-weight: 500; /* Giá trị trung gian */
+                color: #1a53ff; /* Màu trung gian */
+            }
     </style>
+    
 </head>
 
 <body style="position: relative;">
     <!-- Thông báo có điểm mới khai báo -->
     <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px; transition: opacity 0.5s;z-index: 1001;">
         <i class="fas"></i> <span id="details-notification"></span>
-        <button id="close-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; margin: 1px;border: 1px solid #f39c12; color: rgb(216, 15, 15);">x</button>
     </div>
 
     <!-- Thông báo điểm chờ duyệt -->
@@ -96,13 +131,6 @@
         <span id="details-pending-points">
             <a href="/statistic/" style="color: #fff; text-decoration: none;">{{ pending_points_count }} vụ chờ duyệt</a>
         </span>
-        <button id="close-pending-points" style="margin-left: 10px; border-radius: 10px; background: #3498db; margin: 1px; border: 1px solid #3498db; color: #fff;">x</button>
-    </div>
-
-    <!-- Thông báo điểm đang giải quyết -->
-    <div id="approved-points" style="display:none; position: fixed; top: 77px; right: 10px; background: #2ecc71; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
-        <i class="fas"></i> <span id="details-approved-points"><a href="/statistic/" style="color: #fff;text-decoration: none;">{{ approved_points_count }} vụ đang giải quyết</a></span>
-        <button id="close-approved-points" style="margin-left: 10px;border-radius: 10px;background: #2ecc71; margin: 1px;border: 1px solid #2ecc71;color: #fff;">x</button>
     </div>
 
     <!-- Nút đăng nhập, đăng ký -->
@@ -152,59 +180,54 @@
     </h5>
 
     <!-- 4 nút chức năng -->
-    <div class="container tm-container-content mt-4">
+    <div class="tm-container-content mt-4" style="margin: 10px;">
         <div class="row">
             <div class="col-6 col-md-3 mb-4">
-                <a href="/map/">
-                    <figure>
-                        <img
-                            src="{% static 'images/registration.png' %}"
-                            alt="Image"
-                            class="img-fluid custom-img"
+                <a href="/map/" >
+                    <video class="img-fluid custom-img" autoplay loop muted>
+                        <source src="{% static 'videos/khai_bao.mp4' %}" 
+                        style="height: 13.5vh;"
                         />
-                    </figure>
                 </a>
                 <div class="text-center">
-                    <span>KHAI BÁO</span>
+                    <span class="vibrate-1">KHAI BÁO</span>
                 </div>
             </div>
+            
             <div class="col-6 col-md-3 mb-4">
                 <a href="/map_statistic/">
-                    <figure>
-                        <img
-                            src="{% static 'images/giai_quyet.jpg' %}"
-                            alt="Image"
-                            class="img-fluid custom-img"
-                        />
-                    </figure>
+                    <img
+                        src="{% static 'images/gmap.jpg' %}"
+                        class="rotate-horizontal img-fluid custom-img"
+                        style="height: 13.5vh;"
+                    />
                 </a>
-                <div class="text-center">
-                    <span>THÔNG TIN</span>
+                <div class="marquee-container text-center">
+                    <span class="marquee">ĐỊA ĐIỂM CÓ THIÊN TAI, TNGT, TẮC ĐƯỜNG, CHÁY, NỔ</span>
                 </div>
             </div>
+
             <div class="col-6 col-md-3 mb-4">
                 <a href="/statistic/">
-                    <figure>
-                        <img
-                            src="{% static 'images/thong_ke.jpeg' %}"
-                            alt="Image"
-                            class="img-fluid custom-img"
-                        />
-                    </figure>
+                    <img
+                        src="{% static 'images/thong_ke.jpeg' %}"
+                        class="img-fluid custom-img"
+                        style="height: 13.5vh;"
+                    />
                 </a>
                 <div class="text-center">
                     <span>THỐNG KÊ</span>
                 </div>
             </div>
+
             <div class="col-6 col-md-3 mb-4">
                 <a href="/contact/">
-                    <figure>
-                        <img
-                            src="{% static 'images/lien_he.jpeg' %}"
-                            alt="Image"
-                            class="img-fluid custom-img"
-                        />
-                    </figure>
+                    <img
+                        src="{% static 'images/lien_he.jpeg' %}"
+                        alt="Image"
+                        class="img-fluid custom-img"
+                        style="height: 13.5vh;"
+                    />
                 </a>
                 <div class="text-center">
                     <span>LIÊN HỆ</span>
@@ -213,12 +236,14 @@
         </div>
     </div>
 
-    <footer class="tm-footer cuser mt-4">
+    <footer class="tm-footer text-center py-3">
         <p>Designed by T | 2025</p>
     </footer>
 
     <!-- Liên kết thư viện AOS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script>
         AOS.init();
 

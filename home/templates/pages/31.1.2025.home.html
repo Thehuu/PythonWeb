@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!-- Liên kết các file CSS -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <!-- Liên kết file JavaScript -->
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <!-- Phần tử để hiển thị hiệu ứng particles -->
+    <div id="particles-js"></div>
+    <script>
+        // Cấu hình hiệu ứng particles
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 100 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { enable: true, speed: 2 }
+            }
+        });
+    </script>
+    <style>
+        /* Định dạng cho phần tử particles-js */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            animation: moveBackground 80s linear infinite alternate;
+        }
+
+        /* Keyframes để di chuyển nền */
+        @keyframes moveBackground {
+            0% {
+                background-position: left center;
+            }
+            100% {
+                background-position: right center;
+            }
+        }
+
+        /* Định dạng cho modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="position: relative;">
+    <!-- Thông báo có điểm mới khai báo -->
+    <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px; transition: opacity 0.5s;z-index: 1001;">
+        <i class="fas"></i> <span id="details-notification"></span>
+        <button id="close-notification" style="margin-left: 10px;border-radius: 10px;background: #f39c12; margin: 1px;border: 1px solid #f39c12; color: rgb(216, 15, 15);">x</button>
+    </div>
+
+    <!-- Thông báo điểm chờ duyệt -->
+    <div id="pending-points" style="display:none; position: fixed; top: 40px; right: 10px; background: #3498db; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s; z-index: 1000;">
+        <i class="fas"></i> 
+        <span id="details-pending-points">
+            <a href="/statistic/" style="color: #fff; text-decoration: none;">{{ pending_points_count }} vụ chờ duyệt</a>
+        </span>
+        <button id="close-pending-points" style="margin-left: 10px; border-radius: 10px; background: #3498db; margin: 1px; border: 1px solid #3498db; color: #fff;">x</button>
+    </div>
+
+    <!-- Thông báo điểm đang giải quyết -->
+    <div id="approved-points" style="display:none; position: fixed; top: 77px; right: 10px; background: #2ecc71; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s;">
+        <i class="fas"></i> <span id="details-approved-points"><a href="/statistic/" style="color: #fff;text-decoration: none;">{{ approved_points_count }} vụ đang giải quyết</a></span>
+        <button id="close-approved-points" style="margin-left: 10px;border-radius: 10px;background: #2ecc71; margin: 1px;border: 1px solid #2ecc71;color: #fff;">x</button>
+    </div>
+
+    <!-- Nút đăng nhập, đăng ký -->
+    <nav class="navbar navbar-expand-lg custom-navbar mb-4">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <span class="navbar-text text-white">{{ user.username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Ảnh CAND -->
+    <h4 class="hero-title text-center mb-4">
+        <strong> CÔNG AN TỈNH BẮC KẠN
+        </strong>
+    </h4>
+    
+    <h5 class="cand">
+        <strong>
+                Khai báo và cung cấp thông tin:</br>- Thiên tai, đuối nước </br>- TNGT, tắc đường </br>- Cháy, nổ</br>
+        </strong>
+    </h5>
+
+    <!-- 4 nút chức năng -->
+    <div class="container tm-container-content mt-4">
+        <div class="row">
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map/">
+                    <figure>
+                        <img
+                            src="{% static 'images/registration.png' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>KHAI BÁO</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/map_statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/giai_quyet.jpg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>THÔNG TIN</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/statistic/">
+                    <figure>
+                        <img
+                            src="{% static 'images/thong_ke.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>THỐNG KÊ</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <a href="/contact/">
+                    <figure>
+                        <img
+                            src="{% static 'images/lien_he.jpeg' %}"
+                            alt="Image"
+                            class="img-fluid custom-img"
+                        />
+                    </figure>
+                </a>
+                <div class="text-center">
+                    <span>LIÊN HỆ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="tm-footer cuser mt-4">
+        <p>Designed by T | 2025</p>
+    </footer>
+
+    <!-- Liên kết thư viện AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const notificationElement = document.getElementById('notification');
+            const closeButton = document.getElementById('close-notification');
+            const detailsButton = document.getElementById('details-notification');
+            const pendingPointsElement = document.getElementById('pending-points');
+            const closePendingPointsButton = document.getElementById('close-pending-points');
+            const detailsPendingPointsButton = document.getElementById('details-pending-points');
+            const approvedPointsElement = document.getElementById('approved-points');
+            const closeApprovedPointsButton = document.getElementById('close-approved-points');
+            const detailsApprovedPointsButton = document.getElementById('details-approved-points');
+
+            // Kết nối WebSocket
+            const socket = new WebSocket('wss://' + window.location.host + '/ws/notifications/');
+
+            socket.onopen = function(event) {
+                console.log("WebSocket connection opened:", event);
+            };
+
+            socket.onerror = function(error) {
+                console.error("WebSocket error:", error);
+            };
+
+            socket.onclose = function(event) {
+                console.log("WebSocket connection closed:", event);
+            };
+
+            // Sự kiện khi nhận được thông điệp từ server qua WebSocket
+            socket.onmessage = function(event) {
+                console.log("Received data:", event.data);
+                const data = JSON.parse(event.data);
+                notificationElement.querySelector('span').innerText = data.message;
+                notificationElement.style.display = 'block';
+                notificationElement.style.opacity = '1';
+                notificationElement.dataset.incidentId = data.incident_id; // Lưu ID vụ việc trong thuộc tính data
+
+                // Tự động ẩn thông báo sau 10 giây
+                setTimeout(() => {
+                    notificationElement.style.opacity = '0';
+                    setTimeout(() => {
+                        notificationElement.style.display = 'none';
+                    }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
+                }, 10000);
+            };
+
+            // Sự kiện click để chuyển hướng đến trang chi tiết điểm cứu trợ
+            notificationElement.addEventListener('click', function() {
+                const incidentId = notificationElement.dataset.incidentId;
+                if (incidentId) {
+                    // Chuyển hướng đến trang chi tiết điểm cứu trợ
+                    window.location.href = `/incidents/${incidentId}/`;
+                }
+            });
+
+            // Hiển thị thông báo điểm chờ duyệt và điểm đang giải quyết
+            pendingPointsElement.style.display = 'block';
+            pendingPointsElement.style.opacity = '1';
+            approvedPointsElement.style.display = 'block';
+            approvedPointsElement.style.opacity = '1';
+
+            // Sự kiện click để ẩn thông báo điểm chờ duyệt
+            closePendingPointsButton.addEventListener('click', function() {
+                pendingPointsElement.style.opacity = '0';
+                setTimeout(() => {
+                    pendingPointsElement.style.display = 'none';
+                }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
+            });
+
+            // Sự kiện click để ẩn thông báo điểm đang giải quyết
+            closeApprovedPointsButton.addEventListener('click', function() {
+                approvedPointsElement.style.opacity = '0';
+                setTimeout(() => {
+                    approvedPointsElement.style.display = 'none';
+                }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
+            });
+        });
+    </script>
+</body>
+</html>

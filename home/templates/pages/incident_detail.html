@@ -1,0 +1,99 @@
+{% extends "pages/bases.html" %}
+{% load static %}
+{% block title %}Chi tiết sự kiện{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}">
+    <title>Chi tiết thông báo</title>
+    <script>
+        function initMap() {
+            const incidents = [
+                {% for incident in incidents %}
+                { latitude: {{ incident.latitude|stringformat:"f" }}, longitude: {{ incident.longitude|stringformat:"f" }} }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ];
+
+            incidents.forEach((incident, index) => {
+                const latlng = { lat: parseFloat(incident.latitude), lng: parseFloat(incident.longitude) };
+                const geocoder = new google.maps.Geocoder();
+
+                geocoder.geocode({ location: latlng }, (results, status) => {
+                    if (status === "OK") {
+                        if (results[0]) {
+                            let address = results[0].formatted_address;
+                            address = address.replace('District', '').replace(', Vietnam', '').trim();
+                            document.getElementById(`address-${index}`).innerHTML = `<p style="margin-bottom: 0px; margin-top: 1px;">${address}</p>`;
+                        } else {
+                            document.getElementById(`address-${index}`).innerHTML = `<p style="margin-bottom: 0px; margin-top: 1px;">GPS: Không tìm thấy địa chỉ</p>`;
+                        }
+                    } else {
+                        document.getElementById(`address-${index}`).innerHTML = `<p style="margin-bottom: 0px; margin-top: 1px;">GPS: Geocoder thất bại: ${status}</p>`;
+                    }
+                });
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const incidentId = urlParams.get('incident_id');
+            if (incidentId) {
+                // Làm nổi bật hoặc cuộn đến vụ tương ứng
+                const incidentElement = document.getElementById(`incident-${incidentId}`);
+                if (incidentElement) {
+                    incidentElement.scrollIntoView();
+                    incidentElement.style.backgroundColor = '#ffff99'; // Làm nổi bật vụ việc
+                }
+            }
+            var mapLinks = document.querySelectorAll('a.google-map-link');
+            mapLinks.forEach(function(link) {
+                var href = link.getAttribute('href');
+                // Thay thế dấu phẩy bằng dấu chấm trong URL
+                href = href.replace(/,/g, '.');
+                link.setAttribute('href', href);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <title>Chi tiết thông báo</title>
+        <div class="card mb-3">
+            <nav class="nav-back">
+                <a href="/" class="btn btn-primary">
+                    Trang chủ
+                </a>
+            </nav>        
+            <div class="card-body">
+                <h1>Chi tiết thông báo</h1>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p><strong>Tên:</strong> {{ incident.name }}</p>
+                        <p><strong>Điện thoại:</strong> {{ incident.mobile }}</p>
+                        <p><strong>Mô tả:</strong> {{ incident.description }}</p>
+                        <p><strong>Trạng thái:</strong> {{ incident.get_status_display }}</p>
+                        <p><strong>Thời gian khai báo:</strong> {{ incident.created_at|date:"d/m/Y H:i:s" }}</p>
+                        <p><strong>Địa điểm GPS:</strong> {{ incident.address }}</p>
+                        <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude|floatformat:6 }} {{ incident.longitude|floatformat:6 }}" target="_blank" class="google-map-link">Google map</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        {% if incident.image %}
+                        <img src="{{ incident.image.url }}" alt="{{ incident.name }}" class="img-fluid rounded">
+                        {% else %}
+                        <p>Không có hình ảnh.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

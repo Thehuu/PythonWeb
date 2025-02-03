@@ -70,7 +70,6 @@ nav {
     background-color: rgb(232, 221, 212);
 }
 
-
 /* Hero */
 .tm-hero {
     /* height: 30vh; Chiều cao linh hoạt với màn hình */
@@ -96,9 +95,71 @@ nav {
 /* Văn bản dưới ảnh */
 .text-center {
     color: rgb(218, 105, 12);
+    font-weight: bold;
     margin-top: 3px;
     border-radius: 10px;
     background-color: rgb(232, 221, 212);
+}
+
+/* Hiệu ứng rung */
+.vibrate-1 {
+    display: inline-block;
+    -webkit-animation: vibrate-1 0.3s linear infinite both;
+            animation: vibrate-1 0.3s linear infinite both;
+}
+  
+@-webkit-keyframes vibrate-1 {
+    0% {
+      -webkit-transform: translate(0);
+              transform: translate(0);
+    }
+    20% {
+      -webkit-transform: translate(-1px, 1px);
+              transform: translate(-1px, 1px);
+    }
+    40% {
+      -webkit-transform: translate(-1px, -1px);
+              transform: translate(-1px, -1px);
+    }
+    60% {
+      -webkit-transform: translate(1px, 1px);
+              transform: translate(1px, 1px);
+    }
+    80% {
+      -webkit-transform: translate(1px, -1px);
+              transform: translate(1px, -1px);
+    }
+    100% {
+      -webkit-transform: translate(0);
+              transform: translate(0);
+    }
+}
+  
+@keyframes vibrate-1 {
+    0% {
+      -webkit-transform: translate(0);
+              transform: translate(0);
+    }
+    20% {
+      -webkit-transform: translate(-1px, 1px);
+              transform: translate(-1px, 1px);
+    }
+    40% {
+      -webkit-transform: translate(-1px, -1px);
+              transform: translate(-1px, -1px);
+    }
+    60% {
+      -webkit-transform: translate(1px, 1px);
+              transform: translate(1px, 1px);
+    }
+    80% {
+      -webkit-transform: translate(1px, -1px);
+              transform: translate(1px, -1px);
+    }
+    100% {
+      -webkit-transform: translate(0);
+              transform: translate(0);
+    }
 }
 
 /* Footer */
@@ -141,23 +202,68 @@ nav {
 
 @media (max-width: 576px) {
     .hero-title {   
-        font-size: x-large;
+        /* font-size: x-large; */
         /* margin: 5px; */
         height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
     }
 
     .tm-hero {
-        height: 21vh;
+        /* height: 21vh; */
         /* margin: 5px; */
-        padding: 5px;
+        /* padding: 5px; */
     }
 
     .img-fluid {
-        height: 15vh; /* Điều chỉnh ảnh cho màn hình nhỏ */
+        height: 13vh; /* Điều chỉnh ảnh cho màn hình nhỏ */
     }
 
     .tm-footer {
-        height: 6vh;
+        /* height: 6vh; */
         font-size: 12px;
     }
 }
+
+/* Ảnh tùy chỉnh */
+.custom-img {
+    width: 100%;
+    /* height: auto; */
+    object-fit: cover; /* Đảm bảo nội dung bao phủ toàn bộ khu vực */
+}
+
+/* Hiệu ứng marquee */
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite; /* Điều chỉnh thời gian cho tốc độ chậm hơn */
+    animation-delay: 0s; /* Không có độ trễ, bắt đầu ngay lập tức */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(15);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Hiệu ứng xoay ngang */
+.rotate-horizontal {
+    animation: spin-horizontal 15s linear infinite;
+}
+
+@keyframes spin-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+

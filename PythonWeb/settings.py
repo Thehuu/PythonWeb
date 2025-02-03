@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '192.168.1.16',
+    '192.168.1.3',
     '127.0.0.1',
     'example.com',  # Thay thế bằng tên miền thực tế của bạn
     'www.example.com'  # Thay thế bằng tên miền thực tế của bạn
@@ -38,6 +38,8 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://localhost',
     'https://127.0.0.1',
+    'https://192.168.1.3',
+
     'https://example.com',  # Thay thế bằng tên miền thực tế của bạn
     'https://www.example.com'  # Thay thế bằng tên miền thực tế của bạn
 ]

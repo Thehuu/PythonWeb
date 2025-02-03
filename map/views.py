@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import ReliefLocation, Incident
+from .models import ReliefLocation
 from .forms import ReliefPointForm
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
@@ -28,10 +28,10 @@ def show_map(request):
     ]
 
     # Đếm số lượng sự cố theo từng loại
-    tngt_count = Incident.objects.filter(incident_type='TNGT').count()  # Tai nạn giao thông
-    drowning_count = Incident.objects.filter(incident_type='DROWNING').count()  # Đuối nước
-    fire_count = Incident.objects.filter(incident_type='FIRE').count()  # Cháy
-    disaster_count = Incident.objects.filter(incident_type='DISASTER').count()  # Thiên tai
+    tngt_count = ReliefLocation.objects.filter(incident_type='TNGT').count()  # Tai nạn giao thông
+    drowning_count = ReliefLocation.objects.filter(incident_type='DROWNING').count()  # Đuối nước
+    fire_count = ReliefLocation.objects.filter(incident_type='FIRE').count()  # Cháy
+    disaster_count = ReliefLocation.objects.filter(incident_type='DISASTER').count()  # Thiên tai
 
     # Tạo ngữ cảnh để truyền vào template
     context = {
@@ -97,10 +97,10 @@ def map_statistic(request):
     ]
 
     # Đếm số lượng sự cố theo từng loại
-    tngt_count = Incident.objects.filter(incident_type='TNGT').count()  # Tai nạn giao thông
-    drowning_count = Incident.objects.filter(incident_type='DROWNING').count()  # Đuối nước
-    fire_count = Incident.objects.filter(incident_type='FIRE').count()  # Cháy
-    disaster_count = Incident.objects.filter(incident_type='DISASTER').count()  # Thiên tai
+    tngt_count = ReliefLocation.objects.filter(incident_type='TNGT').count()  # Tai nạn giao thông
+    drowning_count = ReliefLocation.objects.filter(incident_type='DROWNING').count()  # Đuối nước
+    fire_count = ReliefLocation.objects.filter(incident_type='FIRE').count()  # Cháy
+    disaster_count = ReliefLocation.objects.filter(incident_type='DISASTER').count()  # Thiên tai
 
     # Tạo ngữ cảnh để truyền vào template
     context = {
