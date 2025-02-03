@@ -189,6 +189,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cau hinh SSL
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Chuyển hướng để True thì không try cập được khi localhost trên MACOS
 SECURE_SSL_REDIRECT = False  # Chuyển hướng HTTP sang HTTPS
 SESSION_COOKIE_SECURE = True  # Bảo mật cookie session qua HTTPS
 CSRF_COOKIE_SECURE = True  # Bảo mật cookie CSRF qua HTTPS
