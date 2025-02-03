@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <!-- Liên kết file JavaScript -->
     <script src="{% static 'js/particles.min.js' %}"></script>
+
+    
     <!-- Phần tử để hiển thị hiệu ứng particles -->
     <div id="particles-js"></div>
     <script>
@@ -183,11 +185,11 @@
     <div class="tm-container-content mt-4" style="margin: 10px;">
         <div class="row">
             <div class="col-6 col-md-3 mb-4">
-                <a href="/map/" >
-                    <video class="img-fluid custom-img" autoplay loop muted playsinline>
-                        <source src="{% static 'videos/khai_bao.mp4' %}" type="video/mp4" />
-                        style="height: 13.5vh;"
-                        />
+                <a href="/map/">
+                    <img
+                        src="{% static 'images/chay.jpg' %}"
+                        class="img-fluid custom-img"
+                    />
                 </a>
                 <div class="text-center">
                     <span class="vibrate-1">KHAI BÁO</span>
@@ -199,7 +201,6 @@
                     <img
                         src="{% static 'images/gmap.jpg' %}"
                         class="rotate-horizontal img-fluid custom-img"
-                        style="height: 13.5vh;"
                     />
                 </a>
                 <div class="marquee-container text-center">
@@ -212,7 +213,6 @@
                     <img
                         src="{% static 'images/thong_ke.jpeg' %}"
                         class="img-fluid custom-img"
-                        style="height: 13.5vh;"
                     />
                 </a>
                 <div class="text-center">
@@ -226,7 +226,6 @@
                         src="{% static 'images/lien_he.jpeg' %}"
                         alt="Image"
                         class="img-fluid custom-img"
-                        style="height: 13.5vh;"
                     />
                 </a>
                 <div class="text-center">

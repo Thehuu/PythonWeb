@@ -96,7 +96,7 @@ nav {
 .text-center {
     color: rgb(218, 105, 12);
     font-weight: bold;
-    margin-top: 3px;
+    margin-top: 15px;
     border-radius: 10px;
     background-color: rgb(232, 221, 212);
 }
@@ -267,3 +267,50 @@ nav {
     }
 }
 
+
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.image-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: slideAnimation 9s infinite;
+}
+
+.image-slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.image-slide:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.image-slide:nth-child(3) {
+    animation-delay: 6s;
+}
+
+@keyframes slideAnimation {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
