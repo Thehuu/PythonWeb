@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-lad$f(8lvg7wj_69&6)z9(o8pjwi96*@s1rnzv=^_^_*j_m+#d
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'antoan.backan.gov.vn'
+    'https://antoan.backan.gov.vn'
     'localhost',
     '192.168.1.3',
     '127.0.0.1',
