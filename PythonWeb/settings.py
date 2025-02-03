@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
 
 # Thêm các nguồn gốc tin cậy vào CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = [
+    'antoan.backan.gov.vn',
     'https://localhost',
     'https://127.0.0.1',
     'https://192.168.1.3',
