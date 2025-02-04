@@ -20,7 +20,7 @@ class ReliefLocation(models.Model):
     latitude = models.FloatField(verbose_name='Vĩ độ')  # Vĩ độ, lưu trữ tối đa 9 chữ số với 6 số sau dấu ,
     longitude = models.FloatField(verbose_name='Kinh độ')  # Kinh độ
     address = models.CharField(max_length=300, null=True, verbose_name='Địa điểm GPS')  # Thêm trường address để lưu địa chỉ
-    description = models.CharField(max_length=300, blank=True, null=True,verbose_name='Ghi chú' )  # Mô tả thêm về vị trí cứu trợ
+    description = models.CharField(max_length=300, null=True,verbose_name='Ghi chú' )  # Mô tả thêm về vị trí cứu trợ
     image = models.ImageField(upload_to='images/', null=True, blank=True,verbose_name='Hình ảnh')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Thời gian khai báo')  # Thời gian tạo
     STATUS_CHOICES = [
