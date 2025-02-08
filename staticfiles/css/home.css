@@ -1,11 +1,30 @@
 {% load static %}
+
 /* Kiểu chung */
 body {
-    background-size: cover;
     font-family: "Arial", sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
+}
+
+/* Hiệu ứng particles */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: moveBackground 80s linear infinite alternate;
+}
+
+/* Keyframes để di chuyển nền */
+@keyframes moveBackground {
+    0% {
+        background-position: left center;
+    }
+    100% {
+        background-position: right center;
+    }
 }
 
 /* Kiểu cho Navbar */
@@ -14,6 +33,11 @@ nav {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 8vh; /* Chiều cao tương đối với màn hình */
+}
+
+.navbar-toggler {
+    border-color: #fff;
+    margin-left: 9px;
 }
 
 /* Liên kết trong Navbar */
@@ -41,11 +65,6 @@ nav {
     box-shadow: 0 4px 10px rgba(255, 95, 109, 0.4);
 }
 
-.navbar-toggler {
-    border-color: #fff;
-    margin-left: 9px;
-}
-
 /* Tiêu đề chính */
 .hero-title {
     height: 10vh; /* Chiều cao dựa trên viewport height */
@@ -62,17 +81,38 @@ nav {
 
 /* Chữ Công an tỉnh Bắc Kanj */
 .cand {
-    line-height:1.6; 
-    margin:10px; 
-    border-radius:10px; 
-    padding: 20px; 
-    color:rgb(218, 105, 12); 
+    line-height: 1.6;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    color: rgb(218, 105, 12);
     background-color: rgb(232, 221, 212);
+}
+
+.cand strong {
+    animation: changeFont 5s infinite alternate; /* Thay đổi font sau mỗi 5 giây, lặp vô hạn, hiệu ứng qua lại */
+}
+
+@keyframes changeFont {
+    25% {
+        font-weight: 500; /* Giá trị trung gian */
+    }
+    50% {
+        font-weight: bold;
+        color: #007bff;
+    }
+    75% {
+        font-weight: 500; /* Giá trị trung gian */
+        color: #1a53ff; /* Màu trung gian */
+    }
+    100% {
+        font-weight: normal;
+        color: #333;
+    }
 }
 
 /* Hero */
 .tm-hero {
-    /* height: 30vh; Chiều cao linh hoạt với màn hình */
     text-align: center;
     color: #fff;
     background: rgba(0, 0, 0, 0.6);
@@ -101,13 +141,59 @@ nav {
     background-color: rgb(232, 221, 212);
 }
 
+/* Thông báo có khai báo mới */
+#notification {
+    display: none;
+    position: fixed;
+    top: 3px;
+    right: 10px;
+    background: #f39c12;
+    color: rgb(216, 15, 15);
+    padding: 3px;
+    border-radius: 15px;
+    transition: opacity 0.5s;
+    z-index: 1001;
+}
+
+/* Thông báo điểm chờ duyệt */
+#pending-points {
+    display: none;
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    background: #3498db;
+    color: #fff;
+    padding: 3px;
+    border-radius: 15px;
+    transition: opacity 0.5s;
+    z-index: 1000;
+}
+
+/* Định dạng cho liên kết thông báo điểm chờ duyệt */
+.pending-points-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Footer */
+.tm-footer {
+    height: 8vh; /* Footer thay đổi chiều cao theo màn hình */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(232, 221, 212);
+    color: rgb(218, 105, 12);
+    margin: 10px;
+    border-radius: 10px;
+}
+
 /* Hiệu ứng rung */
 .vibrate-1 {
     display: inline-block;
     -webkit-animation: vibrate-1 0.3s linear infinite both;
             animation: vibrate-1 0.3s linear infinite both;
 }
-  
+
 @-webkit-keyframes vibrate-1 {
     0% {
       -webkit-transform: translate(0);
@@ -134,7 +220,7 @@ nav {
               transform: translate(0);
     }
 }
-  
+
 @keyframes vibrate-1 {
     0% {
       -webkit-transform: translate(0);
@@ -162,80 +248,12 @@ nav {
     }
 }
 
-/* Footer */
-.tm-footer {
-    height: 8vh; /* Footer thay đổi chiều cao theo màn hình */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(232, 221, 212);
-    color: rgb(218, 105, 12);
-    margin: 10px;
-    border-radius: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-item {
-        text-align: center;
-        margin: 8px 0;
-    }
-
-    .nav-link {
-        font-size: 14px;
-    }
-
-    .tm-hero {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    #navbarNav {
-        top: 0px;
-        left: 80px;
-        background: #007bff00;
-        width: 140px;   
-        padding: 1px;
-        border-radius: 5px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-title {   
-        /* font-size: x-large; */
-        /* margin: 5px; */
-        height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
-    }
-
-    .tm-hero {
-        /* height: 21vh; */
-        /* margin: 5px; */
-        /* padding: 5px; */
-    }
-
-    .img-fluid {
-        height: 13vh; /* Điều chỉnh ảnh cho màn hình nhỏ */
-    }
-
-    .tm-footer {
-        /* height: 6vh; */
-        font-size: 12px;
-    }
-}
-
-/* Ảnh tùy chỉnh */
-.custom-img {
-    width: 100%;
-    /* height: auto; */
-    object-fit: cover; /* Đảm bảo nội dung bao phủ toàn bộ khu vực */
-}
-
 /* Hiệu ứng marquee */
 .marquee {
     display: inline-block;
     white-space: nowrap;
     animation: marquee 20s linear infinite; /* Điều chỉnh thời gian cho tốc độ chậm hơn */
-    animation-delay: 0s; /* Không có độ trễ, bắt đầu ngay lập tức */
+    animation-delay: 3s; /* Không có độ trễ, bắt đầu ngay lập tức */
 }
 
 @keyframes marquee {
@@ -267,50 +285,91 @@ nav {
     }
 }
 
-
-
-.image-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-}
-
-.image-slide {
-    position: absolute;
-    top: 0;
+/* Định dạng cho modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
+    top: 0;
     width: 100%;
-    height: auto;
-    opacity: 0;
-    animation: slideAnimation 9s infinite;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-.image-slide:nth-child(1) {
-    animation-delay: 0s;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
-.image-slide:nth-child(2) {
-    animation-delay: 3s;
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.image-slide:nth-child(3) {
-    animation-delay: 6s;
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-@keyframes slideAnimation {
-    0% {
-        opacity: 0;
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-item {
+        text-align: center;
+        margin: 8px 0;
     }
-    10% {
-        opacity: 1;
+
+    .nav-link {
+        font-size: 14px;
     }
-    30% {
-        opacity: 1;
+
+    .tm-hero {
+        margin: 10px;
+        padding: 10px;
     }
-    40% {
-        opacity: 0;
+
+    #navbarNav {
+        top: 0px;
+        left: 80px;
+        background: #007bff00;
+        width: 140px;
+        padding: 1px;
+        border-radius: 5px;
     }
-    100% {
-        opacity: 0;
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: x-large;
+        height: 8vh; /* Chiều cao nhỏ hơn cho màn hình nhỏ */
     }
+
+    .tm-hero {
+        height: 21vh;
+        padding: 5px;
+    }
+
+    .img-fluid {
+        height: 13vh; /* Điều chỉnh ảnh cho màn hình nhỏ */
+    }
+
+    .tm-footer {
+        height: 6vh;
+        font-size: 12px;
+    }
+}
+
+/* Ảnh tùy chỉnh */
+.custom-img {
+    width: 100%;
+    object-fit: cover; /* Đảm bảo nội dung bao phủ toàn bộ khu vực */
 }

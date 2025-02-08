@@ -4,137 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Trang chủ</title>
     <!-- Liên kết các file CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <!-- Liên kết file JavaScript -->
-    <script src="{% static 'js/particles.min.js' %}"></script>
+    <script src="{% static 'js/particles.min.js' %}"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{% static 'js/home.js' %}"></script>
 
-    
-    <!-- Phần tử để hiển thị hiệu ứng particles -->
-    <div id="particles-js"></div>
-    <script>
-        // Cấu hình hiệu ứng particles
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 100 },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: { enable: true, speed: 2 }
-            }
-        });
-    </script>
     <style>
-        /* Định dạng cho phần tử particles-js */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        body {
             background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
             background-size: cover;
-            z-index: -1;
-            animation: moveBackground 80s linear infinite alternate;
         }
 
-        /* Keyframes để di chuyển nền */
-        @keyframes moveBackground {
-            0% {
-                background-position: left center;
-            }
-            100% {
-                background-position: right center;
-            }
-        }
-
-        /* Định dạng cho modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
-        .cand strong {
-            animation: changeFont 5s infinite alternate; /* Thay đổi font sau mỗi 5 giây, lặp vô hạn, hiệu ứng qua lại */
-            }
-
-            @keyframes changeFont {
-            25% {
-                font-weight: 500; /* Giá trị trung gian */
-            }
-            50% {
-                font-weight: bold;
-                color: #007bff;
-            }
-            75% {
-                font-weight: 500; /* Giá trị trung gian */
-                color: #1a53ff; /* Màu trung gian */
-            }
-            100% {
-                font-weight: normal;
-                color: #333;
-            }
-            75% {
-                font-weight: 500; /* Giá trị trung gian */
-                color: #1a53ff; /* Màu trung gian */
-            }
-            50% {
-                font-weight: bold;
-                color: #007bff;}
-
-            25% {
-                font-weight: 500; /* Giá trị trung gian */
-                color: #1a53ff; /* Màu trung gian */
-            }
     </style>
     
 </head>
 
-<body style="position: relative;">
+<body id="particles-js" style="position: relative;">
     <!-- Thông báo có điểm mới khai báo -->
-    <div id="notification" style="display:none; position: fixed; top: 3px; right: 10px; background: #f39c12; color: rgb(216, 15, 15); padding: 3px; border-radius: 15px; transition: opacity 0.5s;z-index: 1001;">
+    <div id="notification">
         <i class="fas"></i> <span id="details-notification"></span>
     </div>
-
     <!-- Thông báo điểm chờ duyệt -->
-    <div id="pending-points" style="display:none; position: fixed; top: 40px; right: 10px; background: #3498db; color: #fff; padding: 3px; border-radius: 15px; transition: opacity 0.5s; z-index: 1000;">
+    <div id="pending-points">
         <i class="fas"></i> 
         <span id="details-pending-points">
-            <a href="/statistic/" style="color: #fff; text-decoration: none;">{{ pending_points_count }} vụ chờ duyệt</a>
+            <a href="/statistic/" class="pending-points-link">{{ pending_points_count }} vụ chờ duyệt</a>
         </span>
     </div>
-
     <!-- Nút đăng nhập, đăng ký -->
     <nav class="navbar navbar-expand-lg custom-navbar mb-4">
         <button
@@ -175,11 +76,16 @@
         </strong>
     </h4>
     
-    <h5 class="cand">
+    <h4 class="cand">
         <strong>
-                Khai báo và cung cấp thông tin:</br>- Thiên tai, đuối nước </br>- TNGT, tắc đường </br>- Cháy, nổ</br>
+                Khai báo và cung cấp thông tin:
+                <ul>
+                    <li>Thiên tai, đuối nước</li>
+                    <li>TNGT, tắc đường</li>
+                    <li>Cháy, nổ</li>
+                </ul>
         </strong>
-    </h5>
+    </h4>
 
     <!-- 4 nút chức năng -->
     <div class="tm-container-content mt-4" style="margin: 10px;">
@@ -236,91 +142,8 @@
     </div>
 
     <footer class="tm-footer text-center py-3">
-        <p>Designed by T | 2025</p>
+        <p>Beta Version 1 | 2025</p>   
     </footer>
 
-    <!-- Liên kết thư viện AOS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    <script>
-        AOS.init();
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const notificationElement = document.getElementById('notification');
-            const closeButton = document.getElementById('close-notification');
-            const detailsButton = document.getElementById('details-notification');
-            const pendingPointsElement = document.getElementById('pending-points');
-            const closePendingPointsButton = document.getElementById('close-pending-points');
-            const detailsPendingPointsButton = document.getElementById('details-pending-points');
-            const approvedPointsElement = document.getElementById('approved-points');
-            const closeApprovedPointsButton = document.getElementById('close-approved-points');
-            const detailsApprovedPointsButton = document.getElementById('details-approved-points');
-
-            // Kết nối WebSocket
-            const socket = new WebSocket('wss://' + window.location.host + '/ws/notifications/');
-
-            socket.onopen = function(event) {
-                console.log("WebSocket connection opened:", event);
-            };
-
-            socket.onerror = function(error) {
-                console.error("WebSocket error:", error);
-            };
-
-            socket.onclose = function(event) {
-                console.log("WebSocket connection closed:", event);
-            };
-
-            // Sự kiện khi nhận được thông điệp từ server qua WebSocket
-            socket.onmessage = function(event) {
-                console.log("Received data:", event.data);
-                const data = JSON.parse(event.data);
-                notificationElement.querySelector('span').innerText = data.message;
-                notificationElement.style.display = 'block';
-                notificationElement.style.opacity = '1';
-                notificationElement.dataset.incidentId = data.incident_id; // Lưu ID vụ việc trong thuộc tính data
-
-                // Tự động ẩn thông báo sau 10 giây
-                setTimeout(() => {
-                    notificationElement.style.opacity = '0';
-                    setTimeout(() => {
-                        notificationElement.style.display = 'none';
-                    }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
-                }, 10000);
-            };
-
-            // Sự kiện click để chuyển hướng đến trang chi tiết điểm cứu trợ
-            notificationElement.addEventListener('click', function() {
-                const incidentId = notificationElement.dataset.incidentId;
-                if (incidentId) {
-                    // Chuyển hướng đến trang chi tiết điểm cứu trợ
-                    window.location.href = `/incidents/${incidentId}/`;
-                }
-            });
-
-            // Hiển thị thông báo điểm chờ duyệt và điểm đang giải quyết
-            pendingPointsElement.style.display = 'block';
-            pendingPointsElement.style.opacity = '1';
-            approvedPointsElement.style.display = 'block';
-            approvedPointsElement.style.opacity = '1';
-
-            // Sự kiện click để ẩn thông báo điểm chờ duyệt
-            closePendingPointsButton.addEventListener('click', function() {
-                pendingPointsElement.style.opacity = '0';
-                setTimeout(() => {
-                    pendingPointsElement.style.display = 'none';
-                }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
-            });
-
-            // Sự kiện click để ẩn thông báo điểm đang giải quyết
-            closeApprovedPointsButton.addEventListener('click', function() {
-                approvedPointsElement.style.opacity = '0';
-                setTimeout(() => {
-                    approvedPointsElement.style.display = 'none';
-                }, 500); // Thời gian chờ để hoàn thành hiệu ứng mờ đi
-            });
-        });
-    </script>
 </body>
 </html>
