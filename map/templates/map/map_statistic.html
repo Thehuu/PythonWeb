@@ -1,366 +1,40 @@
 {% extends "map/bases.html" %}
-{% block title %}map{% endblock  %}
+{% block title %}Bản đồ{% endblock %}
 
 {% load static %}
-{% block content  %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bản đồ</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap & CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
-    <!-- <link rel="stylesheet" href="{% static 'css/home.css' %}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <!-- Google Maps API -->
-    <script loading="async" defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
-    <script>
-        let map, markers = [], autocomplete, selectedPlace, currentLocationMarker;
-        let currentInfoWindows = []; // Lưu trữ InfoWindow đang mở
-
-        function initMap() {
-            // Khởi tạo bản đồ
-            map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 22.1261475, lng: 105.8329401 },
-            zoom: 9.6,
-            mapTypeControl: false, // Loại bỏ nút Map/Satellite
-            streetViewControl: false, // Loại bỏ hình người (Street View)
-            zoomControl: false, // Loại bỏ nút phóng to/thu nhỏ
-            fullscreenControl: false, // Loại bỏ nút toàn màn hình
-            });
-
-            // Thêm tên các huyện lên bản đồ với màu sắc khác nhau
-            const districts = [
-                { name: 'Ba Bể', lat: 22.4099, lng: 105.7200, color: '#4682B4' },
-                { name: 'Chợ Đồn', lat: 22.1456, lng: 105.5852, color: '#4682B4' },
-                { name: 'Chợ Mới', lat: 21.9784, lng: 105.8487, color: '#4682B4' },
-                { name: 'Na Rì', lat: 22.2633, lng: 106.1145, color: '#4682B4' },
-                { name: 'Ngân Sơn', lat: 22.4928, lng: 105.9475, color: '#4682B4' },
-                { name: 'Pác Nặm', lat: 22.5863, lng: 105.6655, color: '#4682B4' },
-            ];
-
-            districts.forEach(district => {
-                const marker = new google.maps.Marker({
-                    position: { lat: district.lat, lng: district.lng },
-                    map: map,
-                    label: {
-                        text: district.name,
-                        color: district.color,
-                        fontSize: '16px',
-                        fontWeight: 'bold'
-                    },
-                    icon: {
-                        path: google.maps.SymbolPath.CIRCLE,
-                        scale: 0
-                    }
-                });
-            });
-
-
-        // Lấy danh sách các địa điểm từ server
-            const locations = {{ locations|safe }};
-        // Lấy Icon các điểm marker
-            const icons = {
-                'fire': '{% static "images/fire_icon.png" %}',
-                'drowning': '{% static "images/drowning_icon.jpg" %}',
-                'natural_disaster': '{% static "images/natural_disaster_icon.png" %}',
-                'traffic_accident': '{% static "images/traffic_accident_icon.png" %}',
-                'default': '{% static "images/SOS.jpg" %}'
-            };
-
-            const infoWindow = new google.maps.InfoWindow();
-            
-
-            // Lấy địa điểm từ toạ độ
-            function getAddress(lat, lng, callback) {
-                const geocoder = new google.maps.Geocoder();
-                const latlng = { lat: parseFloat(lat), lng: parseFloat(lng) };
-
-                geocoder.geocode({ location: latlng }, (results, status) => {
-                    if (status === "OK") {
-                        if (results[0]) {
-                            // Lọc bỏ chữ "District" và "Vietnam"
-                            let address = results[0].formatted_address;
-                            address = address.replace('District', '').replace(', Vietnam', '').trim();
-                            callback(address);
-
-                        } else {
-                            callback("Không tìm thấy địa chỉ");
-                        }
-                    } else {
-                        callback(`Geocoder thất bại: ${status}`);
-                    }
-                });
-            }
-
-            // Từ điển ánh xạ các giá trị incident_type sang tiếng Việt
-            const incidentTypeMap = {
-                'traffic_accident': 'Tai nạn giao thông',
-                'drowning': 'Đuối nước',
-                'fire': 'Cháy',
-                'natural_disaster': 'Thiên tai',
-                // Thêm các loại sự cố khác nếu cần
-            };
-
-            // Tạo các marker cho từng địa điểm
-            locations.forEach((location) => {
-                const iconUrl = icons[location.incident_type];
-                const marker = new google.maps.Marker({
-                    position: { lat: location.latitude, lng: location.longitude },
-                    map: map,
-                    icon: {
-                        url: iconUrl,
-                        scaledSize: new google.maps.Size(40, 40),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(20, 40)
-                    },
-                    title: location.name,
-                });
-
-                getAddress(location.latitude, location.longitude, (address) => {
-                    const incidentType = incidentTypeMap[location.incident_type] || location.incident_type;
-                    const infoContent = `
-                        <div style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">
-                            <strong style="margin-top: auto;">${location.name}</strong><br>
-                            <p style="margin-bottom: 0px; margin-top: 1px;">${location.mobile}</p>
-                            <p style="margin-bottom: 0px; margin-top: 1px;">${incidentType}</p>
-                            <p style="margin-bottom: 0px; margin-top: 1px;">GPS: ${address}</p>
-                            <p style="margin-bottom: 0px; margin-top: 1px;"><a href="https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}" target="_blank">Xem trên Google Maps</a></p>
-                        </div>
-                    `;
-                    marker.infoContent = infoContent;
-                });
-
-                // Hiệu ứng nhấp nháy cho marker
-                let size = 30, growing = true;
-                setInterval(() => {
-                    size += growing ? 1 : -1;
-                    if (size >= 40) growing = false;
-                    if (size <= 25) growing = true;
-                    marker.setIcon({
-                        url: iconUrl,
-                        scaledSize: new google.maps.Size(size, size),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(15, 30)
-                    });
-                }, 100);
-
-                // Thêm sự kiện click cho marker
-                marker.addListener('click', () => {
-                    infoWindow.setContent(marker.infoContent);
-                    infoWindow.open(map, marker);
-                });
-                markers.push(marker);
-            });
-
-            // Sự kiện click trên bản đồ để chọn vị trí
-            // map.addListener('click', function(event) {
-            //     const latitude = event.latLng.lat();
-            //     const longitude = event.latLng.lng();
-
-            //     document.getElementById('id_latitude').value = latitude;
-            //     document.getElementById('id_longitude').value = longitude;
-
-            //     if (currentLocationMarker) {
-            //         currentLocationMarker.setMap(null);
-            //     }
-
-            //     currentLocationMarker = new google.maps.Marker({
-            //         position: event.latLng,
-            //         map: map,
-            //         title: 'Vị trí đã chọn'
-            //     });
-            // });
-
-            // Tìm kiếm địa điểm
-            const input = document.getElementById('searchInput');
-            autocomplete = new google.maps.places.Autocomplete(input);
-            autocomplete.bindTo('bounds', map);
-            autocomplete.addListener('place_changed', () => {
-                const place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    alert("Không tìm thấy vị trí nào.");
-                    return;
-                }
-                selectedPlace = place;
-                document.getElementById('id_latitude').value = place.geometry.location.lat();
-                document.getElementById('id_longitude').value = place.geometry.location.lng();
-                if (currentLocationMarker) currentLocationMarker.setMap(null);
-                currentLocationMarker = new google.maps.Marker({
-                    position: place.geometry.location,
-                    map: map
-                });
-                map.setCenter(place.geometry.location);
-                map.setZoom(12);
-            });
-        }
-
-        function goToLocation() {
-            if (selectedPlace && selectedPlace.geometry) {
-                map.setCenter(selectedPlace.geometry.location);
-                map.setZoom(12);
-                if (currentLocationMarker) currentLocationMarker.setMap(null);
-                currentLocationMarker = new google.maps.Marker({
-                    position: selectedPlace.geometry.location,
-                    map: map
-                });
-            } else {
-                alert('Vui lòng tìm kiếm vị trí trước khi đi đến.');
-            }
-        }
-
-        function getCurrentLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    const lat = position.coords.latitude;
-                    const lng = position.coords.longitude;
-                    document.getElementById('id_latitude').value = lat;
-                    document.getElementById('id_longitude').value = lng;
-                    map.setCenter({ lat, lng });
-                    map.setZoom(12);
-                    if (currentLocationMarker) currentLocationMarker.setMap(null);
-                    currentLocationMarker = new google.maps.Marker({
-                        position: { lat, lng },
-                        map: map,
-                        title: 'Bạn ở đây'
-                    });
-                    const infoWindow = new google.maps.InfoWindow({ content: '<p style="color: black; font-size: 12.5px; padding: 0px; line-height: 1.3;">Bạn ở đây</p>' });
-                    currentLocationMarker.addListener('click', () => infoWindow.open(map, currentLocationMarker));
-                }, () => alert('Không thể lấy vị trí của bạn.'));
-            } else {
-                alert('Trình duyệt của bạn không hỗ trợ Geolocation.');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const formContainer = document.getElementById("form-container");
-            const toggleButton = document.getElementById("toggle-form-btn");
-
-            formContainer.style.display = "none";
-
-            toggleButton.addEventListener("click", () => {
-                if (formContainer.style.display === "none") {
-                    formContainer.style.display = "block";
-                    toggleButton.style.display = "none";
-                    document.querySelector('.map-container').style.width = '45%';
-                    document.querySelector('.form-container').style.width = '55%';
-                }
-            });
-
-            document.querySelector('.btn-secondary').addEventListener("click", () => {
-                formContainer.style.display = "none";
-                toggleButton.style.display = "block";
-                document.querySelector('.map-container').style.width = '100%';
-            });
-        });
-
-
-        function showAllMarkersInfo(type) {
-            // Đóng tất cả các InfoWindow đang mở trước đó
-            currentInfoWindows.forEach(infoWindow => infoWindow.close());
-            currentInfoWindows = []; // Reset danh sách InfoWindow
-
-            // Hiển thị InfoWindow cho tất cả marker khớp với loại
-            markers.forEach(marker => {
-                if (marker.icon.url.includes(type)) {
-                    const infoWindow = new google.maps.InfoWindow({
-                        content: marker.infoContent // Sử dụng nội dung của marker
-                    });
-                    infoWindow.open(marker.getMap(), marker);
-                    currentInfoWindows.push(infoWindow); // Lưu lại InfoWindow đang mở
-                }
-            });
-
-            // Nếu không có marker nào khớp, hiển thị thông báo
-            if (currentInfoWindows.length === 0) {
-                alert('Không có.');
-            }
-        }
-
-        function toggleSOSMenu() {
-            const menu = document.getElementById('sosMenu');
-            menu.classList.toggle('show');
-        }
-
-
-    </script>
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
 </head>
+
 <body onload="initMap()">
-   
-    <!-- Nút BACK và KHAI BÁO -->
+    <!-- Nút BACK -->
     <nav class="nav-back">
-        <a href="/" class="btn btn-primary">
-            <i class="fas fa-arrow-left"></i>
-        </a>
-        <!-- <button class="toggle-button" id="toggle-form-btn">KHAI BÁO</button> -->
+        <a href="/" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
     </nav>
-
-
-    <!-- Map và Form khai báo -->
 
     <div class="container-map">
         <div class="map-container">
             <div id="map"></div>
-            <!-- <button style="margin-top: 0px;left: 11px;" class="btn btn-primary" type="button" onclick="getCurrentLocation()">Vị trí hiện tại</button> -->
-            <!-- <input id="searchInput" type="text" class="form-control mt-2" placeholder="Hoặc tìm kiếm vị trí..." /> -->
-        </div>
-        <div class="form-container" id="form-container">
-            <form method="post" action="{% url 'save_location' %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group" style="color: white;">
-                    <!-- {{ form.incident_type.label_tag }}  -->
-                    {{ form.incident_type }}
-                </div>
-                <div class="form-group" style="color: white;">
-                    <!-- {{ form.name.label_tag }}  -->
-                    {{ form.name }}
-                    <span class="hint" data-hint="Nhập họ tên">Họ và tên</span>
-                </div>
-                <div class="form-group" style="color: white;">
-                    <!-- {{ form.mobile.label_tag }}  -->
-                    {{ form.mobile }}
-                    <span class="hint" data-hint="Nhập số điện thoại">Số điện thoại</span>
-                </div>
-                <div class="form-group" style="color: white;">
-                    <!-- {{ form.residence.label_tag }}  -->
-                    {{ form.residence }}
-                    <span class="hint" data-hint="Nhập nơi cư trú">Nơi cư trú</span>
-                </div>
-                <div class="form-group" style="color: white;">
-                    <!-- {{ form.description.label_tag }} -->
-                     {{ form.description }}
-                <span class="hint" data-hint="Ghi chú">Mô tả thêm</span>
-
-                </div>
-                <div class="form-group" style="color: white;">
-                    <label>Nơi xảy ra: </label>
-                    <label>- Ấn "Vị trí hiện tại"; </label>
-                    <label>- Để lấy địa điểm.</label>
-                </div>
-
-                <div class="form-group" style="color: white;">
-                {{ form.image.label_tag }} {{ form.image }}
-                </div>
-                <input type="hidden" name="latitude" id="id_latitude" value="{{ form.latitude.value }}">
-                <input type="hidden" name="longitude" id="id_longitude" value="{{ form.longitude.value }}">
-                <button type="submit" class="btn btn-primary">LƯU</button>
-                <button type="button" class="btn btn-secondary">HUỶ</button>
-            </form>
         </div>
     </div>
 
-    <!-- Nút lấy vị trí hiện tại và SOS-->
-<!-- Khi click vào thì các thông tin trên marker sẽ hiện ra -->
-<!-- tuy nhiên nếu không có thì không hiện (bây giờ đang vẫn hiện cái khác) -->
+    <!-- Container chứa bản đồ -->
     <div class="action-container">
+
+    <!-- Container chứa các nút SOS và lọc thông tin sự cố -->
+
         <div class="sos-menu" id="sosMenu">
-            <!-- <button onclick="filterMarkers('drowning')" class="sos-item">Đuối Nước</button>
-            <button onclick="filterMarkers('natural_disaster')" class="sos-item">Thiên Tai</button>
-            <button onclick="filterMarkers('traffic_accident')" class="sos-item">TNGT</button>
-            <button onclick="filterMarkers('fire')" class="sos-item">Cháy</button>
-        </div> -->
             <button onclick="showAllMarkersInfo('drowning')" class="sos-item">Đuối Nước</button>
             <button onclick="showAllMarkersInfo('natural_disaster')" class="sos-item">Thiên Tai</button>
             <button onclick="showAllMarkersInfo('traffic_accident')" class="sos-item">TNGT</button>
@@ -370,10 +44,13 @@
             <span style="display: block; text-align: center; width: 100%;">SOS</span>
         </button>
     </div>
-    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Truyền locations từ Django vào JavaScript -->
+    <script>
+        const locations = {{ locations|safe }};
+    </script>
+x
+    <!-- JavaScript -->
+    <script src="{% static 'js/map_statistic.js' %}"></script>
 </body>
 {% endblock %}

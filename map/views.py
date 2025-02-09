@@ -74,7 +74,7 @@ def save_location(request):
 
 
 
-# Hàm hiển thị bản đồ với các điểm cứu trợ
+# Hàm hiển thị bản đồ với các điểm cứu trợ (lấy dữ liệu từ DB)
 def map_statistic(request):
     form = ReliefPointForm()  # Khởi tạo form để nhập thông tin điểm cứu trợ
 
@@ -87,9 +87,10 @@ def map_statistic(request):
             'name': loc.name,  # Tên địa điểm
             'mobile': loc.mobile,  # Số điện thoại liên hệ
             'residence': loc.residence, #nơi cư trú
+            'address': loc.address, #địa điểm gặp sự cố
             'latitude': float(loc.latitude),  # Vĩ độ
             'longitude': float(loc.longitude),  # Kinh độ
-            'description': loc.description,  # Mô tả địa điểm
+            'description': loc.description,  # Mô tả
             'incident_type': loc.incident_type,  # Loại sự cố
 
         }
