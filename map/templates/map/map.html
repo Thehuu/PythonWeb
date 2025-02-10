@@ -12,15 +12,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <!-- Google Maps API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70gmFRPkKiVCMMyi1gwz19_GtHhywyE0&libraries=places"></script>
-
-
-
+    <script async defer src="{{ GOOGLE_MAPS_API_URL }}"></script>
 </head>
 
+
 <body onload="initMap()">
+    <p>API Key: {{ GOOGLE_MAPS_API_KEY }}</p>
+
     <!-- Nút BACK và KHAI BÁO -->
     <nav class="nav-back">
         <a href="/" class="btn btn-primary">
@@ -43,7 +42,8 @@
                 <div class="form-group" style="color: white;">{{ form.mobile }} <span class="hint">Số điện thoại</span></div>
                 <div class="form-group" style="color: white;">{{ form.residence }} <span class="hint">Nơi cư trú</span></div>
                 <div class="form-group" style="color: white;">{{ form.description }} <span class="hint">Mô tả thêm</span></div>
-                <div class="form-group" style="color: white;">{{ form.image.label_tag }} {{ form.image }}</div>
+                <button class="btn-primary" onclick="getCurrentLocation()">Địa điểm gặp nạn, sự cố</button>
+                <div class="form-group" style="color: white;">{{ form.image.label_tag }} {{ form.image}}</div>
 
                 <input type="hidden" name="latitude" id="id_latitude">
                 <input type="hidden" name="longitude" id="id_longitude">
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" onclick="getCurrentLocation()">Vị trí hiện tại</button>
+    <button class="btn btn-primary" onclick="getCurrentLocation()">Vị trí của bạn</button>
 
     <!-- JavaScript -->
     <script src="{% static 'js/map.js' %}"></script>

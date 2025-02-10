@@ -37,5 +37,5 @@ class ReliefPointForm(forms.ModelForm):
             # 'mobile': 'Điện thoại',
             # 'residence': 'Nơi cư trú',
             # 'description' : "Ghi chú",
-            'image': 'Đính kèm ảnh',
+            'image': 'Gửi kèm ảnh',
         }

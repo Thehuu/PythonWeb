@@ -1,11 +1,13 @@
 from django.http import JsonResponse
+from django.conf import settings
+
 from django.shortcuts import render
 from .models import ReliefLocation
 from .forms import ReliefPointForm
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 
-# Hàm hiển thị bản đồ với các thông tin liên quan
+# Hàm hiển thị bản đồ với các thông tin liên quan.API để ở đây vì url đang trỏ về show_map
 def show_map(request):
     form = ReliefPointForm()  # Khởi tạo form để nhập thông tin điểm cứu trợ
 
@@ -33,7 +35,7 @@ def show_map(request):
     fire_count = ReliefLocation.objects.filter(incident_type='FIRE').count()  # Cháy
     disaster_count = ReliefLocation.objects.filter(incident_type='DISASTER').count()  # Thiên tai
 
-    # Tạo ngữ cảnh để truyền vào template
+    # Tạo ngữ cảnh để truyền vào template.Chỗ này cung cần API
     context = {
         'form': form,  # Form để nhập dữ liệu
         'locations': locations_data,  # Danh sách các địa điểm cứu trợ
@@ -41,6 +43,9 @@ def show_map(request):
         'drowning_count': drowning_count,  # Tổng số đuối nước
         'fire_count': fire_count,  # Tổng số vụ cháy
         'disaster_count': disaster_count,  # Tổng số thiên tai
+        "GOOGLE_MAPS_API_URL": f"https://maps.googleapis.com/maps/api/js?key={settings.GOOGLE_MAPS_API_KEY}&libraries=places"
+
+
     }
 
     # Kết xuất template và trả về phản hồi
@@ -111,7 +116,18 @@ def map_statistic(request):
         'drowning_count': drowning_count,  # Tổng số đuối nước
         'fire_count': fire_count,  # Tổng số vụ cháy
         'disaster_count': disaster_count,  # Tổng số thiên tai
+        'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY,
+
     }
 
     # Kết xuất template và trả về phản hồi
     return render(request, 'map/map_statistic.html', context)
+
+# Truyền API key vào template từ view:
+# def map_api(request):
+#     context = {
+#         'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY,
+#     }
+#     return render(request, 'map/map.html', context)
+
+
