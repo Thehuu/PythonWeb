@@ -1,5 +1,7 @@
 from django.http import JsonResponse
 from django.conf import settings
+from django.http import HttpResponse
+import requests
 
 from django.shortcuts import render
 from .models import ReliefLocation
@@ -130,4 +132,8 @@ def map_statistic(request):
 #     }
 #     return render(request, 'map/map.html', context)
 
-
+#  bạn tạo một API trên backend để gọi Google Maps và trả về script.
+def google_maps_proxy(request):
+    url = f"https://maps.googleapis.com/maps/api/js?key={settings.GOOGLE_MAPS_API_KEY}&libraries=places"
+    response = requests.get(url)
+    return HttpResponse(response.content, content_type=response.headers["Content-Type"])
