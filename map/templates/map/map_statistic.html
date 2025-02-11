@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Google Maps API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&libraries=places"></script>
+    <!-- Google Maps -->
+    <script async defer src="{% url 'google_maps_proxy' %}"></script>
 </head>
 
 <body onload="initMap()">
