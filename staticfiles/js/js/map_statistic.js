@@ -1,3 +1,4 @@
+// filepath: /my-js-project/my-js-project/staticfiles/js/map_statistic.js
 var map, markers = [], infoWindows = [];
 
 // Hàm khởi tạo bản đồ
@@ -11,13 +12,13 @@ function initMap() {
         zoomControl: false, // Loại bỏ nút phóng to/thu nhỏ
         fullscreenControl: false // Loại bỏ nút toàn màn hình
     });
-
+    
     // Kiểm tra xem locations có phải là mảng không
     if (!Array.isArray(locations)) {
         console.error("Lỗi: Dữ liệu locations không phải là mảng!", locations);
         return;
     }
-
+    
     // Định nghĩa các biểu tượng cho các loại sự cố
     const icons = {
         'fire': '/static/images/fire_icon.png',
@@ -26,7 +27,7 @@ function initMap() {
         'traffic_accident': '/static/images/traffic_accident_icon.png',
         'default': '/static/images/SOS.jpg'
     };
-
+    
     // Định nghĩa các loại sự cố và ánh xạ sang tiếng Việt
     const incidentTypeMap = {
         'traffic_accident': 'Tai nạn giao thông',
@@ -40,6 +41,7 @@ function initMap() {
         const iconUrl = icons[location.incident_type] || icons['default'];
         const marker = new google.maps.Marker({
             position: { lat: location.latitude, lng: location.longitude },
+            map: map, // Bản đồ chứa marker
             icon: {
                 url: iconUrl,
                 scaledSize: new google.maps.Size(40, 40)
@@ -62,7 +64,6 @@ function initMap() {
         marker.infoContent = infoContent;
 
         // Thêm mã để hiển thị infoContent trên bản đồ
-        // click để hiện thông tin marker
         marker.addListener('click', () => {
             closeAllInfoWindows();
             const infoWindow = new google.maps.InfoWindow({ content: marker.infoContent });
@@ -73,12 +74,15 @@ function initMap() {
         markers.push(marker);
     });
 
-    // Sử dụng MarkerClusterer để nhóm các marker lại với nhau
-    const markerCluster = new MarkerClusterer(map, markers, {
-        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
-        gridSize: 1, // Điều chỉnh giá trị này để tăng hoặc giảm khoảng cách nhóm các marker
-        maxZoom: 1500, // Mức độ phóng to tối đa mà các marker sẽ được nhóm lại với nhau
-        minimumClusterSize: 2 // Số lượng marker tối thiểu cần thiết để tạo thành một cụm
+    // Cài đặt Overlapping Marker Spiderfier
+    const oms = new OverlappingMarkerSpiderfier(map, {
+        keepSpiderfied: true,
+        legColor: 'blue',
+        overlay: true
+    });
+
+    markers.forEach(marker => {
+        oms.addMarker(marker);
     });
 }
 

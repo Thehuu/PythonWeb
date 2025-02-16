@@ -6,6 +6,9 @@ from django.http import HttpResponseRedirect
 from map.models import ReliefLocation
 from django.core.paginator import Paginator
 from map.models import ReliefLocation
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 # def trang chủ
@@ -136,3 +139,18 @@ def statistic(request):
         'natural_disasters_rescued': natural_disasters_rescued,
     }
     return render(request,'pages/statistic.html',context)
+
+@csrf_exempt
+def approve_incident(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        incident_id = data.get('incident_id')
+        try:
+            incident = ReliefLocation.objects.get(id=incident_id)
+            incident.status = 'approved'
+            incident.save()
+            return JsonResponse({'success': True})
+        except ReliefLocation.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Incident not found'})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
+

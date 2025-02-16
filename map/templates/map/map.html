@@ -41,13 +41,12 @@
                 <div class="form-group" style="color: white;">{{ form.name }} <span class="hint">Họ và tên</span></div>
                 <div class="form-group" style="color: white;">{{ form.mobile }} <span class="hint">Số điện thoại</span></div>
                 <div class="form-group" style="color: white;">{{ form.residence }} <span class="hint">Nơi cư trú</span></div>
-                <div class="form-group" style="color: white;">{{ form.description }} <span class="hint">Mô tả thêm</span></div>
-                <button class="btn-primary" onclick="getCurrentLocation()">Địa điểm gặp nạn, sự cố</button>
+                <div class="form-group" style="color: white;">{{ form.description }} <span class="hint">Ghi chú</span></div>
+                <!-- Theo mặc định, các nút trong thẻ <form> sẽ có thuộc tính type="submit", điều này sẽ kích hoạt việc gửi form khi nhấn vào nút. -->
+                <button class="btn-primary" type="button" onclick="getCurrentLocation()">Địa điểm gặp nạn, sự cố</button>                
                 <div class="form-group" style="color: white;">{{ form.image.label_tag }} {{ form.image}}</div>
-
                 <input type="hidden" name="latitude" id="id_latitude">
                 <input type="hidden" name="longitude" id="id_longitude">
-                
                 <button type="submit" class="btn btn-primary">LƯU</button>
                 <button type="button" class="btn btn-secondary">HUỶ</button>
             </form>

@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{% static 'css/map.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Google Maps -->
+    <!-- Thêm MarkerClusterer từ CDN -->
+    <script src="{% static 'js/markerclusterer_compiled.js' %}"></script>
+
     <script async defer src="{% url 'google_maps_proxy' %}"></script>
 </head>
 
@@ -49,7 +51,7 @@
     <script>
         const locations = {{ locations|safe }};
     </script>
-x
+
     <!-- JavaScript -->
     <script src="{% static 'js/map_statistic.js' %}"></script>
 </body>

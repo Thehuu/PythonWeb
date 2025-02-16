@@ -20,6 +20,6 @@ urlpatterns = [
     path('incidents/<str:incident_type>/<str:status>/', views.incidents_list, name='incidents_status_list'),
     path("map_statistic/", map_views.map_statistic, name='map_statistic'),
     path("maps/proxy/", map_views.google_maps_proxy, name="google_maps_proxy"),
-
+    path('approve_incident/', views.approve_incident, name='approve_incident'),
 
 ]

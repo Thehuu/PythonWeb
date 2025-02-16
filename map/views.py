@@ -3,7 +3,8 @@ from django.conf import settings
 from django.http import HttpResponse
 import requests
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import permission_required
 from .models import ReliefLocation
 from .forms import ReliefPointForm
 from channels.layers import get_channel_layer
@@ -13,7 +14,7 @@ from asgiref.sync import async_to_sync
 def show_map(request):
     form = ReliefPointForm()  # Khởi tạo form để nhập thông tin điểm cứu trợ
 
-    # Lọc các địa điểm cứu trợ đã được phê duyệt
+    # Lọc các địa điểm cứu trợ đã được phê duyệt mới lên bản đồ
     locations = ReliefLocation.objects.filter(status='approved')
 
     # Chuyển đổi dữ liệu địa điểm thành danh sách các từ điển
@@ -78,8 +79,15 @@ def save_location(request):
     # Trả về phản hồi cho yêu cầu không hợp lệ
     return render(request, 'map/error.html', {'errors': 'Invalid request'})
 
-
-
+@permission_required('home.can_approve_incident')
+def approve_incident(request):
+    if request.method == 'POST':
+        incident_id = request.POST.get('incident_id')
+        incident = get_object_or_404(ReliefLocation, id=incident_id)
+        incident.status = 'approved'
+        incident.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})
 
 # Hàm hiển thị bản đồ với các điểm cứu trợ (lấy dữ liệu từ DB)
 def map_statistic(request):
@@ -137,3 +145,5 @@ def google_maps_proxy(request):
     url = f"https://maps.googleapis.com/maps/api/js?key={settings.GOOGLE_MAPS_API_KEY}&libraries=places"
     response = requests.get(url)
     return HttpResponse(response.content, content_type=response.headers["Content-Type"])
+
+

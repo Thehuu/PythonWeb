@@ -1,0 +1,44 @@
+/* 
+This file contains the styles for the project, defining the visual appearance of the HTML elements. 
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#map {
+    height: 100vh; /* Full height of the viewport */
+    width: 100%; /* Full width */
+}
+
+.marker-info {
+    color: black;
+    font-size: 12.5px;
+}
+
+.marker-info strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.marker-info p {
+    margin-bottom: 5px;
+}
+
+#sosMenu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#sosMenu.show {
+    display: block; /* Show when toggled */
+}
