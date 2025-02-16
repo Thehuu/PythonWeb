@@ -1,0 +1,6 @@
+Django==4.2.19
+django-ckeditor==6.7.2
+django-js-asset==3.0.1
+pytz==2025.1
+sqlparse==0.5.3
+Pillow==11.1.0

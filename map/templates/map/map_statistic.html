@@ -1,58 +1,71 @@
 {% extends "map/bases.html" %}
 {% block title %}Bản đồ{% endblock %}
-
-{% load static %}
+{% load static %} 
 {% block content %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bản đồ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bản đồ</title>
 
-    <!-- Bootstrap & CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/map.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Bootstrap & CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <link rel="stylesheet" href="{% static 'css/map.css' %}" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
 
-    <!-- Thêm MarkerClusterer từ CDN -->
-    <script src="{% static 'js/markerclusterer_compiled.js' %}"></script>
+  <!-- Thêm MarkerClusterer từ CDN -->
+  <script src="{% static 'js/markerclusterer_compiled.js' %}"></script>
 
-    <script async defer src="{% url 'google_maps_proxy' %}"></script>
+  <script async defer src="{% url 'google_maps_proxy' %}"></script>
 </head>
 
 <body onload="initMap()">
-    <!-- Nút BACK -->
-    <nav class="nav-back">
-        <a href="/" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
-    </nav>
+  <!-- Nút BACK -->
+  <nav class="nav-back">
+    <a href="/" class="btn btn-primary"><i class="fas fa-arrow-left"></i></a>
+  </nav>
 
-    <div class="container-map">
-        <div class="map-container">
-            <div id="map"></div>
-        </div>
+  <div class="container-map">
+    <div class="map-container">
+      <div id="map"></div>
     </div>
+  </div>
 
-    <!-- Container chứa bản đồ -->
-    <div class="action-container">
-
+  <!-- Container chứa bản đồ -->
+  <div class="action-container">
     <!-- Container chứa các nút SOS và lọc thông tin sự cố -->
 
-        <div class="sos-menu" id="sosMenu">
-            <button onclick="showAllMarkersInfo('drowning')" class="sos-item">Đuối Nước</button>
-            <button onclick="showAllMarkersInfo('natural_disaster')" class="sos-item">Thiên Tai</button>
-            <button onclick="showAllMarkersInfo('traffic_accident')" class="sos-item">TNGT</button>
-            <button onclick="showAllMarkersInfo('fire')" class="sos-item">Cháy</button>
-        </div>
-        <button class="sos-button" onclick="toggleSOSMenu()">
-            <span style="display: block; text-align: center; width: 100%;">SOS</span>
-        </button>
+    <div class="sos-menu" id="sosMenu">
+      <button onclick="showAllMarkersInfo('drowning')" class="sos-item">
+        Đuối Nước
+      </button>
+      <button onclick="showAllMarkersInfo('natural_disaster')" class="sos-item">
+        Thiên Tai
+      </button>
+      <button onclick="showAllMarkersInfo('traffic_accident')" class="sos-item">
+        TNGT
+      </button>
+      <button onclick="showAllMarkersInfo('fire')" class="sos-item">
+        Cháy
+      </button>
     </div>
+    <button class="sos-button" onclick="toggleSOSMenu()">
+      <span style="display: block; text-align: center; width: 100%">SOS</span>
+    </button>
+  </div>
 
-    <!-- Truyền locations từ Django vào JavaScript -->
-    <script>
-        const locations = {{ locations|safe }};
-    </script>
+  <!-- Truyền locations từ Django vào JavaScript -->
+  <script>
+    const locations = {{ locations|safe }};
+  </script>
 
-    <!-- JavaScript -->
-    <script src="{% static 'js/map_statistic.js' %}"></script>
+  <!-- JavaScript -->
+
+  <script src="{% static 'js/map_statistic.js' %}"></script>
 </body>
 {% endblock %}

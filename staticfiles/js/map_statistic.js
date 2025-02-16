@@ -75,10 +75,10 @@ function initMap() {
 
     // Sử dụng MarkerClusterer để nhóm các marker lại với nhau
     const markerCluster = new MarkerClusterer(map, markers, {
-        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
-        gridSize: 1, // Điều chỉnh giá trị này để tăng hoặc giảm khoảng cách nhóm các marker
-        maxZoom: 1500, // Mức độ phóng to tối đa mà các marker sẽ được nhóm lại với nhau
-        minimumClusterSize: 2 // Số lượng marker tối thiểu cần thiết để tạo thành một cụm
+      imagePath: "/static/images/markerclusterer/m",
+      gridSize: 1, // Điều chỉnh giá trị này để tăng hoặc giảm khoảng cách nhóm các marker
+      maxZoom: 1500, // Mức độ phóng to tối đa mà các marker sẽ được nhóm lại với nhau
+      minimumClusterSize: 2, // Số lượng marker tối thiểu cần thiết để tạo thành một cụm
     });
 }
 
