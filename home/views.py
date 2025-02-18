@@ -93,7 +93,11 @@ from map.models import ReliefLocation
 def incident_detail(request, incident_id):
     # Lấy đối tượng ReliefLocation từ cơ sở dữ liệu dựa trên incident_id
     incident = get_object_or_404(ReliefLocation, id=incident_id)
-    return render(request, 'pages/incident_detail.html', {'incident': incident})
+    context = {
+        'incident': incident,
+        'user': request.user,  # Thêm đối tượng user vào context
+    }
+    return render(request, 'pages/incident_detail.html', context)
 
 def statistic(request):
     # Render dữ liệu từ database vào vào statistic.html

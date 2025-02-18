@@ -6,93 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/map.css' %}">
-    <title>Chi tiết thông báo</title>
-    <script>
-        function initMap() {
-            const incidents = [
-                {% for incident in incidents %}
-                { latitude: {{ incident.latitude|stringformat:"f" }}, longitude: {{ incident.longitude|stringformat:"f" }} }{% if not forloop.last %},{% endif %}
-                {% endfor %}
-            ];
 
-            incidents.forEach((incident, index) => {
-                const latlng = { lat: parseFloat(incident.latitude), lng: parseFloat(incident.longitude) };
-                const geocoder = new google.maps.Geocoder();
-
-                geocoder.geocode({ location: latlng }, (results, status) => {
-                    if (status === "OK") {
-                        if (results[0]) {
-                            let address = results[0].formatted_address;
-                            address = address.replace('District', '').replace(', Vietnam', '').trim();
-                            document.getElementById(`address-${index}`).innerHTML = `<p style="margin-bottom: 0px; margin-top: 1px;">${address}</p>`;
-                        } else {
-                            document.getElementById(`address-${index}`).innerHTML = `<p style="margin-bottom: 0px; margin-top: 1px;">GPS: Không tìm thấy địa chỉ</p>`;
-                        }
-                    } else {
-                        document.getElementById(`address-${index}`).innerHTML = `<p style="margin-bottom: 0px; margin-top: 1px;">GPS: Geocoder thất bại: ${status}</p>`;
-                    }
-                });
-            });
-        }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const incidentId = urlParams.get('incident_id');
-            if (incidentId) {
-                // Làm nổi bật hoặc cuộn đến vụ tương ứng
-                const incidentElement = document.getElementById(`incident-${incidentId}`);
-                if (incidentElement) {
-                    incidentElement.scrollIntoView();
-                    incidentElement.style.backgroundColor = '#ffff99'; // Làm nổi bật vụ việc
-                }
-            }
-            var mapLinks = document.querySelectorAll('a.google-map-link');
-            mapLinks.forEach(function(link) {
-                var href = link.getAttribute('href');
-                // Thay thế dấu phẩy bằng dấu chấm trong URL
-                href = href.replace(/,/g, '.');
-                link.setAttribute('href', href);
-            });
-        });
-        function approveIncident(incidentId) {
-            fetch(`/approve_incident/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token }}',
-                },
-                body: JSON.stringify({ incident_id: incidentId }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const incidentElement = document.getElementById(`incident-${incidentId}`);
-                    if (incidentElement) {
-                        const statusElement = incidentElement.querySelector('.status');
-                        if (statusElement) {
-                            statusElement.textContent = 'Đã duyệt';
-                        }
-                        const approveButton = document.getElementById(`approve-button-${incidentId}`);
-                        if (approveButton) {
-                            approveButton.remove();
-                        }
-                    } else {
-                        console.error(`Element with ID incident-${incidentId} not found.`);
-                    }
-                } else {
-                    alert('Có lỗi xảy ra. Vui lòng thử lại.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Có lỗi xảy ra. Vui lòng thử lại.');
-            });
-        }
-    </script>
 </head>
 
 <body>
@@ -117,7 +31,7 @@
                         <p><strong>Địa điểm GPS:</strong> {{ incident.address }}</p>
                         <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude|floatformat:6 }} {{ incident.longitude|floatformat:6 }}" target="_blank" class="google-map-link">Google map</a></p>
                         {% if incident.status == 'pending' and user|has_perm:'map.can_approve_incident' %}
-                        <button id="approve-button-{{ incident.id }}" class="btn btn-success" onclick="approveIncident({{ incident.id }})">Xác nhận</button>
+                        <button id="approve-button-{{ incident.id }}" class="btn btn-success" onclick="approveIncident({{ incident.id }}); window.location.href='/'">Xác nhận</button>
                         {% endif %}
                     </div>
                     <div class="col-md-4">
@@ -133,6 +47,49 @@
         <div class="text-center">
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const incidentId = urlParams.get('incident_id');
+            if (incidentId) {
+                // Làm nổi bật hoặc cuộn đến vụ tương ứng
+                const incidentElement = document.getElementById(`incident-${incidentId}`);
+                if (incidentElement) {
+                    incidentElement.scrollIntoView();
+                    incidentElement.style.backgroundColor = '#ffff99'; // Làm nổi bật vụ việc
+                }
+            }
+            var mapLinks = document.querySelectorAll('a.google-map-link');
+            mapLinks.forEach(function(link) {
+                var href = link.getAttribute('href');
+                // Thay thế dấu phẩy bằng dấu chấm trong URL
+                href = href.replace(/,/g, '.');
+                link.setAttribute('href', href);
+            });
+        });
+
+        function approveIncident(incidentId) {
+            fetch(`/approve_incident/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify({ incident_id: incidentId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById(`incident-${incidentId}`).querySelector('.status').textContent = 'Đã duyệt';
+                    document.getElementById(`approve-button-${incidentId}`).remove();
+                } else {
+                    alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>
 {% endblock %}

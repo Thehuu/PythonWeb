@@ -50,15 +50,28 @@ function initMap() {
         // Sử dụng địa chỉ từ cơ sở dữ liệu
         const address = location.address;
         const incidentType = incidentTypeMap[location.incident_type] || location.incident_type;
-        const infoContent = `
+        let infoContent = `
             <div style="color: black; font-size: 12.5px;">
                 <strong style="display: block; margin-bottom: 5px;">Họ tên: ${location.name}</strong>
                 <p style="margin-bottom: 5px;">Đi động: ${location.mobile}</p>
                 <p style="margin-bottom: 5px;">Sự cố: ${incidentType}</p>
                 <p style="margin-bottom: 5px;">Điạ điểm: ${address}</p>
                 <p style="margin-bottom: 5px;"><a href="https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}" target="_blank">Xem trên Google Maps</a></p>
-            </div>
         `;
+
+        // Kiểm tra quyền và trạng thái của sự cố để hiển thị nút "Đã giải quyết"
+        console.log('userHasPermission:', userHasPermission);
+        console.log('location.status:', location.status);
+
+        if (userHasPermission && location.status === 'rescued') {
+            infoContent += `
+                <button class="btn btn-success" onclick="markAsResolved(${location.id})">Đã giải quyết</button>
+            `;
+        }
+
+        console.log('infoContent:', infoContent);
+
+        infoContent += `</div>`;
         marker.infoContent = infoContent;
 
         // Thêm mã để hiển thị infoContent trên bản đồ
@@ -107,4 +120,47 @@ function showAllMarkersInfo(type) {
 // Hàm bật/tắt menu SOS
 function toggleSOSMenu() {
     document.getElementById('sosMenu').classList.toggle('show');
+}
+
+// Hàm đánh dấu sự cố là đã giải quyết
+function markAsResolved(locationId) {
+    // Gửi yêu cầu AJAX để cập nhật trạng thái của sự cố
+    fetch(`/resolve_incident/${locationId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({ status: 'rescued' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Sự cố đã được đánh dấu là đã giải quyết.');
+            // Cập nhật giao diện người dùng nếu cần thiết
+        } else {
+            alert('Có lỗi xảy ra.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Có lỗi xảy ra.');
+    });
+}
+
+// Hàm lấy giá trị của cookie
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
