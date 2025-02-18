@@ -79,7 +79,8 @@ def save_location(request):
     # Trả về phản hồi cho yêu cầu không hợp lệ
     return render(request, 'map/error.html', {'errors': 'Invalid request'})
 
-@permission_required('home.can_approve_incident')
+# @permission_required('home.can_approve_incident')
+@permission_required('map.can_approve_incident')
 def approve_incident(request):
     if request.method == 'POST':
         incident_id = request.POST.get('incident_id')

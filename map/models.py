@@ -29,8 +29,12 @@ class ReliefLocation(models.Model):
         ('rescued', 'Đã giải quyết'),
     ]
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending', verbose_name='Xử lý thông tin')  # Trạng thái cứu trợ
-
+# permissions: Đây là một danh sách các tuple, mỗi tuple chứa mã quyền và mô tả quyền. 
+# Trong trường hợp này, bạn đã định nghĩa một quyền tùy chỉnh:
     class Meta:
+        permissions = [
+            ("can_approve_incident", "Can approve incident"),
+        ]
         verbose_name = ''
         verbose_name_plural = 'Thông tin'
 

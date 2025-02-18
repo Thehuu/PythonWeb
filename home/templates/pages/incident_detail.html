@@ -1,5 +1,6 @@
 {% extends "pages/bases.html" %}
 {% load static %}
+{% load permissions %}
 {% block title %}Chi tiết sự kiện{% endblock %}
 {% block content %}
 <!DOCTYPE html>
@@ -57,6 +58,40 @@
                 link.setAttribute('href', href);
             });
         });
+        function approveIncident(incidentId) {
+            fetch(`/approve_incident/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify({ incident_id: incidentId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const incidentElement = document.getElementById(`incident-${incidentId}`);
+                    if (incidentElement) {
+                        const statusElement = incidentElement.querySelector('.status');
+                        if (statusElement) {
+                            statusElement.textContent = 'Đã duyệt';
+                        }
+                        const approveButton = document.getElementById(`approve-button-${incidentId}`);
+                        if (approveButton) {
+                            approveButton.remove();
+                        }
+                    } else {
+                        console.error(`Element with ID incident-${incidentId} not found.`);
+                    }
+                } else {
+                    alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            });
+        }
     </script>
 </head>
 
@@ -77,9 +112,13 @@
                         <p><strong>Điện thoại:</strong> {{ incident.mobile }}</p>
                         <p><strong>Mô tả:</strong> {{ incident.description }}</p>
                         <p><strong>Trạng thái:</strong> {{ incident.get_status_display }}</p>
+                        <p><strong>Loại sự cố:</strong> {{ incident.get_incident_type_display }}</p>
                         <p><strong>Thời gian khai báo:</strong> {{ incident.created_at|date:"d/m/Y H:i:s" }}</p>
                         <p><strong>Địa điểm GPS:</strong> {{ incident.address }}</p>
                         <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude|floatformat:6 }} {{ incident.longitude|floatformat:6 }}" target="_blank" class="google-map-link">Google map</a></p>
+                        {% if incident.status == 'pending' and user|has_perm:'map.can_approve_incident' %}
+                        <button id="approve-button-{{ incident.id }}" class="btn btn-success" onclick="approveIncident({{ incident.id }})">Xác nhận</button>
+                        {% endif %}
                     </div>
                     <div class="col-md-4">
                         {% if incident.image %}
