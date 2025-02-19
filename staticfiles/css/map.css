@@ -392,3 +392,15 @@ button[type="submit"]:hover {
     background-color: #0056b3;
     transform: translateY(-5px);
 }
+
+/* Nút Giải quyết xong trên map_statistic.html */
+.btn-success {
+    margin: 5px;
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

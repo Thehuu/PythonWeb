@@ -1,22 +1,26 @@
+{% extends "pages/bases.html" %}
+{% load static %}
+{% block title %}Đăng nhập{% endblock  %}
+{% block content  %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Login</title>
+    <title>Đăng nhập</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   </head>
   <body>
-    <form method="POST" action="{% url 'login' %}?next={% url 'index' %}">
-      {% csrf_token %}
-
-      <!-- Hiển thị lỗi nếu có -->
-      {% for field in form %} {% if field.errors %}
-      <p style="color: red">{{ field.errors }}</p>
-      {% endif %} {% endfor %}
-
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header text-center">
+              <h4>Thông tin đăng nhập</h4>
+            </div>
+            <div class="card-body">
       <!-- Hiển thị các trường đăng nhập -->
       <p><label>Tài khoản:</label>{{ form.username }}</p>
       <p><label>Mật khẩu:</label>{{ form.password }}</p>
@@ -26,3 +30,4 @@
     </form>
   </body>
 </html>
+{% endblock %}

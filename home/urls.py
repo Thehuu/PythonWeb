@@ -14,7 +14,7 @@ urlpatterns = [
     path("register/", views.register, name='register'),
     #LoginView.as_view() view class mặc định xử lý login, gồm các logic cần thiết, giảm việc tự viết code
     path('login/', LoginView.as_view(template_name='pages/login.html', success_url=reverse_lazy('index')), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(next_page=reverse_lazy('index')), name='logout'),
     path('incidents/<int:incident_id>/', views.incident_detail, name='incident_detail'),
     path('incidents/<str:incident_type>/', views.incidents_list, name='incidents_list'),
     path('incidents/<str:incident_type>/<str:status>/', views.incidents_list, name='incidents_status_list'),

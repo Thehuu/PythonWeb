@@ -14,10 +14,10 @@ from django.core.exceptions import ObjectDoesNotExist #kiểm tra xem đối tư
 #print(columns)
 
 class RegistrationForm(forms.Form): #form.Form là class cha
-    username = forms.CharField(label="Tài khoản", max_length=30)
-    email = forms.EmailField(label='Email')
-    password1 = forms.CharField(label='Mật khẩu', widget=forms.PasswordInput()) # PasswordInput làm đầu ẩn dưới dạng * hoặc ...
-    password2 = forms.CharField(label='Nhập lại mật khẩu', widget=forms.PasswordInput())
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}),label="Tài khoản", max_length=30)
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}), label='Email')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}), label='Mật khẩu',)
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}), label='Nhập lại mật khẩu',)
 
     #def kiẻm tra, trả về pass hợp lệ
     def clean_password2(self):

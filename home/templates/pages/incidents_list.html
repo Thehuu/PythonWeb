@@ -95,7 +95,7 @@
                         <p><strong>Địa điểm GPS:</strong> {{ incident.address }}</p>
                         <p><strong>Xem trên</strong> <a href="https://www.google.com/maps/search/?api=1&query={{ incident.latitude|floatformat:6 }} {{ incident.longitude|floatformat:6 }}" target="_blank" class="google-map-link">Google map</a></p>
                         {% if incident.status == 'pending' and user|has_perm:'map.can_approve_incident' %}
-                        <button id="approve-button-{{ incident.id }}" class="btn btn-success" onclick="approveIncident({{ incident.id }})">Xác nhận</button>
+                        <button id="approve-button-{{ incident.id }}" class="btn btn-success" onclick="approveIncident({{ incident.id }})">Xác nhận và duyệt lên bản đồ</button>
                         {% endif %}
                     </div>
                     <div class="col-md-4">
@@ -145,4 +145,3 @@
     </div>
 </body>
 </html>
-{% endblock %}

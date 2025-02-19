@@ -47,6 +47,9 @@ function initMap() {
             title: location.name
         });
 
+        // Lưu trữ marker trong đối tượng location
+        location.marker = marker;
+
         // Sử dụng địa chỉ từ cơ sở dữ liệu
         const address = location.address;
         const incidentType = incidentTypeMap[location.incident_type] || location.incident_type;
@@ -65,7 +68,7 @@ function initMap() {
 
         if (userHasPermission) {
             infoContent += `
-                <button class="btn btn-success" onclick="markAsResolved(${location.id})">Đã giải quyết</button>
+                <button class="btn btn-success" onclick="markAsResolved(${location.id})">Giải quyết xong</button>
             `;
         }
 
@@ -136,8 +139,12 @@ function markAsResolved(locationId) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Sự cố đã được đánh dấu là đã giải quyết.');
-            // Cập nhật giao diện người dùng nếu cần thiết
+            alert('Sự cố được đánh dấu giải quyết xong!');
+            // Ẩn marker tương ứng
+            const location = locations.find(loc => loc.id === locationId);
+            if (location && location.marker) {
+                location.marker.setMap(null);
+            }
         } else {
             alert('Có lỗi xảy ra.');
         }
