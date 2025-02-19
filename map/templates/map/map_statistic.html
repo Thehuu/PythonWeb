@@ -61,11 +61,12 @@
 
   <!-- Truyền locations từ Django vào JavaScript -->
   <script>
-    const locations = {{ locations|safe }};
+    var locations = {{ locations|safe }};
+    var userHasPermission = {{ userHasPermission|yesno:"true,false" }};
   </script>
 
-  <!-- JavaScript -->
 
   <script src="{% static 'js/map_statistic.js' %}"></script>
 </body>
 {% endblock %}
+

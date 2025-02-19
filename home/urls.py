@@ -21,5 +21,7 @@ urlpatterns = [
     path("map_statistic/", map_views.map_statistic, name='map_statistic'),
     path("maps/proxy/", map_views.google_maps_proxy, name="google_maps_proxy"),
     path('approve_incident/', views.approve_incident, name='approve_incident'),
+    path('resolve_incident/<int:location_id>/', views.resolve_incident, name='resolve_incident'),
+
 
 ]

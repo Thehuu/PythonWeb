@@ -90,6 +90,15 @@ def approve_incident(request):
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
 
+@permission_required('map.can_resolve_incident')
+def resolve_incident(request, location_id):
+    if request.method == 'POST':
+        incident = get_object_or_404(ReliefLocation, id=location_id)
+        incident.status = 'rescued'
+        incident.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
 # Hàm hiển thị bản đồ với các điểm cứu trợ (lấy dữ liệu từ DB)
 def map_statistic(request):
     form = ReliefPointForm()  # Khởi tạo form để nhập thông tin điểm cứu trợ
@@ -100,6 +109,7 @@ def map_statistic(request):
     # Chuyển đổi dữ liệu địa điểm thành danh sách các từ điển
     locations_data = [
         {
+            'id': loc.id,
             'name': loc.name,  # Tên địa điểm
             'mobile': loc.mobile,  # Số điện thoại liên hệ
             'residence': loc.residence, #nơi cư trú
@@ -108,7 +118,7 @@ def map_statistic(request):
             'longitude': float(loc.longitude),  # Kinh độ
             'description': loc.description,  # Mô tả
             'incident_type': loc.incident_type,  # Loại sự cố
-
+            'status': loc.status,  # Trạng thái
         }
         for loc in locations
     ]
@@ -119,6 +129,9 @@ def map_statistic(request):
     fire_count = ReliefLocation.objects.filter(incident_type='FIRE').count()  # Cháy
     disaster_count = ReliefLocation.objects.filter(incident_type='DISASTER').count()  # Thiên tai
 
+    # Định nghĩa biến user_has_permission
+    user_has_permission = request.user.has_perm('map.can_resolve_incident')
+
     # Tạo ngữ cảnh để truyền vào template
     context = {
         'form': form,  # Form để nhập dữ liệu
@@ -127,19 +140,13 @@ def map_statistic(request):
         'drowning_count': drowning_count,  # Tổng số đuối nước
         'fire_count': fire_count,  # Tổng số vụ cháy
         'disaster_count': disaster_count,  # Tổng số thiên tai
+        'userHasPermission': user_has_permission,  # Truyền biến userHasPermission vào ngữ cảnh
         'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY,
-
     }
 
     # Kết xuất template và trả về phản hồi
     return render(request, 'map/map_statistic.html', context)
 
-# Truyền API key vào template từ view:
-# def map_api(request):
-#     context = {
-#         'GOOGLE_MAPS_API_KEY': settings.GOOGLE_MAPS_API_KEY,
-#     }
-#     return render(request, 'map/map.html', context)
 
 #  bạn tạo một API trên backend để gọi Google Maps và trả về script.
 def google_maps_proxy(request):

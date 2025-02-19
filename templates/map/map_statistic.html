@@ -1,0 +1,3 @@
+<script>
+    var userHasPermission = {{ user|has_perm:"map.can_resolve_incident"|yesno:"true,false" }};
+</script>

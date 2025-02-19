@@ -1,6 +1,6 @@
 #xử lý các yêu cầu HTTP từ trình duyệt và trả về phản hồi (response) tương ứng
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import RegistrationForm # .forms = file forms.py cùng thư mục
 from django.http import HttpResponseRedirect
 from map.models import ReliefLocation
@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 from map.models import ReliefLocation
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import permission_required
 import json
 
 
@@ -145,6 +146,7 @@ def statistic(request):
     return render(request,'pages/statistic.html',context)
 
 @csrf_exempt
+@permission_required('map.can_approve_incident')
 def approve_incident(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -158,3 +160,13 @@ def approve_incident(request):
             return JsonResponse({'success': False, 'error': 'Incident not found'})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+
+@csrf_exempt
+@permission_required('map.can_resolve_incident')
+def resolve_incident(request, location_id):
+    if request.method == 'POST':
+        incident = get_object_or_404(ReliefLocation, id=location_id)
+        incident.status = 'rescued'
+        incident.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})

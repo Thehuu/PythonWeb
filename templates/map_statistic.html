@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Statistic</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap" async defer></script>
+    <script>
+        var userHasPermission = {{ userHasPermission|yesno:"true,false" }};
+    </script>
+    <script src="{% static 'js/map_statistic.js' %}"></script>
+</head>
+<body>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+</body>
+</html>

@@ -34,6 +34,8 @@ class ReliefLocation(models.Model):
     class Meta:
         permissions = [
             ("can_approve_incident", "Can approve incident"),
+            ("can_resolve_incident", "Can resolve incident"),
+
         ]
         verbose_name = ''
         verbose_name_plural = 'Thông tin'
