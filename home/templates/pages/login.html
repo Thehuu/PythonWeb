@@ -21,13 +21,21 @@
               <h4>Thông tin đăng nhập</h4>
             </div>
             <div class="card-body">
-      <!-- Hiển thị các trường đăng nhập -->
-      <p><label>Tài khoản:</label>{{ form.username }}</p>
-      <p><label>Mật khẩu:</label>{{ form.password }}</p>
+              <!-- Thêm thẻ form -->
+              <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <!-- Hiển thị các trường đăng nhập -->
+                <p><label>Tài khoản:</label>{{ form.username }}</p>
+                <p><label>Mật khẩu:</label>{{ form.password }}</p>
 
-      <input type="hidden" name="next" value="/" />
-      <input type="submit" value="Đăng nhập" />
-    </form>
+                <input type="hidden" name="next" value="/" />
+                <input type="submit" value="Đăng nhập" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 {% endblock %}

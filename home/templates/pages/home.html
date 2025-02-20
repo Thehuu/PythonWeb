@@ -2,148 +2,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ</title>
-    <!-- Liên kết các file CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <!-- <link rel="stylesheet" href="{% static 'css/all.min.css' %}" /> -->
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-    <!-- Liên kết file JavaScript -->
-    <script src="{% static 'js/particles.min.js' %}"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="{% static 'js/home.js' %}"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ</title>
+  <!-- Liên kết các file CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <!-- Liên kết file JavaScript -->
+  <script src="{% static 'js/particles.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Thêm jQuery và Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <style>
-        body {
-            background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-    </style>
-    
+  <style>
+    body {
+      background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
 </head>
-
 <body id="particles-js" style="position: relative;">
-    <!-- Thông báo có điểm mới khai báo -->
-    <div id="notification">
-        <i class="fas"></i> <span id="details-notification"></span>
+  <!-- Thông báo có điểm mới khai báo -->
+  <div id="notification">
+    <i class="fas"></i> <span id="details-notification"></span>
+  </div>
+  <!-- Thông báo điểm chờ duyệt -->
+  <div id="pending-points">
+    <i class="fas"></i>
+    <span id="details-pending-points">
+      <a href="/statistic/" class="pending-points-link">{{ pending_points_count }} vụ chờ duyệt</a>
+    </span>
+  </div>
+  <!-- Nút đăng nhập, đăng ký -->
+  <nav class="navbar navbar-expand-lg custom-navbar mb-4">
+    <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="navbar-text text-white">{{ user.username }}</span>
+          </li>
+          <li class="nav-item">
+            <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+              {% csrf_token %}
+            </form>
+            <a class="nav-link logout" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link logout" href="#" onclick="showAdminModal('{% url 'register' %}'); return false;">Đăng ký</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout" href="#" onclick="showAdminModal('{% url 'login' %}'); return false;">Đăng nhập</a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
-    <!-- Thông báo điểm chờ duyệt -->
-    <div id="pending-points">
-        <i class="fas"></i> 
-        <span id="details-pending-points">
-            <a href="/statistic/" class="pending-points-link">{{ pending_points_count }} vụ chờ duyệt</a>
-        </span>
-    </div>
-    <!-- Nút đăng nhập, đăng ký -->
-    <nav class="navbar navbar-expand-lg custom-navbar mb-4">
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <span class="navbar-text text-white">{{ user.username }}</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link logout" href="{% url 'logout' %}">Đăng xuất</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
-                </li>
-                {% endif %}
-            </ul>
+  </nav>
+
+  <!-- Nội dung chính của trang (Ảnh CAND, các nút chức năng, ...) -->
+  <h4 class="hero-title text-center mb-4">
+    <strong> CÔNG AN TỈNH BẮC KẠN </strong>
+  </h4>
+  
+  <h4 class="cand">
+    <strong>
+      Khai báo và cung cấp thông tin:
+      <ul>
+        <li>Thiên tai, đuối nước</li>
+        <li>TNGT, tắc đường</li>
+        <li>Cháy, nổ</li>
+      </ul>
+    </strong>
+  </h4>
+
+  <!-- 4 nút chức năng -->
+  <div class="tm-container-content mt-4" style="margin: 10px;">
+    <div class="row">
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/map/">
+          <img src="{% static 'images/chay.jpg' %}" class="img-fluid custom-img" />
+        </a>
+        <div class="text-center">
+          <span class="vibrate-1">KHAI BÁO</span>
         </div>
-    </nav>
-
-    <!-- Ảnh CAND -->
-    <h4 class="hero-title text-center mb-4">
-        <strong> CÔNG AN TỈNH BẮC KẠN
-        </strong>
-    </h4>
-    
-    <h4 class="cand">
-        <strong>
-                Khai báo và cung cấp thông tin:
-                <ul>
-                    <li>Thiên tai, đuối nước</li>
-                    <li>TNGT, tắc đường</li>
-                    <li>Cháy, nổ</li>
-                </ul>
-        </strong>
-    </h4>
-
-    <!-- 4 nút chức năng -->
-    <div class="tm-container-content mt-4" style="margin: 10px;">
-        <div class="row">
-            <div class="col-6 col-md-3 mb-4">
-                <a href="/map/">
-                    <img
-                        src="{% static 'images/chay.jpg' %}"
-                        class="img-fluid custom-img"
-                    />
-                </a>
-                <div class="text-center">
-                    <span class="vibrate-1">KHAI BÁO</span>
-                </div>
-            </div>
-            
-            <div class="col-6 col-md-3 mb-4">
-                <a href="/map_statistic/">
-                    <img
-                        src="{% static 'images/gmap.jpg' %}"
-                        class="rotate-horizontal img-fluid custom-img"
-                    />
-                </a>
-                <div class="marquee-container text-center">
-                    <span class="marquee">ĐỊA ĐIỂM CÓ THIÊN TAI, TNGT, TẮC ĐƯỜNG, CHÁY, NỔ</span>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-3 mb-4">
-                <a href="/statistic/">
-                    <img
-                        src="{% static 'images/thong_ke.jpeg' %}"
-                        class="img-fluid custom-img"
-                    />
-                </a>
-                <div class="text-center">
-                    <span>THỐNG KÊ</span>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-3 mb-4">
-                <a href="/contact/">
-                    <img
-                        src="{% static 'images/lien_he.jpeg' %}"
-                        alt="Image"
-                        class="img-fluid custom-img"
-                    />
-                </a>
-                <div class="text-center">
-                    <span>LIÊN HỆ</span>
-                </div>
-            </div>
+      </div>
+      
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/map_statistic/">
+          <img src="{% static 'images/gmap.jpg' %}" class="rotate-horizontal img-fluid custom-img" />
+        </a>
+        <div class="marquee-container text-center">
+          <span class="marquee">ĐỊA ĐIỂM CÓ THIÊN TAI, TNGT, TẮC ĐƯỜNG, CHÁY, NỔ</span>
         </div>
-    </div>
+      </div>
 
-    <footer class="tm-footer text-center py-3">
-        <p>Beta Version 1 | 2025</p>   
-    </footer>
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/statistic/">
+          <img src="{% static 'images/thong_ke.jpeg' %}" class="img-fluid custom-img" />
+        </a>
+        <div class="text-center">
+          <span>THỐNG KÊ</span>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 mb-4">
+        <a href="/contact/">
+          <img src="{% static 'images/lien_he.jpeg' %}" alt="Image" class="img-fluid custom-img" />
+        </a>
+        <div class="text-center">
+          <span>LIÊN HỆ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="tm-footer text-center py-3">
+    <p>Beta Version 1 | 2025</p>   
+  </footer>
+
+  <!-- Modal Cảnh báo cho quản trị viên -->
+  <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <div class="modal-body">
+          <p>Phần dành cho quản trị viên.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary" id="continueBtn">Tiếp tục</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .modal-header {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .modal-title {
+        font-weight: bold;
+    }
+    .modal-body {
+        font-size: 1.1em;
+    }
+    .modal-footer .btn {
+        min-width: 100px;
+    }
+  </style>
+
+  <!-- Script xử lý modal -->
+  <script>
+    // Hàm hiển thị modal và chuyển hướng nếu chọn "Tiếp tục"
+    function showAdminModal(url) {
+      document.getElementById("continueBtn").onclick = function() {
+        window.location.href = url;
+      };
+      $('#adminModal').modal({
+        backdrop: false,
+        show: true
+      });
+    }
+
+    // Hàm xử lý sự kiện khi nhấn nút "Đóng" trong modal
+    document.querySelector('.btn-secondary').addEventListener('click', function() {
+      var navbarToggler = document.getElementById('navbar-toggler');
+      var isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        navbarToggler.click();
+      }
+    });
+  </script>
+  <script src="{% static 'js/home.js' %}"></script>
 
 </body>
 </html>
