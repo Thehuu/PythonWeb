@@ -1,0 +1,473 @@
+[33mcommit 1ec956dad82b49ba80f3198f06f05185946e7ba1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcopilot[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/copilot[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Feb 18 22:07:31 2025 +0700
+
+    bo sung nut da xu ly trong map_statistic
+
+[33mcommit 0c8a9cd3a2d19be1c493ca8cda5455e3e1c7a021[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Feb 18 18:45:56 2025 +0700
+
+    cần fix incident detail
+
+[33mcommit eeef853f54e6b9d192d52b93251e01135e09ae0b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Feb 16 18:50:37 2025 +0700
+
+    fix chut nhom diem thong bao
+
+[33mcommit c2fb7c9a1b6be5bb669ba38e676e4ac8e873cf4a[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Feb 16 15:25:17 2025 +0700
+
+    nhóm các điểm có tạo độ gần nhau
+
+[33mcommit f13669543979a62a28e9813ffcaf6cbabcc95d1c[m[33m ([m[1;32mmain[m[33m)[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Feb 11 20:44:17 2025 +0700
+
+    chưa giấu được API, đã làm gọn map và map_statisic
+
+[33mcommit 0f086961c8534b532f038f15f555078989076323[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Feb 11 19:53:45 2025 +0700
+
+    test api map
+
+[33mcommit e53ca0c5a49e4852706f9c2840c5eafa0a30be44[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 10 22:26:16 2025 +0700
+
+    fix gọn các file map, map_statistic
+
+[33mcommit c7914e62809386698aa33823b5924e8febe533b2[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Feb 9 12:57:07 2025 +0700
+
+    fix gon file map_satistic html va js
+
+[33mcommit 3b1752e59f62904fdc5e5ea2ccee44cdf477c1ba[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Feb 8 16:29:37 2025 +0700
+
+    làm gọn file map.hmtl và map.js
+
+[33mcommit 86ec8e5b48ec412872f346370cb6217ad4ee5e5d[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Feb 5 16:57:55 2025 +0700
+
+    bổ sung loại sự cố map_stastic.hmtl
+
+[33mcommit bf982392ee2ca72fd2e8a9a5cd73e4fc6f1d70a4[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Feb 4 18:44:13 2025 +0700
+
+    ver11
+
+[33mcommit a13b523a03862f92986f1374d22e3fba34e7d71d[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 19:00:00 2025 +0700
+
+    ver1
+
+[33mcommit 8736602d9bb8f95fcae80f4cb55afd45432c16d1[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 18:24:01 2025 +0700
+
+    ver1
+
+[33mcommit 4bca1a0dec9f0066a2e71c13a74e2a5a1290c328[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:32:13 2025 +0700
+
+    Ver1 full
+
+[33mcommit 19d8024924aee8f64786ed2e6b210541a4d14466[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:29:23 2025 +0700
+
+    Ver1 full
+
+[33mcommit 95504f4094d8675b89f50c2213c03c920ff3febf[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:23:47 2025 +0700
+
+    Ver1 full
+
+[33mcommit 8b4d7af5cf7dea78c67c3e28ac8b910bf798b67f[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:17:40 2025 +0700
+
+    Ver1 full
+
+[33mcommit 9f726814ba92cdc0552c486f1191522fcd7ece4b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:14:52 2025 +0700
+
+    Ver1 full
+
+[33mcommit 8b962d421879108dde652f203e799c93c7f42492[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:13:19 2025 +0700
+
+    Ver1 full
+
+[33mcommit bbe951bd09c4539fd78b08b67e2a9873790648ca[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Feb 3 16:02:53 2025 +0700
+
+    Ver1 full
+
+[33mcommit cd592b31801904a5278da7e2adf27c92f7dc1cfe[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Jan 29 20:40:46 2025 +0700
+
+    chỉnh một chút danh sách, số trang
+
+[33mcommit 8e4688e84e74db6af31a9ca9c54300bca9b7db9b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 28 17:58:18 2025 +0700
+
+    thông báo vào Zalo qua Selenium
+
+[33mcommit e1fc1adbc431d664216de78126be494bbf6647d6[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Jan 27 22:50:38 2025 +0700
+
+    Đã gửi được thông báo vào ZALO, chưa có chi tiết
+
+[33mcommit 1f9c0d1ea093d6fe1889d83a450cacb15274c7fc[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Jan 25 18:44:25 2025 +0700
+
+    fix các thông báo trên home.html
+
+[33mcommit 8da8a0e944a7acddbc188c3179c3ce0440e2ab1b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Jan 25 07:30:58 2025 +0700
+
+    fix các thông báo trên home.html
+
+[33mcommit 68dbe53c603736e12f2659f0fec7a9c648b47c76[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Jan 24 20:55:19 2025 +0700
+
+    fix được xem chi tiết thông báo
+
+[33mcommit 3e96801950770ce0bc23bdc3671a99501d0c34b7[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Jan 22 22:00:24 2025 +0700
+
+    đẩy thông báo điểm nhập mới lên home vơi id
+
+[33mcommit 02d71b92f28c4fd3f8633150fe8b66e036695592[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 21 22:11:01 2025 +0700
+
+    bổ sung tính năng thông báo trên file home
+
+[33mcommit d8c2e326b125868968d1c48c57c69aa2654bce12[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 21 20:13:47 2025 +0700
+
+    bổ sung thông báo home
+
+[33mcommit c6d37dd0be316da7e64d3041e8b8786c6ccc40b9[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 21 10:01:15 2025 +0700
+
+    bổ sung nút tắt thông báo, xem chi tiết trên thông báo
+
+[33mcommit a142564ecf0fce3dd6f338e147e3d55233d4a9ee[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Jan 18 07:42:28 2025 +0700
+
+    bổ sung daphne, thông báo tại trang home
+
+[33mcommit 7f2c74899908b277c26d0a4d340b20997f5cb233[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Jan 15 12:08:07 2025 +0700
+
+    di chuyen css khoi home.thml
+
+[33mcommit 4385f08de6a452b5ae05205098f5eee531a64ccc[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Jan 12 16:09:16 2025 +0700
+
+    fix chut home
+
+[33mcommit 9482d188d69f8d282f0912cffdbf373bab526543[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Jan 12 15:41:22 2025 +0700
+
+    fix chut home
+
+[33mcommit 9cac8bdb593403a3e3bc74177c8c3a0795021d6c[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Jan 12 15:40:04 2025 +0700
+
+    fix chut home
+
+[33mcommit 2568f93ec3dd5802702128ce9ef21f5d34f52d0e[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Jan 12 14:12:41 2025 +0700
+
+    bổ sung địa danh GPS
+
+[33mcommit fff5eb412b0219ae0c7cca7228c2d898f18c6ed0[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Jan 10 19:52:48 2025 +0700
+
+    thêm địa điểm vào map_statistic.html
+
+[33mcommit 2fd922689e20345d38aa9087a0474d776e3d6002[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Jan 9 08:31:52 2025 +0700
+
+    duỵet sáng kiến
+
+[33mcommit a4f91038dbe82d4e8f8b45817ba4a001b7369688[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Jan 8 08:15:37 2025 +0700
+
+    fix chút tiêu đề
+
+[33mcommit cac3287f6f739f951555d4b328c6cd6252c39770[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 7 18:04:15 2025 +0700
+
+    bản Demo1 để tham gia sáng kiến1
+
+[33mcommit 51ad337cfceecb376edb7727f9f411e80cb9614f[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 7 14:19:56 2025 +0700
+
+    bản Demo1 để tham gia sáng kiến1
+
+[33mcommit e571f1d6a82e81205df6d366c568f7851917ed43[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Jan 7 12:18:10 2025 +0700
+
+    bản Demo1 để tham gia sáng kiến
+
+[33mcommit e3abf99d286e4a2933909d22786dec2b51612e31[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Jan 6 12:57:35 2025 +0700
+
+    làm đẹp thêm báo cáo thống kê và trang statics
+
+[33mcommit 1876f2ada2dccace569adeb4851151ed34e13176[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Jan 5 20:20:09 2025 +0700
+
+    fix được bản đồ hiện nhiều marker
+
+[33mcommit 877cf94fef7e02ee8517e124e93fb93d728fe2bf[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Jan 4 22:40:17 2025 +0700
+
+    bổ sung nút SOS vào map và các phím để hiện thông tin các marker
+
+[33mcommit b4497c70eca6b9d53eb63ffa6405be9c5c8b075b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Jan 2 22:45:27 2025 +0700
+
+    bố tri lại css và html home và map
+
+[33mcommit b0554982affed845f44d55928ea2bc5c7e25d7b6[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Jan 1 22:14:46 2025 +0700
+
+    làm rõ hơn css file home
+
+[33mcommit 93bda1af7c8e8380bcee7ae76f6eac33fcb50ec7[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 29 19:35:09 2024 +0700
+
+    làm đẹp hơn map.html, bỏ dòng hoặc tìm kiếm vị trí
+
+[33mcommit c8ce8bd284789f5487dc66d41d68b6a13282dbe2[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Dec 28 23:11:58 2024 +0700
+
+    makeup  stistic.html
+
+[33mcommit 65d3dadbfc99a590a7eadfcabb33c741346313d8[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Dec 28 15:55:34 2024 +0700
+
+    make up contact.html, stistic.html
+
+[33mcommit 29ab5cf42b2b6b48e24588b4f7d6cad1533e1fc9[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Dec 28 12:46:07 2024 +0700
+
+    làm trang chủ và map đẹp hơn chút
+
+[33mcommit df095935fee284206037a178fb1d3702a74dee0c[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Dec 27 23:03:42 2024 +0700
+
+    tạo bases.html và home.html đẹp
+
+[33mcommit 5f0f6d0deb1f0b30df4c49e2b875332a525952b0[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Dec 27 21:45:31 2024 +0700
+
+    home trước khi tách css
+
+[33mcommit 1fce762fc4dfe6c1fc5d64487ac2e74cea78d9c9[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Dec 27 12:50:12 2024 +0700
+
+    lam cho home dep
+
+[33mcommit ddef3b3ed9ec6bfcdd91dcdd47b44679b0c6b2cb[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Dec 26 23:26:23 2024 +0700
+
+    lam home dep hon
+
+[33mcommit f483e35639973eeba4aeb8d121c37e0bc18b654b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Dec 26 21:50:55 2024 +0700
+
+    tieeps tucj lam deo home
+
+[33mcommit 171a3787e07a75ac65a79117f97da25b09716ea0[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Dec 26 18:35:36 2024 +0700
+
+    làm đẹp home
+
+[33mcommit 37dbe02194102e0fb864e309bd48eddad7ec34b4[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Dec 25 22:44:28 2024 +0700
+
+    Clone template len home
+
+[33mcommit 3fb8c8f23b47e3347fb83201a2048fc7fdf1ba29[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Wed Dec 25 18:56:45 2024 +0700
+
+    tải thêm template
+
+[33mcommit 2ee80dbb482793e69e9f31820d40ac8ee935b57e[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Mon Dec 23 16:32:33 2024 +0700
+
+    fix home cho đẹp hơn
+
+[33mcommit be447b3a0b97c8eacf88dcd241f36bc0b883ed7b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 22 15:45:29 2024 +0700
+
+    bản gần full
+
+[33mcommit 261400211960285643d5581a65ce5a34a264c873[m
+Author: root <root@kali.kali>
+Date:   Sun Dec 22 11:37:42 2024 +0700
+
+    sua home cho dep, fix mot chut save_location2
+
+[33mcommit e42e409110b57d5869968d64d1cd82097c962442[m
+Author: root <root@kali.kali>
+Date:   Sun Dec 22 11:09:57 2024 +0700
+
+    sua home cho dep, fix mot chut save_location
+
+[33mcommit 30b9a4c19011e85228d55f86aea9f6015fd2cc98[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Dec 21 22:22:14 2024 +0700
+
+    thay đổi các Icon trên map phu hợp với loại hình tai nạn
+
+[33mcommit fd5f05d5faafbb50704a2680047c57b3df3b7fea[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Dec 21 20:25:48 2024 +0700
+
+    map đã ẩn nút KHAI BÁO khi hiện form
+
+[33mcommit 33cc40555e7c7ddff8bab46798b9da6938900448[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sat Dec 21 11:21:49 2024 +0700
+
+    bổ sung bảng trong home
+
+[33mcommit efef97b04b82585bba218a13b1ade6c324262d7b[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Dec 20 17:48:51 2024 +0700
+
+    hiện được bảng thông kê tại home. Liên kết home với map
+
+[33mcommit 40501cf5f6959e6780ebe35d5baa1c1c85eb6c01[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Dec 19 17:07:47 2024 +0700
+
+    Chiều 19.12.2024
+
+[33mcommit be7104163775c6ff8cb1455182d960a33f766141[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Thu Dec 19 09:00:58 2024 +0700
+
+    19.12.2024-chưa đưa JS và CSS ra ngoài map.html
+
+[33mcommit f6cb8fbeea8c4517a4b786d5bd7c4ecaffa3a656[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Tue Dec 17 12:52:01 2024 +0700
+
+    gỡ lati và longti khi hiện form. fix lỗi không lấy được toạ độ
+
+[33mcommit 894e63bd81df7482598c367476320ee9c63b7d10[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 15 23:49:52 2024 +0700
+
+    tối 15.12.2024.bỏ vĩ độ, kinh độ khỏi form
+
+[33mcommit 3c0a2a55eede0341130097502599ae6fecae5273[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 15 23:21:54 2024 +0700
+
+    Tối 15.12.2024.2
+
+[33mcommit ce5514ffb092b9596cb2736aa09eaf655dcad1f9[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 15 22:50:43 2024 +0700
+
+    Tối 15.12.2024
+
+[33mcommit 322fb5c7cebcf7a2bd8ef705a29e2e9be3d024d9[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 15 22:29:07 2024 +0700
+
+    Tối 15/12/2024
+
+[33mcommit 6033d76d30875abfed2b253a5f9f888552659264[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Sun Dec 15 11:19:58 2024 +0700
+
+    bổ sung bảng biểu trong map
+
+[33mcommit f1d853628c39954ad3d63d4396aa3e0c9bb4ec20[m
+Author: any <any@kali.kali>
+Date:   Sat Dec 14 16:29:14 2024 +0700
+
+    Chiều 14.12.2024
+
+[33mcommit 02335a8c973fbc11700cf057afefdf9955398c30[m
+Author: Thehuu <tonghuuthepv11@gmail.com>
+Date:   Fri Dec 13 23:13:39 2024 +0700
+
+    Cập nhật giao diện map
+
+[33mcommit 2db3dbc2779f1acbc42b890256e0d204f6fa0c91[m
+Author: any <any@kali.kali>
+Date:   Fri Dec 13 21:15:54 2024 +0700
+
+    Toi 13.12.2024
+
+[33mcommit 45267f1bd03a48a43469706fe81c3c7fbbb1eea0[m
+Author: Thehuu <106825385+Thehuu@users.noreply.github.com>
+Date:   Fri Dec 13 21:17:45 2024 +0700
+
+    Initial commit

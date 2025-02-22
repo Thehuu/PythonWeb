@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="{% static 'css/home.css' %}" />
   <!-- Thêm liên kết tới Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Thêm liên kết tới Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap">
   <!-- Liên kết file JavaScript -->
   <script src="{% static 'js/particles.min.js' %}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -22,6 +25,7 @@
     body {
       background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
       background-size: cover;
+      font-family: 'Roboto', sans-serif; /* Áp dụng font chữ Roboto */
     }
   </style>
   <style>
@@ -47,6 +51,19 @@
       }
     }
     
+  </style>
+  <style>
+    .navbar-text, .nav-link, .hero-title, .cand, .modal-content, .modal-footer .btn, .tm-footer {
+      font-family: 'Roboto', sans-serif; /* Áp dụng font chữ Roboto cho các phần tử khác */
+    }
+  </style>
+  <style>
+    .authoritative-text {
+      font-family: 'Merriweather', serif;
+      color: #000; 
+      white-space: nowrap;
+      text-align: center;
+    }
   </style>
 </head>
 <body id="particles-js" style="position: relative;">
@@ -91,9 +108,9 @@
   </nav>
 
   <!-- Nội dung chính của trang (Ảnh CAND, các nút chức năng, ...) -->
-  <h4 class="hero-title text-center mb-4">
-    <strong> CÔNG AN TỈNH BẮC KẠN </strong>
-  </h4>
+  <h4 class="hero-title text-center">
+  <strong class="authoritative-text"> CÔNG AN TỈNH BẮC KẠN </strong>
+</h4>
   
   <h4 class="cand">
     <strong>
@@ -114,28 +131,17 @@
   <!-- Modal giải thích thêm -->
   <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="infoModalLabel">Giải thích thêm</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Thông tin chi tiết về các loại sự cố:</p>
+      <div class="modal-content" style="text-align: justify;">
           <ul>
-            <li><strong>Thiên tai, đuối nước:</strong> Bao gồm các sự cố liên quan đến thiên tai và đuối nước.</li>
-            <li><strong>TNGT, tắc đường:</strong> Bao gồm các sự cố liên quan đến tai nạn giao thông và tắc đường.</li>
-            <li><strong>Cháy, nổ:</strong> Bao gồm các sự cố liên quan đến cháy và nổ.</li>
+            <li><strong>Khai báo:</strong> Nhằm tiếp nhận thông tin từ người dân đang gặp thiên tai, sự cố... cần lực lượng Công an Bắc Kạn hỗ trợ, giải quyết.</li>
+            <li><strong>Phản hồi:</strong> Hệ thống chuyển thông tin đến Lực lượng Công an. Cán bộ Công an có trách nhiệm sẽ sớm tiếp cận người báo tin.</li>            
+            <li><strong>Cung cấp thông tin:</strong> Các thông tin chính thống về địa điểm đang có thiên tai, sự cố hiện hành để Nhân dân thuận tiện trong giao thông, lao động, sản xuất.</li>
           </ul>
-        </div>
-        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        </div>
       </div>
     </div>
   </div>
-
+c
   <!-- 4 nút chức năng -->
   <div class="tm-container-content mt-4" style="margin: 10px;">
     <div class="row">

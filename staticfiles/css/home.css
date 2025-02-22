@@ -252,8 +252,8 @@ nav {
 .marquee {
     display: inline-block;
     white-space: nowrap;
-    animation: marquee 20s linear infinite; /* Điều chỉnh thời gian cho tốc độ chậm hơn */
-    animation-delay: 3s; /* Không có độ trễ, bắt đầu ngay lập tức */
+    animation: marquee 10s linear infinite; /* Điều chỉnh thời gian cho tốc độ chậm hơn */
+    animation-delay: 5s; /* Không có độ trễ, bắt đầu ngay lập tức */
 }
 
 @keyframes marquee {

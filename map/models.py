@@ -28,7 +28,8 @@ class ReliefLocation(models.Model):
         ('approved', 'Duyệt'),
         ('rescued', 'Đã giải quyết'),
     ]
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending', verbose_name='Xử lý thông tin')  # Trạng thái cứu trợ
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='approved', verbose_name='Xử lý thông tin') 
+# mặc định trạng thái cứu trợ là pengdinh.
 # permissions: Đây là một danh sách các tuple, mỗi tuple chứa mã quyền và mô tả quyền. 
 # Trong trường hợp này, bạn đã định nghĩa một quyền tùy chỉnh:
     class Meta:
