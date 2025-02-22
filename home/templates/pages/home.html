@@ -8,6 +8,8 @@
   <!-- Liên kết các file CSS -->
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <!-- Thêm liên kết tới Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Liên kết file JavaScript -->
   <script src="{% static 'js/particles.min.js' %}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -21,6 +23,30 @@
       background: url('{% static 'images/babe.jpg' %}') no-repeat center center fixed;
       background-size: cover;
     }
+  </style>
+  <style>
+    #infoIcon {
+      position:;
+      /* bottom: 0; */
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <style>
+    .rotating-icon {
+      animation: rotate 15s linear infinite;
+      font-size: 34px; /* Thay đổi kích thước font chữ tại đây */
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+    
   </style>
 </head>
 <body id="particles-js" style="position: relative;">
@@ -71,14 +97,44 @@
   
   <h4 class="cand">
     <strong>
-      Khai báo và cung cấp thông tin:
-      <ul>
-        <li>Thiên tai, đuối nước</li>
-        <li>TNGT, tắc đường</li>
-        <li>Cháy, nổ</li>
-      </ul>
+      <a href="#" id="infoLink" style="text-decoration: none; color: inherit;">
+        Khai báo và cung cấp thông tin:
+        <ul>
+          <li>Thiên tai, đuối nước</li>
+          <li>TNGT, tắc đường</li>
+          <li>Cháy, nổ</li>
+          <span id="infoIcon" style="position: absolute; right: 20px; cursor: pointer;">
+            <i class="fas fa-question-circle rotating-icon"></i>
+          </span>
+        </ul>
+      </a>
     </strong>
   </h4>
+
+  <!-- Modal giải thích thêm -->
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoModalLabel">Giải thích thêm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Thông tin chi tiết về các loại sự cố:</p>
+          <ul>
+            <li><strong>Thiên tai, đuối nước:</strong> Bao gồm các sự cố liên quan đến thiên tai và đuối nước.</li>
+            <li><strong>TNGT, tắc đường:</strong> Bao gồm các sự cố liên quan đến tai nạn giao thông và tắc đường.</li>
+            <li><strong>Cháy, nổ:</strong> Bao gồm các sự cố liên quan đến cháy và nổ.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- 4 nút chức năng -->
   <div class="tm-container-content mt-4" style="margin: 10px;">
@@ -129,14 +185,9 @@
   <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <!-- <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> -->
-        <div class="modal-body">
+        <!-- <div class="modal-body"> -->
           <p>Phần dành cho quản trị viên.</p>
-        </div>
+        <!-- </div> -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
           <button type="button" class="btn btn-primary" id="continueBtn">Tiếp tục</button>
@@ -181,6 +232,13 @@
       if (isExpanded) {
         navbarToggler.click();
       }
+    });
+
+    // Hàm hiển thị modal khi nhấn vào phần "Khai báo và cung cấp thông tin"
+    document.getElementById('infoLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      $('#infoModal').modal({        backdrop: false,
+      });
     });
   </script>
   <script src="{% static 'js/home.js' %}"></script>
